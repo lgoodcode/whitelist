@@ -54,7 +54,7 @@ export default function Navbar() {
       >
         <div className="relative flex items-center justify-between md:justify-end">
           <a href="/" className="pl-4 lg:pl-0">
-            <span className="sr-only">Brand</span>
+            <span className="sr-only">Whitelist Brand</span>
             <img
               className="h-20 w-auto hidden md:block"
               src={Brand}
