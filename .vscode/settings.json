@@ -1,0 +1,24 @@
+{
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",  // Sets default formatter to ESLint
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true               // Auto fix basic errors on save
+  },
+  "eslint.alwaysShowStatus": false,     // Hides the ESLint status bar; no need for server status
+  "eslint.lintTask.enable": true,       // Allows the ESLint task to lint the whole workspace
+  "emmet.triggerExpansionOnTab": true,  // Allows emmet to create the abbreviation on tab press
+  "emmet.includeLanguages": {           // Allows the emmet abbreviations for react
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+  },
+  "stylelint.enable": true,
+  "css.validate": false,                // Prevent VSCode from validating css files while using stylelint
+  "scss.validate": false,               // Prevent VSCode from validating css files while using stylelint
+  "auto-close-tag.disableOnLanguage": [ // Prevent the AutoCloseTag from making closing tags on types
+    "typescript",
+    "typescriptreact"
+  ],
+  "markdownlint.config": {
+    "MD025": false,
+    "MD041": false
+  }
+}
