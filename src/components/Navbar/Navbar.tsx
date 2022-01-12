@@ -14,7 +14,7 @@ export default function Navbar() {
   /**
    * Changes navbar background when scrolled
    */
-  const navbarScrolled = (): void => setScrolled(window.scrollY >= 90)
+  const navbarScrolled = (): void => setScrolled(window.scrollY >= 100)
 
   /**
    * Check if the page is already scrolled on load
@@ -49,7 +49,7 @@ export default function Navbar() {
           scrolled
             ? 'bg-raisinBlack shadow-[0_2px_10px] shadow-gray-900 lg:py-0'
             : '',
-          'fixed min-w-full z-30 px-4 lg:py-8 sm:px-8 md:px-16 lg:px-24 transition-all duration-500'
+          'fixed min-w-full z-30 px-4 md:py-8 sm:px-8 md:px-16 lg:px-24 transition-all duration-500'
         )}
       >
         <div className="relative flex items-center justify-between md:justify-end">
