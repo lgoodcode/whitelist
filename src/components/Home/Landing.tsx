@@ -40,12 +40,12 @@ export default function Landing() {
       <div className="relative w-full px-4 xl:px-24 sm:top-14">
         <div className="px-8 py-4 rounded-2xl bg-raisinBlack sm:mt-24 md:max-w-lg md:mx-auto md:mt-0 xl:mx-0 xl:mt-16 xl:max-w-xl">
           <div className="text-left sm:text-center md:text-left">
-            <h1 className="tracking-tight font-bold text-white text-4xl sm:text-5xl md:text-6xl">
-              <span className="block 2xl:inline">Whitelist</span>
-              <span className="block text-sheenGold xl:inline">
+            <div className="tracking-tight font-bold text-white text-4xl sm:text-5xl md:text-6xl">
+              <h1 className="block 2xl:inline">Whitelist</h1>
+              <h1 className="block text-sheenGold xl:inline">
                 We Train Whales
-              </span>
-            </h1>
+              </h1>
+            </div>
             <div className="sm:hidden lg:block">
               <p className="mt-3 text-base text-gray-200 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
                 {lorem.generateSentences(3)}
