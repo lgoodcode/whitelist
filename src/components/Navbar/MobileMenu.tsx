@@ -1,12 +1,5 @@
-import type { IconType } from 'react-icons/lib'
 import classNames from '../../util/classNames'
-
-interface NavItem {
-  icon: IconType
-  name: string
-  href: string
-  current: boolean
-}
+import type { NavItem } from 'routes'
 
 interface MenuTypes {
   open: boolean
