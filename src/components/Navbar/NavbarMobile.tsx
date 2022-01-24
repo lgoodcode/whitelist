@@ -17,12 +17,7 @@ function NavbarMobile({ logo, navigation, scrolled }: NavbarProps) {
             </a>
             <Box ml="auto">
               {navigation.map((route, i) => (
-                <NavButton
-                  key={i}
-                  name={route.name}
-                  href={route.href}
-                  active={route.current}
-                />
+                <NavButton key={i} name={route.name} href={route.href} />
               ))}
             </Box>
           </Grid>

@@ -2,7 +2,7 @@ import { Box, Container, Typography } from '@mui/material'
 
 import ProductCard from 'components/ProductCard'
 
-import miners from './data/miners'
+import miners from 'pages/data/miners'
 
 function Miner() {
   return (

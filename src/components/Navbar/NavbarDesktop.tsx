@@ -11,15 +11,14 @@ import {
 import NavButton from 'components/NavButton'
 import type { NavbarProps } from './index'
 
-function NavbarDesktop({ logo, navigation, scrolled, ...rest }: NavbarProps) {
+function NavbarDesktop({ logo, navigation, ...rest }: NavbarProps) {
   return (
     <AppBar
-      position="fixed"
-      color="transparent"
+      position="absolute"
       sx={{
-        transition: 'ease-out 0.5s all',
-        boxShadow: scrolled ? '' : 'none',
-        bgcolor: scrolled ? 'rgb(33 33 33 / 80%)' : ''
+        boxShadow: 'none',
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
+        backdropFilter: 'blur(3px)'
       }}
       {...rest}
     >
@@ -38,13 +37,7 @@ function NavbarDesktop({ logo, navigation, scrolled, ...rest }: NavbarProps) {
             </Typography>
             <Box ml="auto">
               {navigation.map((route, i) => (
-                <NavButton
-                  key={i}
-                  name={route.name}
-                  href={route.href}
-                  active={route.current}
-                  aria-selected={route.current}
-                />
+                <NavButton key={i} name={route.name} href={route.href} />
               ))}
             </Box>
           </Grid>

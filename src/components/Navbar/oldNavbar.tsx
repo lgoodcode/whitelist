@@ -80,12 +80,12 @@ export default function Navbar() {
           <div className="navbarItems hidden md:block md:ml-10 md:pr-4 md:space-x-2">
             {routes.map((item) => (
               <a
-                key={item.name}
-                className={`${item.current ? 'bg-gray-300/40' : ''} ${
-                  !scrolled ? 'py-4' : ''
-                } btn text-white px-4 hover:bg-gray-300/40 transition-300`}
-                href={item.href}
-                aria-current={item.current ? 'page' : undefined}
+              // key={item.name}
+              // className={`${item.current ? 'bg-gray-300/40' : ''} ${
+              //   !scrolled ? 'py-4' : ''
+              // } btn text-white px-4 hover:bg-gray-300/40 transition-300`}
+              // href={item.href}
+              // aria-current={item.current ? 'page' : undefined}
               >
                 {item.name}
               </a>
