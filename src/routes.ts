@@ -11,24 +11,21 @@ export interface NavItem {
   icon: (props: SvgIconProps) => JSX.Element
   name: string
   href: string
-  current: boolean
 }
 
 const navigation: NavItem[] = [
-  { icon: HomeIcon, name: 'Home', href: '/', current: true },
+  { icon: HomeIcon, name: 'Home', href: '/' },
   {
     icon: MiscellaneousServicesIcon,
     name: 'Services',
-    href: '#services',
-    current: false
+    href: '/services'
   },
   {
     icon: ShoppingBagIcon,
     name: 'Products',
-    href: '#products',
-    current: false
+    href: '/products'
   },
-  { icon: LocalPhoneIcon, name: 'Contact Us', href: '#contact', current: false }
+  { icon: LocalPhoneIcon, name: 'Contact Us', href: '/contact' }
 ]
 
 export default navigation

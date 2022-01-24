@@ -26,13 +26,13 @@ export default function MobileMenu({
             <a
               key={item.name}
               href={item.href}
-              className={classNames(
-                item.current
-                  ? 'bg-gray-400/30 hover:bg-gray-400/40'
-                  : 'hover:bg-gray-400/30',
-                'btn text-gray-100 hover:text-gray-200 flex'
-              )}
-              aria-current={item.current ? 'page' : undefined}
+              // className={classNames(
+              //   item.current
+              //     ? 'bg-gray-400/30 hover:bg-gray-400/40'
+              //     : 'hover:bg-gray-400/30',
+              //   'btn text-gray-100 hover:text-gray-200 flex'
+              // )}
+              // aria-current={item.current ? 'page' : undefined}
             >
               <div className="flex items-center text-white">
                 <item.icon />
