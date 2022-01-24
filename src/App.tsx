@@ -6,8 +6,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import { CssBaseline, useMediaQuery } from '@mui/material'
 import type { PaletteMode } from '@mui/material'
 
-import Theme from 'assets/Theme'
-
+import Theme from 'assets/theme'
 import Loading from 'components/Loading'
 import Layout from 'components/Layout'
 
