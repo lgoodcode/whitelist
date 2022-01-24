@@ -7,10 +7,10 @@
   "eslint.lintTask.enable": true,       // Allows the ESLint task to lint the whole workspace
   "emmet.triggerExpansionOnTab": true,  // Allows emmet to create the abbreviation on tab press
   "emmet.includeLanguages": {           // Allows the emmet abbreviations for react
-    "javascript": "javascriptreact",
+    "javascript": "javascriptreact",    
     "typescript": "typescriptreact",
   },
-  "stylelint.enable": true,
+  "stylelint.enable": true,             // Enables the stylelint linter
   "css.validate": false,                // Prevent VSCode from validating css files while using stylelint
   "scss.validate": false,               // Prevent VSCode from validating css files while using stylelint
   "auto-close-tag.disableOnLanguage": [ // Prevent the AutoCloseTag from making closing tags on types
@@ -18,7 +18,8 @@
     "typescriptreact"
   ],
   "markdownlint.config": {
-    "MD025": false,
-    "MD041": false
-  }
+    "MD025": false,                     // Allows multiple h1 headers to be used in the document
+    "MD041": false                      // Disables requiring the first line to be a h1 header
+  },
+  "editor.tabSize": 3                   // Use 3 space tabs to give enough spacing with adjacent elements
 }
