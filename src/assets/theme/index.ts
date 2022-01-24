@@ -6,53 +6,53 @@ import 'assets/fonts/Inter-Var.ttf'
 import type { PaletteMode } from '@mui/material'
 
 const Theme = (mode: PaletteMode): ThemeOptions =>
-  responsiveFontSizes(
-    createTheme({
-      typography: {
-        fontFamily:
-          'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue'
-      },
-      breakpoints: {
-        values: {
-          xs: 0,
-          sm: 600,
-          md: 900,
-          lg: 1280,
-          xl: 1536
-        }
-      },
-      palette: {
-        ...(mode === 'dark'
-          ? {
-              text: {
-                primary: '#fff',
-                secondary: 'rgba(255, 255, 255, 0.7)',
-                disabled: 'rgba(255, 255, 255, 0.5)'
-              },
-              primary: {
-                main: '#b38615'
-              },
-              secondary: {
-                main: '#eaeaea'
-              },
-              divider: 'rgba(255,255,255,0.2)',
-              background: {
-                default: '#303030',
-                paper: '#231f20'
-              }
+   responsiveFontSizes(
+      createTheme({
+         typography: {
+            fontFamily:
+               'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue'
+         },
+         breakpoints: {
+            values: {
+               xs: 0,
+               sm: 600,
+               md: 900,
+               lg: 1280,
+               xl: 1536
             }
-          : {
-              primary: {
-                main: '#b38615'
-              },
-              secondary: {
-                main: '#eaeaea'
-              },
-              divider: 'rgba(0, 0, 0, 0.2)'
-            })
-      }
-    })
-  )
+         },
+         palette: {
+            ...(mode === 'dark'
+               ? {
+                    text: {
+                       primary: '#fff',
+                       secondary: 'rgba(255, 255, 255, 0.7)',
+                       disabled: 'rgba(255, 255, 255, 0.5)'
+                    },
+                    primary: {
+                       main: '#b38615'
+                    },
+                    secondary: {
+                       main: '#eaeaea'
+                    },
+                    divider: 'rgba(255,255,255,0.2)',
+                    background: {
+                       default: '#303030',
+                       paper: '#231f20'
+                    }
+                 }
+               : {
+                    primary: {
+                       main: '#b38615'
+                    },
+                    secondary: {
+                       main: '#eaeaea'
+                    },
+                    divider: 'rgba(0, 0, 0, 0.2)'
+                 })
+         }
+      })
+   )
 
 export default Theme
 
