@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 
 import NavbarDesktop from './NavbarDesktop'
-// import NavbarMobile from './NavbarMobile'
+import NavbarMobile from './NavbarMobile'
 
 import routes from 'routes'
 
 import desktopLogo from '../../assets/brand.jpg'
-// import mobileLogo from '../../assets/logo.png'
+import mobileLogo from '../../assets/logo.png'
 
 function Navbar() {
    // eslint-disable-next-line
@@ -51,6 +51,13 @@ function Navbar() {
       <>
          <Box display={{ xs: 'none', md: 'block' }}>
             <NavbarDesktop logo={desktopLogo} navigation={routes} />
+         </Box>
+         <Box display={{ xs: 'block', md: 'none' }}>
+            <NavbarMobile
+               logo={mobileLogo}
+               navigation={routes}
+               scrolled={scrolled}
+            />
          </Box>
       </>
    )

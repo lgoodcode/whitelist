@@ -1,9 +1,9 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 import type { ThemeOptions } from '@mui/material/styles'
+import type { PaletteMode } from '@mui/material'
 
 // Inter font
 import 'assets/fonts/Inter-Var.ttf'
-import type { PaletteMode } from '@mui/material'
 
 const Theme = (mode: PaletteMode): ThemeOptions =>
    responsiveFontSizes(
