@@ -1,4 +1,4 @@
-![Build](https://github.com/toomuchrice4u/whitelist/actions/workflows/build.yml/badge.svg?branch=master)
+[![Build](https://github.com/toomuchrice4u/whitelist/actions/workflows/build.yml/badge.svg)](https://github.com/toomuchrice4u/whitelist/actions/workflows/build.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/566ea990-2c37-4886-8c3b-b5b0d2077db2/deploy-status)](https://app.netlify.com/sites/whitelist-crypto/deploys)
 
 # [View Live](https://whitelist-crypto.netlify.app)
@@ -55,3 +55,18 @@ Need to add modulePath resolving for Jest in `package.json`:
 
 3 spaces give just enough space to help identify different levels while not using
 too much room for the code.
+
+### Eslint rule
+
+Added the following rules:
+
+```json
+{
+   "eqeqeq": "error" // this enforces strict equality checks (2 === 2)
+}
+```
+
+### scripts
+
+Added `npm run analyze` script with the `scripts/analyze.js` file which uses the `webpack-bundle-analyzer` plugin
+that is installed as a dev dependency. Run it to see the stats of the build bundle.

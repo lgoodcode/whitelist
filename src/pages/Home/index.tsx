@@ -1,14 +1,14 @@
 // Sections
 import HomeLanding from './sections/HomeLanding'
 import Quote from './sections/Quote'
-import Products from './sections/Products'
+import Featured from './sections/Featured'
 
 function HomePage() {
    return (
       <>
          <HomeLanding />
          <Quote />
-         <Products />
+         <Featured />
       </>
    )
 }
