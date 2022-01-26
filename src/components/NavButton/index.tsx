@@ -23,12 +23,7 @@ function NavButton({ name, href, ...rest }: { name: string; href: string }) {
    const active = pathname === href
 
    return (
-      <Button
-         variant="text"
-         sx={styles(active)}
-         onClick={() => navigate(href)}
-         {...rest}
-      >
+      <Button variant="text" sx={styles(active)} onClick={() => navigate(href)} {...rest}>
          {name}
       </Button>
    )

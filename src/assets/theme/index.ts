@@ -5,6 +5,8 @@ import type { PaletteMode } from '@mui/material'
 // Inter font
 import 'assets/fonts/Inter-Var.ttf'
 
+import ButtonOverridesDark from './ButtonOverridesDark'
+
 const Theme = (mode: PaletteMode): ThemeOptions =>
    responsiveFontSizes(
       createTheme({
@@ -50,6 +52,32 @@ const Theme = (mode: PaletteMode): ThemeOptions =>
                     },
                     divider: 'rgba(0, 0, 0, 0.2)'
                  })
+         },
+         components: {
+            ...(mode === 'dark' && {
+               MuiSvgIcon: {
+                  styleOverrides: {
+                     root: {
+                        color: 'white'
+                     }
+                  }
+               },
+               MuiButtonBase: ButtonOverridesDark,
+               MuiIconButton: ButtonOverridesDark,
+               MuiFab: ButtonOverridesDark,
+               MuiButton: {
+                  styleOverrides: {
+                     root: {
+                        ':disabled': {
+                           pointerEvents: 'unset',
+                           cursor: 'not-allowed',
+                           color: 'rgb(255 255 255 / 0.8)',
+                           background: 'rgb(255 255 255 / 0.2)'
+                        }
+                     }
+                  }
+               }
+            })
          }
       })
    )

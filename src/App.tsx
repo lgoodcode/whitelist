@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from 'react'
+import React, { useEffect, useState, lazy, Suspense } from 'react'
 
 import { Routes, Route, useLocation } from 'react-router-dom'
 
@@ -14,7 +14,14 @@ import Layout from 'components/Layout'
 import HomePage from 'pages/Home'
 const ServicesPage = lazy(() => import('pages/Services'))
 const ProductsPage = lazy(() => import('pages/Products'))
+const ItemPage = lazy(() => import('pages/Item'))
 const ContactPage = lazy(() => import('pages/Contact'))
+
+const lazyLoadPage = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
+   <Suspense fallback={<Loading />}>
+      <Component />
+   </Suspense>
+)
 
 function App() {
    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -36,30 +43,10 @@ function App() {
          <Routes>
             <Route path="/" element={<Layout />}>
                <Route index element={<HomePage />} />
-               <Route
-                  path="/services"
-                  element={
-                     <Suspense fallback={<Loading />}>
-                        <ServicesPage />
-                     </Suspense>
-                  }
-               />
-               <Route
-                  path="/products"
-                  element={
-                     <Suspense fallback={<Loading />}>
-                        <ProductsPage />
-                     </Suspense>
-                  }
-               />
-               <Route
-                  path="/contact"
-                  element={
-                     <Suspense fallback={<Loading />}>
-                        <ContactPage />
-                     </Suspense>
-                  }
-               />
+               <Route path="/services" element={lazyLoadPage(ServicesPage)} />
+               <Route path="/products" element={lazyLoadPage(ProductsPage)} />
+               <Route path="/products/:id" element={lazyLoadPage(ItemPage)} />
+               <Route path="/contact" element={lazyLoadPage(ContactPage)} />
             </Route>
          </Routes>
       </ThemeProvider>

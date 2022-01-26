@@ -1,5 +1,6 @@
-import classNames from '../../util/classNames'
-import type { NavItemProps } from 'assets/types'
+import type { NavItemProps } from 'types'
+
+const classNames = (...strings: string[]) => strings.join(' ')
 
 interface MenuTypes {
    open: boolean

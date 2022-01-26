@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import Hamburger from 'hamburger-react'
-import classNames from '../../util/classNames'
 import MobileMenu from './MobileMenu'
 import Brand from '../../assets/brand.jpg'
 import Logo from '../../assets/logo.png'
 import routes from 'routes'
 import IconButton from '@mui/material/IconButton'
+
+const classNames = (...strings: string[]) => strings.join(' ')
 
 export default function Navbar() {
    const [open, setOpen] = useState(false)
@@ -61,11 +62,7 @@ export default function Navbar() {
                      alt="Whitelist"
                   />
                   {/* Mobile logo */}
-                  <img
-                     src={Logo}
-                     className="h-12 w-auto md:hidden"
-                     alt="Whitelist"
-                  />
+                  <img src={Logo} className="h-12 w-auto md:hidden" alt="Whitelist" />
                </a>
                <div className="flex items-center flex-grow flex-shrink-0 lg:mr-auto lg:flex-grow-0">
                   <div className="flex items-center justify-between w-full lg:w-auto">

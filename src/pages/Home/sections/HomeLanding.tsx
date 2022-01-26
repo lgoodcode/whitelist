@@ -15,11 +15,7 @@ function HomeLanding() {
          }}
       >
          <Container sx={{ mt: 10 }}>
-            <Box
-               display="flex"
-               flexDirection="row"
-               justifyContent="space-between"
-            >
+            <Box display="flex" flexDirection="row" justifyContent="space-between">
                <Box
                   p={3}
                   my="auto"
@@ -40,18 +36,12 @@ function HomeLanding() {
                   >
                      We Train Whales
                   </Typography>
-                  <Typography
-                     variant="body1"
-                     color="white"
-                     mt={3}
-                     lineHeight="1.75"
-                  >
-                     We provide quality cryptocurrency consultation and mining
-                     equipment installation services. If you're interested in
-                     investing the ever growing blockhain industry whether it is
-                     through long-term holding, similar to stocks, or mining
-                     equipment to generate passive income, we are your go-to
-                     solution.
+                  <Typography variant="body1" color="white" mt={3} lineHeight="1.75">
+                     We provide quality cryptocurrency consultation and mining equipment
+                     installation services. If you're interested in investing the ever
+                     growing blockhain industry whether it is through long-term holding,
+                     similar to stocks, or mining equipment to generate passive income, we
+                     are your go-to solution.
                   </Typography>
                   <Stack mt={4} flexDirection={{ xs: 'column', md: 'row' }}>
                      <Button variant="contained">Get Started</Button>

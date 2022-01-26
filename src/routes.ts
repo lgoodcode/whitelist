@@ -5,7 +5,7 @@ import {
    LocalPhone as LocalPhoneIcon
 } from '@mui/icons-material'
 
-import type { NavItemProps } from 'assets/types'
+import type { NavItemProps } from 'types'
 
 const navigation: NavItemProps[] = [
    { icon: HomeIcon, name: 'Home', href: '/' },
