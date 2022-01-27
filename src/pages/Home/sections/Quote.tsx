@@ -1,5 +1,4 @@
 import { Box, Button, Grid, TextField, Typography } from '@mui/material'
-
 import { MailOutlineRounded as MailOutlineRoundedIcon } from '@mui/icons-material'
 
 function Quote() {

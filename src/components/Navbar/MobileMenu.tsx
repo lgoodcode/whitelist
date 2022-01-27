@@ -1,4 +1,4 @@
-import type { NavItemProps } from 'types'
+import type { NavItemProps } from 'routes'
 
 const classNames = (...strings: string[]) => strings.join(' ')
 

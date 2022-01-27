@@ -1,13 +1,11 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-
 import { Button } from '@mui/material'
-
 import type { SxProps, Theme } from '@mui/material/styles'
 
 const styles = (active: boolean): SxProps<Theme> => ({
    px: 2,
    m: 1,
-   color: 'white',
+   color: 'text.primary',
    fontSize: 'typography.body1.fontSize',
    textTransform: 'capitalize',
    bgcolor: active ? 'rgb(156 163 175 / 0.4)' : 'transparent',

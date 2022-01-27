@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { open, close, selectIsOpen } from 'app/reducers/cartReducer'
 
 import routes from 'routes'
 import NavbarDesktop from './NavbarDesktop'
@@ -7,9 +9,22 @@ import NavbarMobile from './NavbarMobile'
 import desktopLogo from 'assets/brand.jpg'
 import mobileLogo from 'assets/logo.png'
 
+import type { NavItemProps } from 'routes'
+
+export interface NavbarProps {
+   logo: string
+   routes: NavItemProps[]
+   scrolled?: boolean
+   cartOpen: boolean
+   handleOpen: () => void
+   handleClose: () => void
+}
+
 function Navbar() {
-   // eslint-disable-next-line
-   const [open, setOpen] = useState<boolean>(false)
+   const cartOpen = useSelector(selectIsOpen)
+   const dispatch = useDispatch()
+   const handleOpen = () => dispatch(open())
+   const handleClose = () => dispatch(close())
    const [scrolled, setScrolled] = useState<boolean>(false)
 
    /**
@@ -35,22 +50,35 @@ function Navbar() {
    useEffect(() => {
       const html = document.getElementsByTagName('html')[0]
 
-      if (open) {
+      if (cartOpen) {
          html.classList.add('lock-scroll')
       } else {
          html.classList.remove('lock-scroll')
       }
       // Cleanup - makes sure the lock scroll is removed
       return () => html.classList.remove('lock-scroll')
-   }, [open])
+   }, [cartOpen])
 
    return (
       <>
          <Box display={{ xs: 'none', md: 'block' }}>
-            <NavbarDesktop logo={desktopLogo} navigation={routes} />
+            <NavbarDesktop
+               logo={desktopLogo}
+               routes={routes}
+               cartOpen={cartOpen}
+               handleOpen={handleOpen}
+               handleClose={handleClose}
+            />
          </Box>
          <Box display={{ xs: 'block', md: 'none' }}>
-            <NavbarMobile logo={mobileLogo} navigation={routes} scrolled={scrolled} />
+            <NavbarMobile
+               logo={mobileLogo}
+               routes={routes}
+               cartOpen={cartOpen}
+               scrolled={scrolled}
+               handleOpen={handleOpen}
+               handleClose={handleClose}
+            />
          </Box>
       </>
    )

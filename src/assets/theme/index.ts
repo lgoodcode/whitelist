@@ -58,7 +58,7 @@ const Theme = (mode: PaletteMode): ThemeOptions =>
                MuiSvgIcon: {
                   styleOverrides: {
                      root: {
-                        color: 'white'
+                        color: '#fff'
                      }
                   }
                },
@@ -74,6 +74,9 @@ const Theme = (mode: PaletteMode): ThemeOptions =>
                            color: 'rgb(255 255 255 / 0.8)',
                            background: 'rgb(255 255 255 / 0.2)'
                         }
+                     },
+                     containedInherit: {
+                        color: '#000'
                      }
                   }
                }

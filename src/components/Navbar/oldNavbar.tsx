@@ -69,9 +69,7 @@ export default function Navbar() {
                      <div className="md:hidden ml-auto">
                         <IconButton
                            onClick={() => setOpen(!open)}
-                           sx={{
-                              color: 'white'
-                           }}
+                           sx={{ color: 'text.primary' }}
                         >
                            <Hamburger size={24} toggled={open} />
                         </IconButton>

@@ -7,12 +7,10 @@ import {
    Divider,
    Typography
 } from '@mui/material'
-
 import { useNavigate } from 'react-router-dom'
 
 import StyledCard from './StyledCard'
 import { formatPrice } from 'utilities'
-
 import type { ProductProps } from 'types'
 
 function ProductCard({

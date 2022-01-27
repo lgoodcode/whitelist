@@ -2,7 +2,6 @@
 import { Box, Container, Divider, Grid, Typography } from '@mui/material'
 
 import ProductCard from './ProductCard'
-
 import products from 'data/products'
 
 function ProductsPage() {

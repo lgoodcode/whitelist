@@ -1,10 +1,9 @@
 import { LocalPhone as LocalPhoneIcon } from '@mui/icons-material'
 import { Box, Container, Typography } from '@mui/material'
-import { grey } from '@mui/material/colors'
 
 function Footer() {
    return (
-      <Box component="footer" bgcolor={grey[900]}>
+      <Box component="footer" bgcolor="background.paper">
          <Container>
             <Box
                py={6}
@@ -15,18 +14,18 @@ function Footer() {
                alignItems="center"
             >
                <Box>
-                  <Typography variant="h4" color="white">
+                  <Typography variant="h4" color="text.primary">
                      Contact Us
                   </Typography>
                   <Box mt={2}>
-                     <Typography variant="body2" color="white">
+                     <Typography variant="body2" color="text.primary">
                         <LocalPhoneIcon fontSize="small" /> (206)-432-5920
                      </Typography>
                   </Box>
                </Box>
             </Box>
             <Box textAlign="center" pb={2}>
-               <Typography variant="subtitle2" color="gray">
+               <Typography variant="subtitle1" color="GrayText">
                   Copyright &copy; Whitelist LLC 2022
                </Typography>
             </Box>
