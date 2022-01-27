@@ -4,8 +4,13 @@ import {
    ShoppingBag as ShoppingBagIcon,
    LocalPhone as LocalPhoneIcon
 } from '@mui/icons-material'
+import type { SvgIconProps } from '@mui/material'
 
-import type { NavItemProps } from 'types'
+export interface NavItemProps {
+   icon: (props: SvgIconProps) => JSX.Element
+   name: string
+   href: string
+}
 
 const navigation: NavItemProps[] = [
    { icon: HomeIcon, name: 'Home', href: '/' },

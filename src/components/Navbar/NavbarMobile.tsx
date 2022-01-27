@@ -1,11 +1,11 @@
 import { AppBar, Box, Container, Toolbar, Grid } from '@mui/material'
 
-import NavButton from 'components/NavButton'
-import type { NavbarProps } from 'types'
+import NavButton from 'components/Navbar/NavButton/Desktop'
+import type { NavbarProps } from './index'
 
 // TODO: finish this
 // eslint-disable-next-line
-function NavbarMobile({ logo, navigation, scrolled }: NavbarProps) {
+function NavbarMobile({ logo, routes, scrolled }: NavbarProps) {
    return (
       <AppBar position="absolute" color="transparent" sx={{ boxShadow: 'none' }}>
          <Container>
@@ -16,7 +16,7 @@ function NavbarMobile({ logo, navigation, scrolled }: NavbarProps) {
                      <img src={logo} alt="Whitelist" />
                   </a>
                   <Box ml="auto">
-                     {navigation.map((route, i) => (
+                     {routes.map((route, i) => (
                         <NavButton key={i} name={route.name} href={route.href} />
                      ))}
                   </Box>

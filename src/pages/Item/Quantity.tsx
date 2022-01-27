@@ -24,6 +24,7 @@ function Quantity({
          </Box>
          <Box mt={1} display="flex" alignItems="center">
             <Fab
+               aria-label="increment quantity"
                disabled={!inStock}
                size="small"
                onClick={handleAdd}
@@ -49,6 +50,7 @@ function Quantity({
                }}
             />
             <Fab
+               aria-label="decrement quantity"
                disabled={!inStock}
                size="small"
                onClick={handleMinus}

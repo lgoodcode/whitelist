@@ -8,7 +8,6 @@ import {
    Stack,
    Chip
 } from '@mui/material'
-
 import { useParams } from 'react-router-dom'
 
 import Miners from 'data/products'

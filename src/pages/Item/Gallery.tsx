@@ -47,9 +47,21 @@ function Gallery({
                      {otherImages &&
                         otherImages.map((image, i) => (
                            <Grid item key={i}>
-                              <a href={image}>
-                                 <img src={image} height={80} />
-                              </a>
+                              <Box sx={{ height: 80, overflow: 'hidden' }}>
+                                 <a href={image}>
+                                    <Box
+                                       component="img"
+                                       src={image}
+                                       height={80}
+                                       sx={{
+                                          transition: 'all 0.3s ease-in-out',
+                                          ':hover': {
+                                             transform: 'scale(1.15)'
+                                          }
+                                       }}
+                                    />
+                                 </a>
+                              </Box>
                            </Grid>
                         ))}
                   </Grid>

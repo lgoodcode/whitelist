@@ -6,13 +6,11 @@ import {
    Divider,
    Typography
 } from '@mui/material'
-
 import { useNavigate } from 'react-router-dom'
 
 import StyledCard from './StyledCard'
 import ProductDescription from './ProductDescription'
-
-import { MinerProps } from 'types'
+import type { MinerProps } from 'types'
 
 function FeaturedProduct({ id, name, brand, images, price, description }: MinerProps) {
    const navigate = useNavigate()

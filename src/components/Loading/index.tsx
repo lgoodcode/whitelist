@@ -1,4 +1,5 @@
-import { Box, CircularProgress } from '@mui/material'
+import { Box } from '@mui/material'
+import Spinner from 'components/Spinner'
 
 function Loading() {
    return (
@@ -9,7 +10,7 @@ function Loading() {
          minHeight="100vh"
          minWidth="100vh"
       >
-         <CircularProgress />
+         <Spinner />
       </Box>
    )
 }

@@ -1,17 +1,16 @@
 import { Box, Container, Typography } from '@mui/material'
 
 import FeaturedProduct from 'pages/Home/FeaturedProductCard'
-
-import Miners from 'data/products'
+import Products from 'data/products'
 
 function Featured() {
-   const [goldspot, blackspot] = Miners
+   const [goldspot, blackspot] = Products
 
    return (
       <Box component="section" py={8} bgcolor="background.default">
          <Container>
             <Box textAlign="center">
-               <Typography color="white" variant="h3" fontWeight="fontWeightLight">
+               <Typography color="text.primary" variant="h3" fontWeight="fontWeightLight">
                   Our Products
                </Typography>
             </Box>

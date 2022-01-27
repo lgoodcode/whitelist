@@ -25,7 +25,7 @@ function HomeLanding() {
                   bgcolor="background.paper"
                   boxShadow={10}
                >
-                  <Typography variant="h2" color="white" fontWeight="bold">
+                  <Typography variant="h2" color="text.primary" fontWeight="bold">
                      Whitelist
                   </Typography>
                   <Typography
@@ -36,7 +36,12 @@ function HomeLanding() {
                   >
                      We Train Whales
                   </Typography>
-                  <Typography variant="body1" color="white" mt={3} lineHeight="1.75">
+                  <Typography
+                     variant="body1"
+                     color="text.primary"
+                     mt={3}
+                     lineHeight="1.75"
+                  >
                      We provide quality cryptocurrency consultation and mining equipment
                      installation services. If you're interested in investing the ever
                      growing blockhain industry whether it is through long-term holding,
