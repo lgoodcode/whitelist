@@ -25,6 +25,8 @@ const ForkTsCheckerWebpackPlugin =
       ? require('react-dev-utils/ForkTsCheckerWarningWebpackPlugin')
       : require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash')
 const chalk = require('react-dev-utils/chalk')
@@ -556,6 +558,11 @@ module.exports = function (webpackEnv) {
          ].filter(Boolean)
       },
       plugins: [
+         new ProgressBarPlugin({
+            format: `${chalk.green.bold('building...')} ${chalk.cyan(
+               '[:bar]'
+            )} [:percent] [:elapsed seconds] - :msg`
+         }),
          // Generates an `index.html` file with the <script> injected.
          new HtmlWebpackPlugin(
             Object.assign(

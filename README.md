@@ -95,3 +95,12 @@ Renamed tests directory to __tests__ so that it is ignored by webpack
 ### Jest extension
 
 Install the Jest extension for testing integrated in VS Code
+
+### Configure VS Code keyboard mapping to jump to closing tag
+
+In keyboard settings, set the emmet go to matching pair binging to `Ctrl + M` or
+whatever you want to quickly jump to the closing tag.
+
+## NEED TO LOOK INTO WEBPACK WORKBOX TO AUTO GENERATE SERVICE WORKER
+
+## CLEAN DEPENDENCIES - SOME SHOULD BE MOVED TO DEV SO IT DOESN'T CLOG PROD BUILD TIME

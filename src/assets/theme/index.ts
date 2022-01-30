@@ -24,6 +24,7 @@ const Theme = (mode: PaletteMode): ThemeOptions =>
             }
          },
          palette: {
+            mode,
             ...(mode === 'dark'
                ? {
                     text: {

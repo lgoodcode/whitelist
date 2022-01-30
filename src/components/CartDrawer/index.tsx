@@ -1,16 +1,26 @@
 import { ShoppingBag as ShoppingBagIcon } from '@mui/icons-material'
 import { Box, Button, Divider, Drawer, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 import { useAppSelector, useAppDispatch } from 'app/hooks'
 import { close, selectIsOpen, selectNumItems, removeItem } from 'app/cart/cartSlice'
 import CartItems from './CartItems'
 
 function Cart() {
+   const navigate = useNavigate()
    const dispatch = useAppDispatch()
    const open = useAppSelector(selectIsOpen)
    const numItems = useAppSelector(selectNumItems)
    const handleClose = () => dispatch(close())
    const handleRemove = (idx: number) => dispatch(removeItem(idx))
+   const handleNavigateToCart = () => {
+      handleClose()
+      navigate('/cart')
+   }
+   const handleNavigateToCheckout = () => {
+      handleClose()
+      navigate('/checkout')
+   }
 
    return (
       <Drawer open={open} anchor="right" onClose={handleClose}>
@@ -37,10 +47,19 @@ function Cart() {
             <Box mt="auto">
                <Divider variant="middle" />
                <Box p={3} display="flex" flexDirection="column">
-                  <Button variant="contained" color="inherit">
+                  <Button
+                     variant="contained"
+                     color="inherit"
+                     onClick={handleNavigateToCheckout}
+                  >
                      Checkout now
                   </Button>
-                  <Button variant="outlined" color="inherit" sx={{ mt: 2 }}>
+                  <Button
+                     variant="outlined"
+                     color="inherit"
+                     onClick={handleNavigateToCart}
+                     sx={{ mt: 2 }}
+                  >
                      View Cart
                   </Button>
                </Box>

@@ -39,7 +39,7 @@ function CartItems({
                      }
                   >
                      <Box>
-                        <Link to={`/products/${item.product.id}`} onClick={handleClose}>
+                        <Link to={`/products/${item.product.name}`} onClick={handleClose}>
                            <Avatar
                               alt={item.product.name}
                               src={item.product.images[0]}
@@ -48,7 +48,7 @@ function CartItems({
                         </Link>
                      </Box>
                      <Box ml={2}>
-                        <Link to={`/products/${item.product.id}`} onClick={handleClose}>
+                        <Link to={`/products/${item.product.name}`} onClick={handleClose}>
                            <Typography
                               variant="body1"
                               color="text.primary"

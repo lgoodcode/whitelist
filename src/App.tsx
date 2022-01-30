@@ -21,6 +21,8 @@ const ServicesPage = lazy(() => import('pages/Services'))
 const ProductsPage = lazy(() => import('pages/Products'))
 const ItemPage = lazy(() => import('pages/Item'))
 const ContactPage = lazy(() => import('pages/Contact'))
+const CartPage = lazy(() => import('pages/Cart'))
+const PageNotFound = lazy(() => import('pages/404'))
 
 const lazyLoadPage = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
    <Suspense fallback={<Loading />}>
@@ -62,6 +64,8 @@ function App() {
                   <Route path="/products" element={lazyLoadPage(ProductsPage)} />
                   <Route path="/products/:name" element={lazyLoadPage(ItemPage)} />
                   <Route path="/contact" element={lazyLoadPage(ContactPage)} />
+                  <Route path="/cart" element={lazyLoadPage(CartPage)} />
+                  <Route path="*" element={lazyLoadPage(PageNotFound)} />
                </Route>
             </Routes>
          </Scrollbar>
