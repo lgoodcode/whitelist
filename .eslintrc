@@ -46,12 +46,7 @@
     "linebreak-style": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
-    ],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -62,6 +57,10 @@
         "tsx": "never"
       }
     ],
-    "space-before-function-paren": ["error", "never"]
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }]
   }
 }

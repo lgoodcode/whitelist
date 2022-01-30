@@ -9,32 +9,14 @@ const galleryOptions = {
    }
 }
 
-function Gallery({
-   images
-}: {
-   images:
-      | string
-      | {
-           main: string
-           others?: string[]
-        }
-}) {
-   let mainImage, otherImages
-
-   if (typeof images === 'object') {
-      mainImage = images.main
-      otherImages = images.others
-   } else {
-      mainImage = images
-   }
-
+function Gallery({ images }: { images: string[] }) {
    return (
       <Box>
          <Box display="flex" justifyContent="center">
             <SRLWrapper options={galleryOptions}>
                <Box maxWidth={480}>
-                  <a href={mainImage}>
-                     <img src={mainImage} width="100%" />
+                  <a href={images[0]}>
+                     <img src={images[0]} width="100%" />
                   </a>
                </Box>
                <Box mt={8}>
@@ -44,8 +26,8 @@ function Gallery({
                      justifyContent="center"
                      bgcolor="rgb(255 255 255 / 10%)"
                   >
-                     {otherImages &&
-                        otherImages.map((image, i) => (
+                     {images &&
+                        images.map((image, i) => (
                            <Grid item key={i}>
                               <Box sx={{ height: 80, overflow: 'hidden' }}>
                                  <a href={image}>

@@ -3,10 +3,12 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import { CssBaseline, useMediaQuery } from '@mui/material'
 import type { PaletteMode } from '@mui/material'
-
 // TODO: look into how to fix the original react-preloaders hook issue
 // because this package is almost double the original size
 import { CustomPreloader } from 'react-preloaders2'
+
+import { useAppDispatch, useAppSelector } from 'app/hooks'
+import { fetchProducts, selectStatus } from 'app/products/productsSlice'
 import Spinner from 'components/Spinner'
 import Scrollbar from 'components/Scrollbar'
 import Loading from 'components/Loading'
@@ -27,6 +29,7 @@ const lazyLoadPage = (Component: React.LazyExoticComponent<() => JSX.Element>) =
 )
 
 function App() {
+   const dispatch = useAppDispatch()
    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
    // TODO: implement light/dark mode switch
    // eslint-disable-next-line
@@ -34,6 +37,14 @@ function App() {
       prefersDarkMode ? 'light' : 'dark'
    )
    const { pathname } = useLocation()
+
+   // Load products into state
+   const productsStatus = useAppSelector(selectStatus)
+   useEffect(() => {
+      if (productsStatus === 'pending') {
+         dispatch(fetchProducts())
+      }
+   }, [productsStatus, dispatch])
 
    // Setting page scroll to 0 when changing the route
    useEffect(() => {
@@ -49,7 +60,7 @@ function App() {
                   <Route index element={<HomePage />} />
                   <Route path="/services" element={lazyLoadPage(ServicesPage)} />
                   <Route path="/products" element={lazyLoadPage(ProductsPage)} />
-                  <Route path="/products/:id" element={lazyLoadPage(ItemPage)} />
+                  <Route path="/products/:name" element={lazyLoadPage(ItemPage)} />
                   <Route path="/contact" element={lazyLoadPage(ContactPage)} />
                </Route>
             </Routes>

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
+// import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { useDispatch, useSelector } from 'react-redux'
-import { open, close, selectIsOpen } from 'app/reducers/cartReducer'
+import { open, close, selectIsOpen } from 'app/cart/cartSlice'
 
 import routes from 'routes'
 import NavbarDesktop from './NavbarDesktop'
