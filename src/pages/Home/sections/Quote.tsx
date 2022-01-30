@@ -37,6 +37,7 @@ function Quote() {
                      <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                            <TextField
+                              fullWidth
                               required
                               id="fName"
                               label="First Name"
@@ -45,6 +46,7 @@ function Quote() {
                         </Grid>
                         <Grid item xs={12} sm={6}>
                            <TextField
+                              fullWidth
                               required
                               id="lName"
                               label="Last Name"

@@ -58,11 +58,17 @@ too much room for the code.
 
 ### Eslint rule
 
-Added the following rules:
+Added the strict equality check rule and updated the space before paren rule for
+async and anynon arrow functions:
 
 ```json
 {
-   "eqeqeq": "error" // this enforces strict equality checks (2 === 2)
+   "eqeqeq": "error", // this enforces strict equality checks (2 === 2)
+   "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }]
 }
 ```
 
@@ -70,3 +76,22 @@ Added the following rules:
 
 Added `npm run analyze` script with the `scripts/analyze.js` file which uses the `webpack-bundle-analyzer` plugin
 that is installed as a dev dependency. Run it to see the stats of the build bundle.
+
+### Removed stylelint
+
+This is because the MaterialUI handles most of the styling and any custom styled components
+should be styled in a seperate component file or styled inline with the sx prop.
+
+REMOVED:
+
+- STYLELINT FILES
+- CSS LINT SCRIPTS IN NPM PACKAGE.JSON
+- VSCODE SETTINGS THAT DISABLED BUILT IN CSS VALIDATION
+
+### Tests
+
+Renamed tests directory to __tests__ so that it is ignored by webpack
+
+### Jest extension
+
+Install the Jest extension for testing integrated in VS Code

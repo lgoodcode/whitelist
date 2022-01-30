@@ -1,26 +1,36 @@
-import {
-   Box,
-   Button,
-   Container,
-   Grid,
-   Typography,
-   Divider,
-   Stack,
-   Chip
-} from '@mui/material'
+import { Box, Container, Grid, Typography, Divider, Stack } from '@mui/material'
 import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 
-import Miners from 'data/products'
-import { formatPrice } from 'utilities'
+import { useAppSelector, useAppDispatch } from 'app/hooks'
+import { setItem } from 'app/cart/cartSlice'
+import { selectProductByName } from 'app/products/productsSlice'
+import type { Product } from 'types'
+
 import Gallery from './Gallery'
+import Price from './Price'
 import Quantity from './Quantity'
 
 function ItemPage() {
-   const { id } = useParams()
-   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-   const { name, description, images, price, discount, quantity, inStock } = Miners.find(
-      (item) => item.id === id
-   )!
+   const dispatch = useAppDispatch()
+   const [qty, setQty] = useState<number>(0)
+   const { name } = useParams()
+   const product = useAppSelector(selectProductByName(name ?? '')) as Product
+
+   // TODO: implement a better fallback
+   if (!product) {
+      return <></>
+   }
+
+   const { description, images, price, discount, quantity, isnew } = product
+   const handleAddItem = () => dispatch(setItem({ product, quantity: qty }))
+   const handleIncrement = () => {
+      if (qty < quantity) setQty(qty + 1)
+   }
+   const handleDecrement = () => {
+      if (qty > 0) setQty(qty - 1)
+   }
+   const inStock = quantity > 0
 
    return (
       <Box component="section" py={8} mt={10} bgcolor="background.default">
@@ -39,60 +49,12 @@ function ItemPage() {
                      </Typography>
                   </Box>
 
-                  <Stack
-                     mt={2}
-                     direction="row"
-                     sx={{
-                        color: !inStock ? 'gray' : ''
-                     }}
-                  >
-                     <Typography
-                        variant="h5"
-                        fontWeight="light"
-                        color={discount > 0 ? 'gray' : ''}
-                        sx={{
-                           textDecorationLine: discount > 0 ? 'line-through' : ''
-                        }}
-                     >
-                        ${formatPrice(price)}
-                     </Typography>
-                     {inStock && discount > 0 && (
-                        <Typography variant="h5" fontWeight="light" sx={{ ml: 1 }}>
-                           ${formatPrice(price - price * discount)}
-                        </Typography>
-                     )}
-                     <Typography variant="h5" fontWeight="regular" sx={{ ml: 1 }}>
-                        USD
-                     </Typography>
-                     {!inStock && (
-                        <Box ml={2} display="flex" alignItems="center">
-                           <Chip
-                              color="secondary"
-                              label={
-                                 <Typography variant="h6" textTransform="uppercase">
-                                    Sold Out
-                                 </Typography>
-                              }
-                           />
-                        </Box>
-                     )}
-                     {inStock && discount > 0 && (
-                        <Box ml={2} display="flex" alignItems="center">
-                           <Chip
-                              color="error"
-                              label={
-                                 <Typography variant="h6" textTransform="uppercase">
-                                    {discount * 100}% OFF
-                                 </Typography>
-                              }
-                           />
-                        </Box>
-                     )}
-                  </Stack>
+                  <Price {...{ inStock, isnew, price, discount }} />
 
                   <Stack mt={2} direction="row">
                      <Typography
                         variant="h6"
+                        fontWeight="regular"
                         color="text.secondary"
                         letterSpacing="0.05rem"
                      >
@@ -104,25 +66,30 @@ function ItemPage() {
                   </Stack>
 
                   <Box mt={2}>
-                     <Quantity inStock={inStock} quantity={quantity} />
+                     <Quantity
+                        {...{
+                           inStock,
+                           quantity: qty,
+                           total: quantity,
+                           handleIncrement,
+                           handleDecrement,
+                           handleAddItem
+                        }}
+                     />
                   </Box>
 
-                  <Box mt={2}>
-                     {inStock ? (
-                        <Button fullWidth variant="contained">
-                           Add to Cart
-                        </Button>
-                     ) : (
-                        <Button fullWidth variant="outlined" color="primary" disabled>
-                           Sold Out
-                        </Button>
-                     )}
-                  </Box>
-
-                  <Box mt={2}>
-                     <Typography variant="body1" lineHeight="1.75rem">
-                        {description}
-                     </Typography>
+                  <Box my={2}>
+                     <Divider />
+                     <Box mt={3}>
+                        <Typography fontWeight="light" textTransform="uppercase">
+                           Details
+                        </Typography>
+                     </Box>
+                     <Box mt={3}>
+                        <Typography variant="body1" lineHeight="1.75rem">
+                           {description}
+                        </Typography>
+                     </Box>
                   </Box>
                </Grid>
             </Grid>

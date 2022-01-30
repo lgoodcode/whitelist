@@ -1,21 +1,27 @@
 import { Add as AddIcon, Remove as RemoveIcon } from '@mui/icons-material'
-import { Box, Fab, TextField, Typography } from '@mui/material'
-import { useState } from 'react'
+import { Box, Button, Fab, TextField, Typography } from '@mui/material'
+import { selectAlertOpen, closeAlert } from 'app/cart/cartSlice'
+import { useAppDispatch, useAppSelector } from 'app/hooks'
+import Toast from 'components/Toast'
 
 function Quantity({
    inStock,
-   quantity
+   quantity,
+   total,
+   handleIncrement,
+   handleDecrement,
+   handleAddItem
 }: {
    inStock: boolean
    quantity: number
+   total: number
+   handleIncrement: () => void
+   handleDecrement: () => void
+   handleAddItem: () => void
 }): JSX.Element {
-   const [qty, setQty] = useState<number>(0)
-   const handleAdd = () => {
-      if (qty < quantity) setQty(qty + 1)
-   }
-   const handleMinus = () => {
-      if (qty > 0) setQty(qty - 1)
-   }
+   const dispatch = useAppDispatch()
+   const open = useAppSelector(selectAlertOpen)
+   const handleClose = () => dispatch(closeAlert())
 
    return (
       <Box>
@@ -27,19 +33,19 @@ function Quantity({
                aria-label="increment quantity"
                disabled={!inStock}
                size="small"
-               onClick={handleAdd}
+               onClick={handleIncrement}
                sx={{ border: '1px solid rgb(156 163 175 / 0.4)' }}
             >
                <AddIcon />
             </Fab>
             <TextField
                disabled={!inStock}
-               value={qty}
+               value={quantity}
                inputProps={{
                   readOnly: true,
                   inputMode: 'numeric',
                   min: 0,
-                  max: qty,
+                  max: total,
                   style: { textAlign: 'center' }
                }}
                sx={{
@@ -53,12 +59,31 @@ function Quantity({
                aria-label="decrement quantity"
                disabled={!inStock}
                size="small"
-               onClick={handleMinus}
+               onClick={handleDecrement}
                sx={{ border: '1px solid rgb(156 163 175 / 0.4)' }}
             >
                <RemoveIcon />
             </Fab>
          </Box>
+
+         <Box mt={2}>
+            {inStock ? (
+               <Button
+                  fullWidth
+                  variant="contained"
+                  color="inherit"
+                  onClick={handleAddItem}
+               >
+                  Add to Cart
+               </Button>
+            ) : (
+               <Button fullWidth variant="outlined" color="primary" disabled>
+                  Sold Out
+               </Button>
+            )}
+         </Box>
+
+         <Toast open={open} handleClose={handleClose} message="Item Added to Cart" />
       </Box>
    )
 }

@@ -11,21 +11,12 @@ import { useNavigate } from 'react-router-dom'
 
 import StyledCard from './StyledCard'
 import { formatPrice } from 'utilities'
-import type { ProductProps } from 'types'
+import type { Product } from 'types'
 
-function ProductCard({
-   id,
-   name,
-   brand,
-   images,
-   price,
-   discount,
-   isNew,
-   inStock
-}: ProductProps) {
+function ProductCard({ brand, name, price, quantity, discount, isnew, images }: Product) {
    const navigate = useNavigate()
-   const handleOnClick = () => navigate(`/products/${id}`)
-   const image = typeof images === 'string' ? images : images.main
+   const handleOnClick = () => navigate(`/products/${name}`)
+   const inStock = quantity > 0
 
    return (
       <StyledCard>
@@ -38,9 +29,9 @@ function ProductCard({
                height: '100%'
             }}
          >
-            <CardMedia component="img" image={image} />
+            <CardMedia component="img" image={images[0]} />
             <CardContent sx={{ width: '100%' }}>
-               {isNew && inStock && (
+               {isnew && inStock && (
                   <Chip label="NEW" color="error" sx={{ cursor: 'pointer' }} />
                )}
                {!inStock && (
@@ -64,9 +55,7 @@ function ProductCard({
                               color="GrayText"
                               variant="h6"
                               fontWeight="light"
-                              sx={{
-                                 textDecorationLine: 'line-through'
-                              }}
+                              sx={{ textDecorationLine: 'line-through' }}
                            >
                               ${price.toFixed(2)}
                            </Typography>

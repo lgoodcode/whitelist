@@ -1,4 +1,5 @@
-import type MinerProps from './MinerProps'
-import type ProductProps from './ProductProps'
+import type Miner from './Miner'
+import type Product from './Product'
+import type CartItem from './CartItem'
 
-export { MinerProps, ProductProps }
+export { Miner, Product, CartItem }

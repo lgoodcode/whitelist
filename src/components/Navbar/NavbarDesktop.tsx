@@ -13,6 +13,8 @@ import { useNavigate } from 'react-router-dom'
 
 import NavButton from './NavButton/Desktop'
 import type { NavbarProps } from './index'
+import { useAppSelector } from 'app/hooks'
+import { selectNumItems } from 'app/cart/cartSlice'
 
 function NavbarDesktop({
    logo,
@@ -23,6 +25,7 @@ function NavbarDesktop({
    ...rest
 }: NavbarProps) {
    const navigate = useNavigate()
+   const numItems = useAppSelector(selectNumItems)
 
    return (
       <AppBar
@@ -68,7 +71,7 @@ function NavbarDesktop({
                            }
                         }}
                      >
-                        <Badge badgeContent={2} color="error">
+                        <Badge badgeContent={numItems} color="error">
                            <ShoppingCartIcon sx={{ color: 'text.primary' }} />
                         </Badge>
                      </IconButton>

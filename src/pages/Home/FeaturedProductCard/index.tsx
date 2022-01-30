@@ -10,11 +10,10 @@ import { useNavigate } from 'react-router-dom'
 
 import StyledCard from './StyledCard'
 import ProductDescription from './ProductDescription'
-import type { MinerProps } from 'types'
+import type { Product } from 'types'
 
-function FeaturedProduct({ id, name, brand, images, price, description }: MinerProps) {
+function FeaturedProduct({ id, name, brand, images, price, description }: Product) {
    const navigate = useNavigate()
-   const image = typeof images === 'string' ? images : images.main
    const handleOnClick = () => navigate(`/products/${id}`)
 
    return (
@@ -28,7 +27,7 @@ function FeaturedProduct({ id, name, brand, images, price, description }: MinerP
                height: '100%'
             }}
          >
-            <CardMedia component="img" image={image} height={285} />
+            <CardMedia component="img" image={images[0]} height={285} />
             {/* <CardMedia component={} /> */}
             <CardContent sx={{ width: '100%' }}>
                <Typography variant="subtitle1" color="gray">
