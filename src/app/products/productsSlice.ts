@@ -51,6 +51,6 @@ export const selectProductByName = (name: Product['name']) => (state: RootState)
    state.products.products.find((product) => product.name === name)
 
 export const selectProductsFeatured = (state: RootState) =>
-   state.products.products.filter((product) => product.name.includes('Blackspot'))
+   state.products.products.filter((product) => product.featured)
 
 export default productsSlice.reducer
