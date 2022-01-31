@@ -9,7 +9,7 @@ import { CustomPreloader } from 'react-preloaders2'
 
 import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { fetchProducts, selectStatus } from 'app/products/productsSlice'
-import Spinner from 'components/Spinner'
+import { BlockSpinner } from 'components/Spinners'
 import Scrollbar from 'components/Scrollbar'
 import Loading from 'components/Loading'
 import Layout from 'components/Layout'
@@ -70,7 +70,7 @@ function App() {
             </Routes>
          </Scrollbar>
          <CustomPreloader background="linear-gradient(180deg, rgba(48,48,48,1) 0%, rgba(179,134,21,1) 600%)">
-            <Spinner />
+            <BlockSpinner />
          </CustomPreloader>
       </ThemeProvider>
    )

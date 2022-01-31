@@ -1,6 +1,6 @@
-import './Spinner.css'
+import './Block.css'
 
-function Spinner() {
+function Block() {
    return (
       <div className="sk-cube-grid">
          <div className="sk-cube sk-cube1"></div>
@@ -16,4 +16,4 @@ function Spinner() {
    )
 }
 
-export default Spinner
+export default Block
