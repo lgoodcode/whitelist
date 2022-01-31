@@ -12,9 +12,9 @@ import StyledCard from './StyledCard'
 import ProductDescription from './ProductDescription'
 import type { Product } from 'types'
 
-function FeaturedProduct({ id, name, brand, images, price, description }: Product) {
+function FeaturedProduct({ name, brand, images, price, description }: Product) {
    const navigate = useNavigate()
-   const handleOnClick = () => navigate(`/products/${id}`)
+   const handleOnClick = () => navigate(`/products/${name}`)
 
    return (
       <StyledCard>
