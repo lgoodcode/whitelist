@@ -13,7 +13,7 @@ webpackConfigProd.plugins.push(
    new ProgressBarPlugin({
       format: `${chalk.green.bold('analyzing...')} ${chalk.cyan(
          '[:bar]'
-      )} [:percent] [:elapsed seconds] - :msg`
+      )} [:percent] [:elapsed seconds] - :msg\n`
    })
 )
 

@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "private": true,
   "engines": {
     "node": "^16.x || ^17.x"
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/toomuchrice4u/whitelist.git"
   },
+  "homepage": "https://github.com/toomuchrice4u/whitelist#readme",
   "proxy": "http://localhost:4000",
   "dependencies": {
     "@babel/core": "^7.16.0",
