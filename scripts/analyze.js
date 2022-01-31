@@ -14,7 +14,7 @@ webpackConfigProd.plugins.push(
       format: `${chalk.green.bold('analyzing...')} ${chalk.cyan(
          '[:bar]'
       )} [:percent] [:elapsed seconds] - :msg`
-   })   
+   })
 )
 
 // actually running compilation and waiting for plugin to start explorer

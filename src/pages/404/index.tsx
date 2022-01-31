@@ -19,8 +19,7 @@ function PageNotFound() {
                </Grid>
                <Grid item xs={12} lg={6} display="flex" alignItems="center">
                   <Box>
-                     <Typography variant="h1">404</Typography>
-                     <Typography variant="h4">UH OH! You're lost.</Typography>
+                     <Typography variant="h3">UH OH! You're lost.</Typography>
                      <Typography paragraph sx={{ mt: 1 }}>
                         The page you are looking for does not exist. How you got here is a
                         mystery. But you can click the button below to go back to the
@@ -30,8 +29,14 @@ function PageNotFound() {
                         variant="outlined"
                         color="inherit"
                         size="large"
-                        sx={{ px: 8 }}
                         onClick={handleClick}
+                        sx={{
+                           px: 8,
+                           ':hover': {
+                              color: 'background.default',
+                              bgcolor: 'text.primary'
+                           }
+                        }}
                      >
                         HOME
                      </Button>
