@@ -41,7 +41,7 @@ function Quote() {
                               required
                               id="fName"
                               label="First Name"
-                              variant="filled"
+                              variant="outlined"
                            />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -50,7 +50,7 @@ function Quote() {
                               required
                               id="lName"
                               label="Last Name"
-                              variant="filled"
+                              variant="outlined"
                            />
                         </Grid>
                         <Grid item xs={12}>
@@ -59,7 +59,7 @@ function Quote() {
                               required
                               id="email"
                               label="Email Address"
-                              variant="filled"
+                              variant="outlined"
                            />
                         </Grid>
                         <Grid item xs={12}>
@@ -67,7 +67,7 @@ function Quote() {
                               fullWidth
                               id="phone"
                               label="Phone Number"
-                              variant="filled"
+                              variant="outlined"
                            />
                         </Grid>
                         <Grid item xs={12}>

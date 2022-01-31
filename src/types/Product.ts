@@ -5,4 +5,5 @@ export default interface Product extends Miner {
    quantity: number
    discount: number
    isnew: boolean
+   featured: boolean
 }
