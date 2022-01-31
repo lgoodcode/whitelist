@@ -13,15 +13,15 @@
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:jest/recommended",
-    "prettier",
-    "plugin:prettier/recommended",
     "plugin:import/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
   ],
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": ["node_modules", "src/"]
+        "moduleDirectory": ["node_modules", "src"]
       }
     }
   },
@@ -47,6 +47,11 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -56,11 +61,6 @@
         "ts": "never",
         "tsx": "never"
       }
-    ],
-    "space-before-function-paren": ["error", {
-      "anonymous": "always",
-      "named": "never",
-      "asyncArrow": "always"
-    }]
+    ]
   }
 }
