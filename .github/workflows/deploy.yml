@@ -1,7 +1,9 @@
-name: 'Deploy'
+name: Deploy
 
 on:
-  push: 'main'
+  push: 
+    branches: 
+      - main
 
 jobs:
   build:
@@ -23,8 +25,8 @@ jobs:
       - run: npm run build
 
   deploy:
-    name: 'Deploy to Netlify'
-    needs: 'build'
+    name: Deploy to Netlify
+    needs: build
     steps:
       - uses: jsmrcaga/action-netlify-deploy@v1.7.2
         with:
