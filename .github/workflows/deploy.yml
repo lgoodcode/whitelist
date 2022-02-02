@@ -25,6 +25,7 @@ jobs:
       - run: npm run build
 
   deploy:
+    runs-on: ubuntu-latest
     name: Deploy to Netlify
     needs: build
     steps:
