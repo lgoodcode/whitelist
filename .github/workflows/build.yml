@@ -13,8 +13,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+jobs:
   lint:
     name: lint
+    # if: github.event_name != push && (github.actor != dependabot[bot] && github.actor == dependabot[bot] != dependabot-preview[bot])
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,7 +35,6 @@ on:
       - run: npm run lint
 
   test: 
-    name: test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -52,7 +53,6 @@ on:
       - run: npm run test
 
   build:
-    name: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
