@@ -7,10 +7,10 @@ import { open, close, selectIsOpen } from 'app/cart/cartSlice'
 import routes from 'routes'
 import NavbarDesktop from './NavbarDesktop'
 import NavbarMobile from './NavbarMobile'
-import desktopLogo from 'assets/brand.jpg'
-import mobileLogo from 'assets/logo.png'
-
 import type { NavItemProps } from 'routes'
+
+const desktopLogo = '/desktop-logo-fill.svg'
+const mobileLogo = '/logo-fill.svg'
 
 export interface NavbarProps {
    logo: string

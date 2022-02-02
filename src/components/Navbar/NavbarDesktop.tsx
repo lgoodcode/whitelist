@@ -1,14 +1,6 @@
-import {
-   AppBar,
-   Box,
-   Container,
-   Toolbar,
-   Grid,
-   Typography,
-   IconButton,
-   Badge
-} from '@mui/material'
+import { AppBar, Box, Container, Toolbar, IconButton, Badge } from '@mui/material'
 import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material'
+import { useTheme } from '@mui/material/styles'
 import { useNavigate } from 'react-router-dom'
 
 import NavButton from './NavButton/Desktop'
@@ -24,6 +16,7 @@ function NavbarDesktop({
    handleClose,
    ...rest
 }: NavbarProps) {
+   const theme = useTheme()
    const navigate = useNavigate()
    const numItems = useAppSelector(selectNumItems)
 
@@ -38,9 +31,10 @@ function NavbarDesktop({
          {...rest}
       >
          <Container>
-            <Toolbar disableGutters>
-               <Grid container flexDirection="row" alignItems="center">
-                  <Typography
+            <Toolbar disableGutters sx={{ height: 80 }}>
+               <Box display="flex" width="100%" flexDirection="row" alignItems="center">
+                  <Box
+                     display="flex"
                      aria-label="Whitelist"
                      onClick={() => navigate('/')}
                      sx={{
@@ -51,16 +45,25 @@ function NavbarDesktop({
                   >
                      <img
                         style={{
-                           height: 80,
-                           width: 'auto'
+                           height: 50,
+                           width: 'auto',
+                           filter: `brightness(${
+                              theme.palette.mode === 'dark' ? 100 : 0
+                           })`
                         }}
                         src={logo}
-                        alt="Whitelist Brand"
+                        alt="Whitelist"
                      />
-                  </Typography>
+                  </Box>
+
                   <Box ml="auto">
                      {routes.map((route, i) => (
-                        <NavButton key={i} name={route.name} href={route.href} />
+                        <NavButton
+                           key={i}
+                           name={route.name}
+                           href={route.href}
+                           aria-label={route.name}
+                        />
                      ))}
                      <IconButton
                         aria-label="cart"
@@ -76,7 +79,7 @@ function NavbarDesktop({
                         </Badge>
                      </IconButton>
                   </Box>
-               </Grid>
+               </Box>
             </Toolbar>
          </Container>
       </AppBar>
