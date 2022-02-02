@@ -16,7 +16,6 @@ on:
 jobs:
   lint:
     name: lint
-    # if: github.event_name != push && (github.actor != dependabot[bot] && github.actor == dependabot[bot] != dependabot-preview[bot])
     runs-on: ubuntu-latest
     strategy:
       matrix:
