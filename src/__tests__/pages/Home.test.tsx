@@ -13,5 +13,5 @@ test('renders home page', () => {
          </BrowserRouter>
       </Provider>
    )
-   expect(screen.getByText(/we train whales/i)).toBeInTheDocument()
+   expect(screen.getByText(/your go-to helium center/i)).toBeInTheDocument()
 })

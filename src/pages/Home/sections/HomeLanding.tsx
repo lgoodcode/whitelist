@@ -1,72 +1,102 @@
-import { Box, Button, Container, Stack, Typography } from '@mui/material'
+import { Box, Button, Container, Grid, Typography } from '@mui/material'
+import SlideFade from 'components/SlideFade'
 
-import bgImage from 'assets/img/home-landing.jpg'
+import bgImage from 'assets/img/landing-particles.jpg'
+import landingBlockImage from 'assets/img/blocks-server.svg'
+
+const landingStyles = {
+   backgroundImage: `url(${bgImage})`,
+   backgroundSize: 'cover',
+   backgroundRepeat: 'repeat-y',
+   backgroundAttachment: 'fixed',
+   '@keyframes animate': {
+      from: {
+         backgroundPositionY: 0
+      },
+      to: {
+         backgroundPositionY: '100%'
+      }
+   },
+   animation: 'animate 5s ease-in-out infinite alternate'
+}
 
 function HomeLanding() {
    return (
       <Box
-         display="flex"
-         alignItems="center"
-         minHeight="100vh"
+         component="section"
          sx={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'revert'
+            backgroundImage: 'linear-gradient(180deg, #253380 0%, rgba(61,63,199,0) 100%)'
          }}
       >
-         <Container sx={{ mt: 10 }}>
-            <Box display="flex" flexDirection="row" justifyContent="space-between">
-               <Box
-                  p={3}
-                  my="auto"
-                  borderRadius={2}
-                  maxWidth="sm"
-                  height="fit-content"
-                  bgcolor="background.paper"
-                  boxShadow={10}
+         <Box display="flex" height="100vh" sx={landingStyles}>
+            <Container sx={{ mt: 24 }}>
+               <Grid
+                  container
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="space-between"
                >
-                  <Typography variant="h2" color="text.primary" fontWeight="bold">
-                     Whitelist
-                  </Typography>
-                  <Typography
-                     variant="h2"
-                     fontWeight="bold"
-                     letterSpacing="-0.05em"
-                     color="goldenrod"
-                  >
-                     We Train Whales
-                  </Typography>
-                  <Typography
-                     variant="body1"
-                     color="text.primary"
-                     mt={3}
-                     lineHeight="1.75"
-                  >
-                     We provide quality cryptocurrency consultation and mining equipment
-                     installation services. If you're interested in investing the ever
-                     growing blockhain industry whether it is through long-term holding,
-                     similar to stocks, or mining equipment to generate passive income, we
-                     are your go-to solution.
-                  </Typography>
-                  <Stack mt={4} flexDirection={{ xs: 'column', md: 'row' }}>
-                     <Button variant="contained">Get Started</Button>
-                     <Button
-                        variant="outlined"
-                        color="info"
-                        sx={{
-                           ml: { md: 2 },
-                           mt: {
-                              xs: 2,
-                              md: 0
-                           }
-                        }}
-                     >
-                        Live Demo
-                     </Button>
-                  </Stack>
-               </Box>
-            </Box>
-         </Container>
+                  <Grid item xs={12} lg={6}>
+                     <SlideFade in direction="right">
+                        <Typography
+                           variant="h2"
+                           letterSpacing="-0.05em"
+                           fontFamily="Titillium Web"
+                        >
+                           Your go-to Helium Center
+                        </Typography>
+                     </SlideFade>
+
+                     <SlideFade mt={4} delay={300}>
+                        <Typography
+                           color="text.primary"
+                           lineHeight="1.75"
+                           fontWeight="regular"
+                        >
+                           We provide quality cryptocurrency consultation and mining
+                           equipment installation services. If you're interested in
+                           investing the ever growing blockhain industry whether it is
+                           through long-term holding, similar to stocks, or mining
+                           equipment to generate passive income, we are your go-to
+                           solution.
+                        </Typography>
+                     </SlideFade>
+
+                     <SlideFade mt={4} delay={500}>
+                        <Box>
+                           <Button
+                              variant="contained"
+                              color="secondary"
+                              size="large"
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 letterSpacing: '0.075em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'bold'
+                              }}
+                           >
+                              Get Started
+                           </Button>
+                        </Box>
+                     </SlideFade>
+                  </Grid>
+
+                  <Grid item lg={5}>
+                     <SlideFade in direction="left" timeout={1000} delay={700}>
+                        <Box>
+                           <img width="100%" src={landingBlockImage} />
+                           <Box display="none">
+                              <a href="https://www.freepik.com/vectors/technology">
+                                 Technology vector created by fullvector - www.freepik.com
+                              </a>
+                           </Box>
+                        </Box>
+                     </SlideFade>
+                  </Grid>
+               </Grid>
+            </Container>
+         </Box>
       </Box>
    )
 }

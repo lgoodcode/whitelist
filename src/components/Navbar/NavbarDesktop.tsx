@@ -25,8 +25,9 @@ function NavbarDesktop({
          position="absolute"
          sx={{
             boxShadow: 'none',
-            backgroundColor: 'rgba(0, 0, 0, 0.15)',
-            backdropFilter: 'blur(3px)'
+            background: 'transparent'
+            // bgcolor: 'rgba(0, 0, 0, 0.15)',
+            // backdropFilter: 'blur(3px)'
          }}
          {...rest}
       >

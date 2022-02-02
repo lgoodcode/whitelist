@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 
-import bgImage from 'assets/img/services-landing.jpg'
+// import bgImage from 'assets/img/services-landing.jpg'
+const bgImage = ''
 
 function ServicesLanding() {
    return (
