@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.10.3",
+  "version": "0.10.5",
   "private": true,
   "engines": {
     "node": "^16.x || ^17.x"
@@ -78,7 +78,7 @@
     "typescript": "^4.5.4",
     "web-vitals": "^2.1.2",
     "webpack": "^5.64.4",
-    "webpack-dev-server": "^4.7.3",
+    "webpack-dev-server": "^4.7.4",
     "webpack-manifest-plugin": "^4.1.1",
     "workbox-webpack-plugin": "^6.4.1"
   },
