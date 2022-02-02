@@ -3,10 +3,10 @@ import { Box, Container, Typography } from '@mui/material'
 
 function Footer() {
    return (
-      <Box component="footer" bgcolor="background.paper">
+      <Box component="footer" mt={12} bgcolor="background.paper">
          <Container>
             <Box
-               py={6}
+               py={2}
                width="100%"
                display="flex"
                flexDirection={{ xs: 'column', lg: 'row' }}
@@ -25,7 +25,7 @@ function Footer() {
                </Box>
             </Box>
             <Box textAlign="center" pb={2}>
-               <Typography variant="subtitle1" color="GrayText">
+               <Typography variant="subtitle1" color="text.primary">
                   Copyright &copy; Whitelist LLC 2022
                </Typography>
             </Box>

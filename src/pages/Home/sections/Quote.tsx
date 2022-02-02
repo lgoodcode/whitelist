@@ -3,13 +3,13 @@ import { MailOutlineRounded as MailOutlineRoundedIcon } from '@mui/icons-materia
 
 function Quote() {
    return (
-      <Box component="section" py={12} bgcolor="background.paper">
+      <Box component="section" py={12} bgcolor="background.default">
          <Box display="flex" justifyContent="center">
             <Box
                p={3}
                maxWidth={600}
                borderRadius={2}
-               bgcolor="background.default"
+               bgcolor="background.paper"
                display={{
                   xs: 'none',
                   md: 'flex'
@@ -39,6 +39,7 @@ function Quote() {
                            <TextField
                               fullWidth
                               required
+                              color="info"
                               id="fName"
                               label="First Name"
                               variant="outlined"
@@ -48,6 +49,7 @@ function Quote() {
                            <TextField
                               fullWidth
                               required
+                              color="info"
                               id="lName"
                               label="Last Name"
                               variant="outlined"
@@ -57,6 +59,7 @@ function Quote() {
                            <TextField
                               fullWidth
                               required
+                              color="info"
                               id="email"
                               label="Email Address"
                               variant="outlined"
@@ -66,6 +69,7 @@ function Quote() {
                            <TextField
                               fullWidth
                               id="phone"
+                              color="info"
                               label="Phone Number"
                               variant="outlined"
                            />
@@ -74,6 +78,8 @@ function Quote() {
                            <TextField
                               fullWidth
                               required
+                              color="info"
+                              label="Message"
                               multiline={true}
                               rows={5}
                               placeholder="Describe what you're interested in..."
@@ -83,7 +89,7 @@ function Quote() {
                   </Box>
                </Box>
                <Box width="100%" mt={4}>
-                  <Button fullWidth color="secondary" variant="contained">
+                  <Button fullWidth color="secondary" variant="contained" sx={{ py: 1 }}>
                      Get a Quote
                   </Button>
                </Box>

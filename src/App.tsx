@@ -3,13 +3,9 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles'
 import { CssBaseline, useMediaQuery } from '@mui/material'
 import type { PaletteMode } from '@mui/material'
-// TODO: look into how to fix the original react-preloaders hook issue
-// because this package is almost double the original size
-import { CustomPreloader } from 'react-preloaders2'
 
 import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { fetchProducts, selectStatus } from 'app/products/productsSlice'
-import { BlockSpinner } from 'components/Spinners'
 import Scrollbar from 'components/Scrollbar'
 import Loading from 'components/Loading'
 import Layout from 'components/Layout'
@@ -17,7 +13,7 @@ import Theme from 'assets/theme'
 
 // Pages
 import HomePage from 'pages/Home'
-const ServicesPage = lazy(() => import('pages/Services'))
+// const ServicesPage = lazy(() => import('pages/Services'))
 const ProductsPage = lazy(() => import('pages/Products'))
 const ItemPage = lazy(() => import('pages/Item'))
 const ContactPage = lazy(() => import('pages/Contact'))
@@ -60,7 +56,7 @@ function App() {
             <Routes>
                <Route path="/" element={<Layout />}>
                   <Route index element={<HomePage />} />
-                  <Route path="/services" element={lazyLoadPage(ServicesPage)} />
+                  {/* <Route path="/services" element={lazyLoadPage(ServicesPage)} /> */}
                   <Route path="/products" element={lazyLoadPage(ProductsPage)} />
                   <Route path="/products/:name" element={lazyLoadPage(ItemPage)} />
                   <Route path="/contact" element={lazyLoadPage(ContactPage)} />
@@ -69,9 +65,6 @@ function App() {
                </Route>
             </Routes>
          </Scrollbar>
-         <CustomPreloader background="linear-gradient(180deg, rgba(48,48,48,1) 0%, rgba(179,134,21,1) 600%)">
-            <BlockSpinner />
-         </CustomPreloader>
       </ThemeProvider>
    )
 }

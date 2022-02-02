@@ -1,0 +1,33 @@
+name: 'Deploy'
+
+on:
+  push: 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      - name: Use NodeJS ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - run: npm install 
+      - run: npm run build
+
+  deploy:
+    name: 'Deploy to Netlify'
+    needs: 'build'
+    steps:
+      - uses: jsmrcaga/action-netlify-deploy@v1.7.2
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_TO_PROD: true

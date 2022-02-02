@@ -2,17 +2,18 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 import type { ThemeOptions } from '@mui/material/styles'
 import type { PaletteMode } from '@mui/material'
 
-// Inter font
-import 'assets/fonts/Inter-Var.ttf'
-
+// Import Inter variable font and Titillium in index.css
+import 'assets/fonts/Inter/Inter-Var.ttf'
 import ButtonOverridesDark from './ButtonOverridesDark'
 
 const Theme = (mode: PaletteMode): ThemeOptions =>
    responsiveFontSizes(
       createTheme({
          typography: {
-            fontFamily:
-               'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue'
+            fontFamily: [
+               'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue',
+               'Titillium Web, Helvetica, Arial, Lucida, sans-serif'
+            ].join(',')
          },
          breakpoints: {
             values: {
@@ -33,15 +34,15 @@ const Theme = (mode: PaletteMode): ThemeOptions =>
                        disabled: 'rgba(255, 255, 255, 0.5)'
                     },
                     primary: {
-                       main: '#b38615'
+                       main: '#001ecf'
                     },
                     secondary: {
-                       main: '#eaeaea'
+                       main: '#3c3cc8'
                     },
                     divider: 'rgba(255,255,255,0.2)',
                     background: {
-                       default: '#303030',
-                       paper: '#231f20'
+                       default: '#101535',
+                       paper: '#1a245e'
                     }
                  }
                : {

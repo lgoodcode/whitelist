@@ -3,13 +3,30 @@ import { Box, Container, Typography } from '@mui/material'
 import { useAppSelector } from 'app/hooks'
 import { selectProductsFeatured, selectStatus } from 'app/products/productsSlice'
 import FeaturedProduct from 'pages/Home/FeaturedProductCard'
+import bgImage from 'assets/img/landing-particles.jpg'
+
+const bgStyles = {
+   backgroundImage: `url(${bgImage})`,
+   backgroundSize: 'cover',
+   backgroundRepeat: 'repeat-y',
+   backgroundAttachment: 'fixed',
+   '@keyframes animate': {
+      from: {
+         backgroundPositionY: 0
+      },
+      to: {
+         backgroundPositionY: '100%'
+      }
+   },
+   animation: 'animate 5s ease-in-out infinite alternate'
+}
 
 function Featured() {
    const loaded = useAppSelector(selectStatus)
    const products = useAppSelector(selectProductsFeatured)
 
    return (
-      <Box component="section" py={8} bgcolor="background.default">
+      <Box component="section" py={8} sx={bgStyles}>
          <Container>
             {/* TODO: add a skeleton loader */}
             {loaded === 'pending' && <Box></Box>}
