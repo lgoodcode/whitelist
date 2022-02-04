@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "private": true,
   "engines": {
     "node": "^16.x || ^17.x"
@@ -11,6 +11,17 @@
     "url": "git+ssh://git@github.com/toomuchrice4u/whitelist.git"
   },
   "proxy": "http://localhost:4000",
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "npx rimraf build && node scripts/build.js",
+    "test": "node scripts/test.js",
+    "analyze": "node scripts/analyze.js",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+  },
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@emotion/react": "^11.7.1",
@@ -79,14 +90,6 @@
     "webpack-dev-server": "^4.7.3",
     "webpack-manifest-plugin": "^4.1.1",
     "workbox-webpack-plugin": "^6.4.1"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "npx rimraf build && node scripts/build.js",
-    "test": "node scripts/test.js",
-    "analyze": "node scripts/analyze.js",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}"
   },
   "browserslist": {
     "production": [
@@ -190,8 +193,5 @@
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
   }
 }

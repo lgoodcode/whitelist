@@ -9,6 +9,9 @@
 # production
 /build
 
+# eslintcache for the lint-staged pre-commit
+.eslintcache
+
 # misc
 .DS_Store
 .env.local
