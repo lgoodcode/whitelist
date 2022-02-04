@@ -99,3 +99,22 @@ whatever you want to quickly jump to the closing tag.
 ## NEED TO LOOK INTO WEBPACK WORKBOX TO AUTO GENERATE SERVICE WORKER
 
 ## CLEAN DEPENDENCIES - SOME SHOULD BE MOVED TO DEV SO IT DOESN'T CLOG PROD BUILD TIME
+
+## husky
+
+On a new project it is recommended to re-install the husky directory because it
+didn't work on this project out of the box.
+
+- MUST run `npx husky install`
+- Need lint-staged module
+- need to configure the lint-staged glob property with the command as the value
+- create the husky bash script `npx husky add .husky/pre-commit "npx lint-staged"`
+
+Now whenever committing, it will verify the source files don't contain any silly
+errors that will waste time and resources when running the Github action CI/CD
+pipeline.
+
+To bypass the pre-commit script, like when making formatting changes or basic
+edits, use the `--no-verify` or `-n` shorthand flag.
+
+RUN THE COMMIT THROUGH THE GIT BASH IF POSSIBLE TO SEE THE ERRORS
