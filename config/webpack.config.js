@@ -26,6 +26,7 @@ const ForkTsCheckerWebpackPlugin =
       : require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash')
 const chalk = require('react-dev-utils/chalk')
@@ -58,17 +59,9 @@ const imageInlineSizeLimit = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT || '10
 // Check if TypeScript is setup
 const useTypeScript = fs.existsSync(paths.appTsConfig)
 
-// Check if Tailwind config exists
-const useTailwind = fs.existsSync(path.join(paths.appPath, 'tailwind.config.js'))
-
-// Get the path to the uncompiled service worker (if it exists).
-const swSrc = paths.swSrc
-
 // Style files regexes
 const cssRegex = /\.css$/
 const cssModuleRegex = /\.module\.css$/
-const sassRegex = /\.(scss|sass)$/
-const sassModuleRegex = /\.module\.(scss|sass)$/
 
 const hasJsxRuntime = (() => {
    if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -126,36 +119,22 @@ module.exports = function (webpackEnv) {
                   // https://github.com/facebook/create-react-app/issues/2677
                   ident: 'postcss',
                   config: false,
-                  plugins: !useTailwind
-                     ? [
-                          'postcss-flexbugs-fixes',
-                          [
-                             'postcss-preset-env',
-                             {
-                                autoprefixer: {
-                                   flexbox: 'no-2009'
-                                },
-                                stage: 3
-                             }
-                          ],
-                          // Adds PostCSS Normalize as the reset css with default options,
-                          // so that it honors browserslist config in package.json
-                          // which in turn let's users customize the target behavior as per their needs.
-                          'postcss-normalize'
-                       ]
-                     : [
-                          'tailwindcss',
-                          'postcss-flexbugs-fixes',
-                          [
-                             'postcss-preset-env',
-                             {
-                                autoprefixer: {
-                                   flexbox: 'no-2009'
-                                },
-                                stage: 3
-                             }
-                          ]
-                       ]
+                  plugins: [
+                     'postcss-flexbugs-fixes',
+                     [
+                        'postcss-preset-env',
+                        {
+                           autoprefixer: {
+                              flexbox: 'no-2009'
+                           },
+                           stage: 3
+                        }
+                     ],
+                     // Adds PostCSS Normalize as the reset css with default options,
+                     // so that it honors browserslist config in package.json
+                     // which in turn let's users customize the target behavior as per their needs.
+                     'postcss-normalize'
+                  ]
                },
                sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment
             }
@@ -480,63 +459,6 @@ module.exports = function (webpackEnv) {
                      // See https://github.com/webpack/webpack/issues/6571
                      sideEffects: true
                   },
-                  // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
-                  // using the extension .module.css
-                  {
-                     test: cssModuleRegex,
-                     use: getStyleLoaders({
-                        importLoaders: 1,
-                        sourceMap: isEnvProduction
-                           ? shouldUseSourceMap
-                           : isEnvDevelopment,
-                        modules: {
-                           mode: 'local',
-                           getLocalIdent: getCSSModuleLocalIdent
-                        }
-                     })
-                  },
-                  // Opt-in support for SASS (using .scss or .sass extensions).
-                  // By default we support SASS Modules with the
-                  // extensions .module.scss or .module.sass
-                  {
-                     test: sassRegex,
-                     exclude: sassModuleRegex,
-                     use: getStyleLoaders(
-                        {
-                           importLoaders: 3,
-                           sourceMap: isEnvProduction
-                              ? shouldUseSourceMap
-                              : isEnvDevelopment,
-                           modules: {
-                              mode: 'icss'
-                           }
-                        },
-                        'sass-loader'
-                     ),
-                     // Don't consider CSS imports dead code even if the
-                     // containing package claims to have no side effects.
-                     // Remove this when webpack adds a warning or an error for this.
-                     // See https://github.com/webpack/webpack/issues/6571
-                     sideEffects: true
-                  },
-                  // Adds support for CSS Modules, but using SASS
-                  // using the extension .module.scss or .module.sass
-                  {
-                     test: sassModuleRegex,
-                     use: getStyleLoaders(
-                        {
-                           importLoaders: 3,
-                           sourceMap: isEnvProduction
-                              ? shouldUseSourceMap
-                              : isEnvDevelopment,
-                           modules: {
-                              mode: 'local',
-                              getLocalIdent: getCSSModuleLocalIdent
-                           }
-                        },
-                        'sass-loader'
-                     )
-                  },
                   // "file" loader makes sure those assets get served by WebpackDevServer.
                   // When you `import` an asset, you get its (virtual) filename.
                   // In production, they would get copied to the `build` folder.
@@ -656,16 +578,15 @@ module.exports = function (webpackEnv) {
          // solution that requires the user to opt into importing specific locales.
          // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
          // You can remove this if you don't use Moment.js:
-         new webpack.IgnorePlugin({
-            resourceRegExp: /^\.\/locale$/,
-            contextRegExp: /moment$/
-         }),
+         // new webpack.IgnorePlugin({
+         //    resourceRegExp: /^\.\/locale$/,
+         //    contextRegExp: /moment$/
+         // }),
          // Generate a service worker script that will precache, and keep up to date,
          // the HTML & assets that are part of the webpack build.
-         isEnvProduction &&
-            fs.existsSync(swSrc) &&
+         isEnvProduction && fs.existsSync(paths.swSrc) &&
             new WorkboxWebpackPlugin.InjectManifest({
-               swSrc,
+               swSrc: paths.swSrc,
                dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
                exclude: [/\.map$/, /asset-manifest\.json$/, /LICENSE/],
                // Bump up the default maximum size (2mb) that's precached,
@@ -742,7 +663,24 @@ module.exports = function (webpackEnv) {
                      })
                   }
                }
-            })
+            }),
+         // Generates the manifest.json file and the icons with the specified sizes.
+         // Only generates the icons on production
+         new WebpackPwaManifest({
+            name: 'Whitelist',
+            short_name: 'Whitelist',
+            description: 'Whitelist Helium center for miners and troubleshooting solutions!',
+            theme_color: '#001ecf',
+            background_color: '#101535',
+            fingerprints: false,
+            crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
+            icons: isEnvProduction && [
+               {
+                  src: path.resolve('public/icon.png'),
+                  sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+               }
+            ]
+         })
       ].filter(Boolean),
       // Turn off performance processing because we utilize
       // our own hints via the FileSizeReporter

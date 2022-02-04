@@ -1,6 +1,6 @@
 import { styled, Typography } from '@mui/material'
 
-const ProductDescription = styled(Typography)({
+const Description = styled(Typography)({
    overflow: 'hidden',
    maxHeight: '8rem',
    display: '-webkit-box',
@@ -9,4 +9,6 @@ const ProductDescription = styled(Typography)({
    WebkitLineClamp: '5'
 })
 
-export default ProductDescription
+export default ({ text }: { text: string | React.ReactNode }) => (
+   <Description>{text}</Description>
+)

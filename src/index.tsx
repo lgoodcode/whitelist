@@ -6,7 +6,7 @@ import SimpleReactLightbox from 'simple-react-lightbox'
 import App from './App'
 import store from './app/store'
 import './index.css'
-import * as serviceWorker from './serviceWorker'
+import * as serviceWorker from './serviceWorkerRegistration'
 // import reportWebVitals from 'performance/reportWebVitals'
 
 ReactDOM.render(

@@ -1,5 +1,5 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
-import SlideFade from 'components/SlideFade'
+import { ShortFade, SlideFade } from 'components/SlideFade'
 
 import bgImage from 'assets/img/landing-particles.jpg'
 import landingBlockImage from 'assets/img/blocks-server.svg'
@@ -11,13 +11,13 @@ const landingStyles = {
    backgroundAttachment: 'fixed',
    '@keyframes animate': {
       from: {
-         backgroundPositionY: 0
+         backgroundPositionY: '0'
       },
       to: {
-         backgroundPositionY: '100%'
+         backgroundPositionY: '-10000px'
       }
    },
-   animation: 'animate 5s ease-in-out infinite alternate'
+   animation: 'animate 500s linear infinite alternate'
 }
 
 function HomeLanding() {
@@ -83,7 +83,7 @@ function HomeLanding() {
                   </Grid>
 
                   <Grid item lg={5}>
-                     <SlideFade in direction="left" timeout={1000} delay={700}>
+                     <ShortFade direction="up" duration={1200}>
                         <Box>
                            <img width="100%" src={landingBlockImage} />
                            <Box display="none">
@@ -92,7 +92,7 @@ function HomeLanding() {
                               </a>
                            </Box>
                         </Box>
-                     </SlideFade>
+                     </ShortFade>
                   </Grid>
                </Grid>
             </Container>

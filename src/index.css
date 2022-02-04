@@ -35,7 +35,6 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
    box-shadow: none !important;
-   -webkit-box-shadow: none !important;
    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
    transition-delay: background-color 5000s, color 5000s;
 }
