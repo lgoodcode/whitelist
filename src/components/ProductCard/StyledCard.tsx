@@ -3,7 +3,7 @@ import type { Theme } from '@mui/material'
 
 const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => ({
    height: '100%',
-   minWidth: 320,
+   width: '100%',
    backgroundColor: 'background.paper',
    transition: '0.3s',
    boxShadow: theme.shadows[10],

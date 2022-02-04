@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "private": true,
   "engines": {
     "node": "^16.x || ^17.x"
@@ -17,7 +17,8 @@
     "test": "node scripts/test.js",
     "analyze": "node scripts/analyze.js",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}"
+    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "deploy": "npm run build && netlify deploy --alias test"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"

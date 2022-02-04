@@ -6,25 +6,46 @@ import {
 } from '@mui/icons-material'
 import type { SvgIconProps } from '@mui/material'
 
-export interface NavItemProps {
-   icon: (props: SvgIconProps) => JSX.Element
+import Home from 'pages/Home'
+// import Services from 'pages/Services'
+import Products from 'pages/Products'
+// import Contact from 'pages/Contact'
+import PageNotFound from 'pages/404'
+
+export interface Route {
    name: string
-   href: string
+   path: string
+   Component: () => JSX.Element
+   Icon: (props: SvgIconProps) => JSX.Element
 }
 
-const navigation: NavItemProps[] = [
-   { icon: HomeIcon, name: 'Home', href: '/' },
+const routes: Route[] = [
    {
-      icon: MiscellaneousServicesIcon,
+      Icon: HomeIcon,
+      name: 'Home',
+      path: '/',
+      Component: Home
+   },
+   {
+      Icon: MiscellaneousServicesIcon,
       name: 'Services',
-      href: '/services'
+      path: '/services',
+      // Component: Services
+      Component: PageNotFound
    },
    {
-      icon: ShoppingBagIcon,
+      Icon: ShoppingBagIcon,
       name: 'Products',
-      href: '/products'
+      path: '/products',
+      Component: Products
    },
-   { icon: LocalPhoneIcon, name: 'Contact Us', href: '/contact' }
+   {
+      Icon: LocalPhoneIcon,
+      name: 'Contact Us',
+      path: '/contact',
+      // Component: Contact
+      Component: PageNotFound
+   }
 ]
 
-export default navigation
+export default routes

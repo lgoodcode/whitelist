@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material'
 
 function Footer() {
    return (
-      <Box component="footer" mt={12} bgcolor="background.paper">
+      <Box component="footer" py={2} bgcolor="background.paper">
          <Container>
             <Box
                py={2}
@@ -11,21 +11,17 @@ function Footer() {
                display="flex"
                flexDirection={{ xs: 'column', lg: 'row' }}
                justifyContent="space-between"
-               alignItems="center"
             >
                <Box>
-                  <Typography variant="h4" color="text.primary">
-                     Contact Us
-                  </Typography>
-                  <Box mt={2}>
-                     <Typography variant="body2" color="text.primary">
-                        <LocalPhoneIcon fontSize="small" /> (206)-432-5920
-                     </Typography>
+                  <Typography variant="h4">Contact Us</Typography>
+                  <Box mt={2} display="flex">
+                     <LocalPhoneIcon fontSize="small" sx={{ mr: 1 }} />
+                     <Typography variant="body2">(360) 329-2025</Typography>
                   </Box>
                </Box>
             </Box>
-            <Box textAlign="center" pb={2}>
-               <Typography variant="subtitle1" color="text.primary">
+            <Box textAlign="center" py={2}>
+               <Typography variant="subtitle1">
                   Copyright &copy; Whitelist LLC 2022
                </Typography>
             </Box>

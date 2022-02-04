@@ -11,13 +11,29 @@ function PageNotFound() {
    const handleClick = () => navigate('/')
 
    return (
-      <Box component="section" py={8} mt={8} bgcolor="background.default">
+      <Box
+         component="section"
+         height="75vh"
+         mt={{
+            xs: 8,
+            sm: 12,
+            md: 24
+         }}
+         bgcolor="background.default"
+      >
          <Container>
             <Grid container>
                <Grid item xs={12} lg={6}>
                   <Graphic theme={mode} />
                </Grid>
-               <Grid item xs={12} lg={6} display="flex" alignItems="center">
+               <Grid
+                  item
+                  xs={12}
+                  lg={6}
+                  display="flex"
+                  mt={{ xs: 8, md: 0 }}
+                  alignItems="center"
+               >
                   <Box>
                      <Typography variant="h3">UH OH! You're lost.</Typography>
                      <Typography paragraph sx={{ mt: 1 }}>
@@ -25,12 +41,14 @@ function PageNotFound() {
                         mystery. But you can click the button below to go back to the
                         homepage.
                      </Typography>
+
                      <Button
                         variant="outlined"
                         color="inherit"
                         size="large"
                         onClick={handleClick}
                         sx={{
+                           mt: 1,
                            px: 8,
                            ':hover': {
                               color: 'background.default',

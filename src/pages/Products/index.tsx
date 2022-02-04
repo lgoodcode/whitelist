@@ -9,7 +9,15 @@ function ProductsPage() {
    const loading = status === 'pending'
 
    return (
-      <Box component="section" py={8} mt={4}>
+      <Box
+         component="section"
+         mt={{
+            xs: 6,
+            sm: 16,
+            md: 24
+         }}
+         pb={8}
+      >
          <Container>
             <Box mt={6} width="auto" maxWidth={300}>
                <Typography variant="h3">Products</Typography>
@@ -24,7 +32,7 @@ function ProductsPage() {
                   columnSpacing={{ xs: 0, lg: 6 }}
                >
                   {(loading ? Array.from(new Array(3)) : products).map((product, key) => (
-                     <Grid item key={key} xs={12} lg={4}>
+                     <Grid item key={key} xs={12} lg={3} mx="auto">
                         <ProductCard product={product} useDesc={false} />
                      </Grid>
                   ))}

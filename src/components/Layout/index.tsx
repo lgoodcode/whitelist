@@ -1,4 +1,3 @@
-import { Box } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 
 import Navbar from 'components/Navbar'
@@ -7,7 +6,7 @@ import CartDrawer from 'components/CartDrawer'
 
 function Layout() {
    return (
-      <Box>
+      <>
          <Navbar />
          <main>
             <Outlet />
@@ -15,7 +14,7 @@ function Layout() {
             <CartDrawer />
          </main>
          <Footer />
-      </Box>
+      </>
    )
 }
 

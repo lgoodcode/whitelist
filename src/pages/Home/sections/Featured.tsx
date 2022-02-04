@@ -27,7 +27,7 @@ function Featured() {
    const loading = status === 'pending'
 
    return (
-      <Box component="section" py={8} sx={bgStyles}>
+      <Box component="section" py={8} pt={14} sx={bgStyles}>
          <Container>
             <Box>
                <Box textAlign="center">
@@ -43,11 +43,12 @@ function Featured() {
                   mx="auto"
                   mt={8}
                   display="flex"
+                  flexWrap={'wrap'}
                   justifyContent="space-around"
-                  flexDirection={{ xs: 'column', lg: 'row' }}
+                  flexDirection={{ xs: 'column', md: 'row' }}
                >
                   {(loading ? Array.from(new Array(2)) : products).map((product, key) => (
-                     <Box key={key} maxWidth={350}>
+                     <Box key={key} mx="auto" mb={8} width={{ xs: 300, lg: 350 }}>
                         <ProductCard product={product} />
                      </Box>
                   ))}

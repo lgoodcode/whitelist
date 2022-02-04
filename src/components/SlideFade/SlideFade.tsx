@@ -28,9 +28,9 @@ export default ({
 
    return (
       <Box {...otherProps}>
-         <Slide in={isIn} timeout={timeout} direction={direction}>
+         <Slide in={isIn} timeout={timeout} direction={direction} unmountOnExit>
             <div>
-               <Fade in={isIn} timeout={timeout} easing="ease-in">
+               <Fade in={isIn} timeout={timeout} easing="ease-in" unmountOnExit>
                   {children}
                </Fade>
             </div>
