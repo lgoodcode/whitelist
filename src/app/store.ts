@@ -4,12 +4,14 @@ import logger from 'redux-logger'
 import cartReducer from './cart/cartSlice'
 import productsReducer from './products/productsSlice'
 
+const devMiddleware = process.env.NODE_ENV !== 'development' ? [] : [logger]
+
 const store = configureStore({
    reducer: {
       cart: cartReducer,
       products: productsReducer
    },
-   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(devMiddleware)
 })
 
 // // Infer the `RootState` and `AppDispatch` types from the store itself

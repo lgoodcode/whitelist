@@ -9,8 +9,8 @@ import NavbarDesktop from './NavbarDesktop'
 import NavbarMobile from './NavbarMobile'
 import type { NavItemProps } from 'routes'
 
-const desktopLogo = '/desktop-logo-fill.svg'
-const mobileLogo = '/logo-fill.svg'
+const desktopLogo = 'logo/desktop-logo-fill.svg'
+const mobileLogo = 'logo/logo-fill.svg'
 
 export interface NavbarProps {
    logo: string

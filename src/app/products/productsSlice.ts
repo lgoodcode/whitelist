@@ -40,7 +40,7 @@ export const productsSlice = createSlice({
    }
 })
 
-export const selectStatus = (state: RootState) => state.products.status
+export const selectProductsStatus = (state: RootState) => state.products.status
 
 export const selectProducts = (state: RootState) => state.products.products
 

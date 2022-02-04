@@ -33,6 +33,7 @@ function Quote() {
                         inquiring about and we'll get back to you as soon as possible.
                      </Typography>
                   </Box>
+                  {/* TODO: change font of label to titllium */}
                   <Box mt={4} component="form" noValidate>
                      <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>

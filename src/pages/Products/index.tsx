@@ -1,13 +1,15 @@
 import { Box, Container, Divider, Grid, Typography } from '@mui/material'
 import { useAppSelector } from 'app/hooks'
-import { selectProducts } from 'app/products/productsSlice'
-import ProductCard from './ProductCard'
+import { selectProducts, selectProductsStatus } from 'app/products/productsSlice'
+import ProductCard from 'components/ProductCard'
 
 function ProductsPage() {
+   const status = useAppSelector(selectProductsStatus)
    const products = useAppSelector(selectProducts)
+   const loading = status === 'pending'
 
    return (
-      <Box component="section" py={8} mt={4} bgcolor="background.default">
+      <Box component="section" py={8} mt={4}>
          <Container>
             <Box mt={6} width="auto" maxWidth={300}>
                <Typography variant="h3">Products</Typography>
@@ -19,14 +21,13 @@ function ProductsPage() {
                <Grid
                   container
                   rowSpacing={{ xs: 8, lg: 6 }}
-                  columnSpacing={{ xs: 0, lg: 3 }}
+                  columnSpacing={{ xs: 0, lg: 6 }}
                >
-                  {products.length &&
-                     products.map((product) => (
-                        <Grid item key={product.id} xs={12} lg={4}>
-                           <ProductCard {...product} />
-                        </Grid>
-                     ))}
+                  {(loading ? Array.from(new Array(3)) : products).map((product, key) => (
+                     <Grid item key={key} xs={12} lg={4}>
+                        <ProductCard product={product} useDesc={false} />
+                     </Grid>
+                  ))}
                </Grid>
             </Box>
          </Container>
