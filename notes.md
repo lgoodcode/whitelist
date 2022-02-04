@@ -118,3 +118,7 @@ To bypass the pre-commit script, like when making formatting changes or basic
 edits, use the `--no-verify` or `-n` shorthand flag.
 
 RUN THE COMMIT THROUGH THE GIT BASH IF POSSIBLE TO SEE THE ERRORS
+
+## Removed lint job from Gitbub actions CI
+
+With the use of lint-staged and husky there is no need for the lint job

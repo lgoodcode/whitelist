@@ -8,17 +8,7 @@ import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { fetchProducts, selectProductsStatus } from 'app/products/productsSlice'
 import Layout from 'components/Layout'
 import Theme from 'assets/theme'
-
-// Pages
-import HomePage from 'pages/Home'
-// const ServicesPage = lazy(() => import('pages/Services'))
-// const ProductsPage = lazy(() => import('pages/Products'))
-import ProductsPage from 'pages/Products'
-// const ItemPage = lazy(() => import('pages/Item'))
-import ItemPage from 'pages/Item'
-// const ContactPage = lazy(() => import('pages/Contact'))
-// const CartPage = lazy(() => import('pages/Cart'))
-// const PageNotFound = lazy(() => import('pages/404'))
+import routes from 'routes'
 import PageNotFound from 'pages/404'
 
 // const lazyLoadPage = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -55,15 +45,9 @@ function App() {
          <CssBaseline />
          <Routes>
             <Route path="/" element={<Layout />}>
-               <Route index element={<HomePage />} />
-               {/* <Route path="/services" element={lazyLoadPage(ServicesPage)} /> */}
-               {/* <Route path="/products" element={lazyLoadPage(ProductsPage)} /> */}
-               <Route path="/products" element={<ProductsPage />} />
-               {/* <Route path="/products/:name" element={lazyLoadPage(ItemPage)} /> */}
-               <Route path="/products/:name" element={<ItemPage />} />
-               {/* <Route path="/contact" element={lazyLoadPage(ContactPage)} /> */}
-               {/* <Route path="/cart" element={lazyLoadPage(CartPage)} /> */}
-               {/* <Route path="*" element={lazyLoadPage(PageNotFound)} /> */}
+               {routes.map(({ path, Component }) => (
+                  <Route key={path} path={path} element={<Component />} />
+               ))}
                <Route path="*" element={<PageNotFound />} />
             </Route>
          </Routes>

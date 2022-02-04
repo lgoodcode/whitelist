@@ -12,6 +12,9 @@
 # eslintcache for the lint-staged pre-commit
 .eslintcache
 
+# Local Netlify folder
+.netlify
+
 # misc
 .DS_Store
 .env.local
@@ -22,5 +25,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-

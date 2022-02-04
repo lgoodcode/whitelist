@@ -63,12 +63,12 @@ function ProductCard({ product, useDesc = true }: ProductCardProps) {
                      {product ? product.brand : <Skeleton />}
                   </Typography>
 
-                  <Typography variant="h4">
+                  <Typography variant="h5">
                      {product ? product.name : <Skeleton />}
                   </Typography>
                </Box>
 
-               {product && <Divider />}
+               {product && <Divider sx={{ my: 1 }} />}
 
                {useDesc && (
                   <Box mt={1}>

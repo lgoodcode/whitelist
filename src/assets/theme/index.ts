@@ -34,7 +34,8 @@ const Theme = (mode: PaletteMode): ThemeOptions =>
                        disabled: 'rgba(255, 255, 255, 0.5)'
                     },
                     primary: {
-                       main: '#001ecf'
+                       //   main: '#001ecf'
+                       main: '#4328b7'
                     },
                     secondary: {
                        main: '#3c3cc8'

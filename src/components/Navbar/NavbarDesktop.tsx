@@ -3,31 +3,28 @@ import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material'
 import { useTheme } from '@mui/material/styles'
 import { useNavigate } from 'react-router-dom'
 
-import NavButton from './NavButton/Desktop'
+import { useAppDispatch, useAppSelector } from 'app/hooks'
+import { open, selectNumItems } from 'app/cart/cartSlice'
+import NavButton from './NavButton'
 import type { NavbarProps } from './index'
-import { useAppSelector } from 'app/hooks'
-import { selectNumItems } from 'app/cart/cartSlice'
 
-function NavbarDesktop({
-   logo,
-   routes,
-   cartOpen,
-   handleOpen,
-   handleClose,
-   ...rest
-}: NavbarProps) {
+function NavbarDesktop({ logo, routes, ...rest }: NavbarProps) {
    const theme = useTheme()
    const navigate = useNavigate()
    const numItems = useAppSelector(selectNumItems)
+   const dispatch = useAppDispatch()
+   const handleCartOpen = () => dispatch(open())
 
    return (
       <AppBar
          position="absolute"
          sx={{
+            display: {
+               xs: 'none',
+               md: 'block'
+            },
             boxShadow: 'none',
             background: 'transparent'
-            // bgcolor: 'rgba(0, 0, 0, 0.15)',
-            // backdropFilter: 'blur(3px)'
          }}
          {...rest}
       >
@@ -57,18 +54,18 @@ function NavbarDesktop({
                      />
                   </Box>
 
-                  <Box ml="auto">
+                  <Box component="nav" ml="auto">
                      {routes.map((route, i) => (
                         <NavButton
                            key={i}
                            name={route.name}
-                           href={route.href}
+                           path={route.path}
                            aria-label={route.name}
                         />
                      ))}
                      <IconButton
                         aria-label="cart"
-                        onClick={handleOpen}
+                        onClick={handleCartOpen}
                         sx={{
                            '&:hover': {
                               bgcolor: 'rgb(156 163 175 / 0.4)'

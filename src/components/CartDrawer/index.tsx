@@ -13,17 +13,18 @@ function Cart() {
    const numItems = useAppSelector(selectNumItems)
    const handleClose = () => dispatch(close())
    const handleRemove = (idx: number) => dispatch(removeItem(idx))
-   const handleNavigateToCart = () => {
+   const handleNavigate = (route: string) => () => {
       handleClose()
-      navigate('/cart')
-   }
-   const handleNavigateToCheckout = () => {
-      handleClose()
-      navigate('/checkout')
+      navigate(route)
    }
 
    return (
-      <Drawer open={open} anchor="right" onClose={handleClose}>
+      <Drawer
+         open={open}
+         anchor="right"
+         onClose={handleClose}
+         sx={{ display: { xs: 'none', md: 'flex' } }}
+      >
          <Box
             role="presentation"
             display="flex"
@@ -50,14 +51,14 @@ function Cart() {
                   <Button
                      variant="contained"
                      color="inherit"
-                     onClick={handleNavigateToCheckout}
+                     onClick={handleNavigate('/checkout')}
                   >
                      Checkout now
                   </Button>
                   <Button
                      variant="outlined"
                      color="inherit"
-                     onClick={handleNavigateToCart}
+                     onClick={handleNavigate('/cart')}
                      sx={{ mt: 2 }}
                   >
                      View Cart
