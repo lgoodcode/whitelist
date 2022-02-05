@@ -9,7 +9,6 @@ import { fetchProducts, selectProductsStatus } from 'app/products/productsSlice'
 import Layout from 'components/Layout'
 import Theme from 'assets/theme'
 import routes from 'routes'
-import PageNotFound from 'pages/404'
 
 // const lazyLoadPage = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
 //    <Suspense fallback={<Loading />}>
@@ -48,7 +47,6 @@ function App() {
                {routes.map(({ path, Component }) => (
                   <Route key={path} path={path} element={<Component />} />
                ))}
-               <Route path="*" element={<PageNotFound />} />
             </Route>
          </Routes>
       </ThemeProvider>

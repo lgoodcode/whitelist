@@ -28,11 +28,11 @@ function ProductsPage() {
             <Box mt={6}>
                <Grid
                   container
-                  rowSpacing={{ xs: 8, lg: 6 }}
-                  columnSpacing={{ xs: 0, lg: 6 }}
+                  rowSpacing={{ xs: 8, md: 6 }}
+                  columnSpacing={{ xs: 0, md: 6 }}
                >
                   {(loading ? Array.from(new Array(3)) : products).map((product, key) => (
-                     <Grid item key={key} xs={12} lg={3} mx="auto">
+                     <Grid item key={key} xs={12} md={3} mx="auto">
                         <ProductCard product={product} useDesc={false} />
                      </Grid>
                   ))}

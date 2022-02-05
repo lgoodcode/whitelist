@@ -55,14 +55,17 @@ function NavbarDesktop({ logo, routes, ...rest }: NavbarProps) {
                   </Box>
 
                   <Box component="nav" ml="auto">
-                     {routes.map((route, i) => (
-                        <NavButton
-                           key={i}
-                           name={route.name}
-                           path={route.path}
-                           aria-label={route.name}
-                        />
-                     ))}
+                     {routes.map(
+                        (route, i) =>
+                           route.nav && (
+                              <NavButton
+                                 key={i}
+                                 name={route.name}
+                                 path={route.path}
+                                 aria-label={route.name}
+                              />
+                           )
+                     )}
                      <IconButton
                         aria-label="cart"
                         onClick={handleCartOpen}
