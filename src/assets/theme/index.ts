@@ -26,35 +26,42 @@ const Theme = (mode: PaletteMode): ThemeOptions =>
          },
          palette: {
             mode,
-            ...(mode === 'dark'
-               ? {
-                    text: {
-                       primary: '#fff',
-                       secondary: 'rgba(255, 255, 255, 0.7)',
-                       disabled: 'rgba(255, 255, 255, 0.5)'
-                    },
-                    primary: {
-                       //   main: '#001ecf'
-                       main: '#4328b7'
-                    },
-                    secondary: {
-                       main: '#3c3cc8'
-                    },
-                    divider: 'rgba(255,255,255,0.2)',
-                    background: {
-                       default: '#101535',
-                       paper: '#1a245e'
+            ...Object.assign(
+               {
+                  error: {
+                     main: '#e70f00'
+                  }
+               },
+               mode === 'dark'
+                  ? {
+                       text: {
+                          primary: '#fff',
+                          secondary: 'rgba(255, 255, 255, 0.7)',
+                          disabled: 'rgba(255, 255, 255, 0.5)'
+                       },
+                       primary: {
+                          //   main: '#001ecf'
+                          main: '#4328b7'
+                       },
+                       secondary: {
+                          main: '#3c3cc8'
+                       },
+                       divider: 'rgba(255,255,255,0.2)',
+                       background: {
+                          default: '#101535',
+                          paper: '#1a245e'
+                       }
                     }
-                 }
-               : {
-                    primary: {
-                       main: '#b38615'
-                    },
-                    secondary: {
-                       main: '#eaeaea'
-                    },
-                    divider: 'rgba(0, 0, 0, 0.2)'
-                 })
+                  : {
+                       primary: {
+                          main: '#b38615'
+                       },
+                       secondary: {
+                          main: '#eaeaea'
+                       },
+                       divider: 'rgba(0, 0, 0, 0.2)'
+                    }
+            )
          },
          components: {
             ...(mode === 'dark' && {

@@ -18,12 +18,19 @@ function Price({ inStock, product }: PriceDisplay) {
             color: !inStock ? 'gray' : ''
          }}
       >
+         {product && inStock && product.discount > 0 && (
+            <Typography variant="h5" fontWeight="light">
+               ${formatPrice(product.price - product.price * product.discount)}
+            </Typography>
+         )}
+
          {product ? (
             <Typography
                variant="h5"
                fontWeight="light"
                color={product.discount > 0 ? 'gray' : ''}
                sx={{
+                  ml: 1,
                   textDecorationLine: product.discount > 0 ? 'line-through' : ''
                }}
             >
@@ -31,12 +38,6 @@ function Price({ inStock, product }: PriceDisplay) {
             </Typography>
          ) : (
             <Skeleton height={64} width="40%" />
-         )}
-
-         {product && inStock && product.discount > 0 && (
-            <Typography variant="h5" fontWeight="light" sx={{ ml: 1 }}>
-               ${formatPrice(product.price - product.price * product.discount)}
-            </Typography>
          )}
 
          <Typography variant="h5" fontWeight="regular" sx={{ ml: 1 }}>

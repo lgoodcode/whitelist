@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom'
 import StyledCard from './StyledCard'
 import ProductDescription from './ProductDescription'
 import type { Product } from 'types'
-import { formatPrice } from 'utilities'
+import { formatPrice, getImageAlt } from 'utilities'
 
 interface ProductCardProps {
    product: Product
@@ -27,7 +27,7 @@ function ProductCard({ product, useDesc = true }: ProductCardProps) {
    const inStock = product?.quantity > 0
 
    return (
-      <StyledCard>
+      <StyledCard aria-roledescription="presentation">
          <CardActionArea
             onClick={handleOnClick}
             sx={{
@@ -38,7 +38,11 @@ function ProductCard({ product, useDesc = true }: ProductCardProps) {
             }}
          >
             {product ? (
-               <CardMedia component="img" src={product.images[0]} />
+               <CardMedia
+                  component="img"
+                  src={product.images[0]}
+                  alt={getImageAlt(product.images[0])}
+               />
             ) : (
                <Skeleton variant="rectangular" width="100%" height={335} />
             )}
