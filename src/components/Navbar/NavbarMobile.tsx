@@ -85,32 +85,35 @@ function NavbarMobile({ logo, routes }: NavbarProps) {
             >
                <Box component="nav" mt={2}>
                   <List>
-                     {routes.map((route, i) => (
-                        <Fade in={open} timeout={800 + i * 150} unmountOnExit>
-                           <Box>
-                              <Slide
-                                 in={open}
-                                 direction="right"
-                                 timeout={800 + i * 150}
-                                 unmountOnExit
-                              >
+                     {routes.map(
+                        (route, i) =>
+                           route.nav && (
+                              <Fade in={open} timeout={800 + i * 150} unmountOnExit>
                                  <Box>
-                                    <ListItem>
-                                       <ListItemButton
-                                          onClick={handleNavigate(route.path)}
-                                       >
-                                          <ListItemIcon>
-                                             <route.Icon />
-                                          </ListItemIcon>
-                                          <ListItemText primary={route.name} />
-                                       </ListItemButton>
-                                    </ListItem>
-                                    <Divider variant="middle" component="li" />
+                                    <Slide
+                                       in={open}
+                                       direction="right"
+                                       timeout={800 + i * 150}
+                                       unmountOnExit
+                                    >
+                                       <Box>
+                                          <ListItem>
+                                             <ListItemButton
+                                                onClick={handleNavigate(route.path)}
+                                             >
+                                                <ListItemIcon>
+                                                   {route.Icon && <route.Icon />}
+                                                </ListItemIcon>
+                                                <ListItemText primary={route.name} />
+                                             </ListItemButton>
+                                          </ListItem>
+                                          <Divider variant="middle" component="li" />
+                                       </Box>
+                                    </Slide>
                                  </Box>
-                              </Slide>
-                           </Box>
-                        </Fade>
-                     ))}
+                              </Fade>
+                           )
+                     )}
                   </List>
                </Box>
             </Box>
