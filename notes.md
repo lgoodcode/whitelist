@@ -122,3 +122,43 @@ RUN THE COMMIT THROUGH THE GIT BASH IF POSSIBLE TO SEE THE ERRORS
 ## Removed lint job from Gitbub actions CI
 
 With the use of lint-staged and husky there is no need for the lint job
+
+## New Extensions
+
+Time tracker - Easy status button at bottom to track the amount of time spent for
+a certain project for billable hours.
+
+WakaTime - full statistics on total coding time.
+
+## CSP (Content-Policy Security)
+
+Add security to prevent scripts from being added inline to the app. Styles aren't
+set because the nonce value isn't added when the main.bundle.js file adds the
+compiled css files so CSP blocks them.
+
+Place the config after the HtmlWebpackPlugin
+
+```js
+{
+   new CspHtmlWebpackPlugin(
+      {
+         'base-uri': "'self'",
+         'object-src': "'none'",
+         'script-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"],
+         'style-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"]
+      },
+      {
+         enabled: true,
+         hashingMethod: 'sha256',
+         hashEnabled: {
+            'script-src': true,
+            'style-src': false
+         },
+         nonceEnabled: {
+            'script-src': true,
+            'style-src': false
+         }
+      }
+   )
+}
+```

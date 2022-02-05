@@ -38,7 +38,8 @@ function HomeLanding() {
                mt: {
                   xs: 6,
                   sm: 12,
-                  md: 18
+                  md: 18,
+                  lg: 24
                }
             }}
          >
@@ -96,7 +97,11 @@ function HomeLanding() {
                <Grid item xs={12} sm={8} md={5} mx="auto" mt={{ xs: 6, md: 0 }}>
                   <ShortFade direction="up" duration={1200}>
                      <Box>
-                        <img width="100%" src={landingBlockImage} />
+                        <img
+                           width="100%"
+                           src={landingBlockImage}
+                           alt="servers illustration"
+                        />
                         <Box display="none">
                            <a href="https://www.freepik.com/vectors/technology">
                               Technology vector created by fullvector - www.freepik.com
