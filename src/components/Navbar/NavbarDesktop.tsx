@@ -6,9 +6,10 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { open, selectNumItems } from 'app/cart/cartSlice'
 import NavButton from './NavButton'
+import logo from 'assets/img/logo/desktop-logo-fill.svg'
 import type { NavbarProps } from './index'
 
-function NavbarDesktop({ logo, routes, ...rest }: NavbarProps) {
+function NavbarDesktop({ routes, ...rest }: NavbarProps) {
    const theme = useTheme()
    const navigate = useNavigate()
    const numItems = useAppSelector(selectNumItems)
