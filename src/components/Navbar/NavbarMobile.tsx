@@ -18,9 +18,10 @@ import Hamburger from 'hamburger-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import logo from 'assets/img/logo/logo-fill.svg'
 import type { NavbarProps } from './index'
 
-function NavbarMobile({ logo, routes }: NavbarProps) {
+function NavbarMobile({ routes }: NavbarProps) {
    const [open, setOpen] = useState<boolean>(false)
    const navigate = useNavigate()
    const handleNavigate = (route: string) => () => {
@@ -88,7 +89,12 @@ function NavbarMobile({ logo, routes }: NavbarProps) {
                      {routes.map(
                         (route, i) =>
                            route.nav && (
-                              <Fade in={open} timeout={800 + i * 150} unmountOnExit>
+                              <Fade
+                                 key={route.path}
+                                 in={open}
+                                 timeout={800 + i * 150}
+                                 unmountOnExit
+                              >
                                  <Box>
                                     <Slide
                                        in={open}
