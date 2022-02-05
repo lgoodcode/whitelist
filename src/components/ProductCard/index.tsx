@@ -38,7 +38,7 @@ function ProductCard({ product, useDesc = true }: ProductCardProps) {
             }}
          >
             {product ? (
-               <CardMedia component="img" image={product.images[0]} />
+               <CardMedia component="img" src={product.images[0]} />
             ) : (
                <Skeleton variant="rectangular" width="100%" height={335} />
             )}

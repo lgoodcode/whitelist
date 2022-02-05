@@ -77,29 +77,29 @@ function NavbarMobile({ routes }: NavbarProps) {
 
          <Slide in={open} direction="down" timeout={400}>
             <Box
-               top={56}
+               top={55}
                position="absolute"
                bgcolor="#253380"
                zIndex={-1}
-               height="calc(100vh - 56px)"
+               height="calc(100vh - 55px)"
                width="100%"
             >
                <Box component="nav" mt={2}>
                   <List>
                      {routes.map(
                         (route, i) =>
-                           route.nav && (
+                           route.nav.match(/mobile|both/) && (
                               <Fade
                                  key={route.path}
                                  in={open}
-                                 timeout={800 + i * 150}
+                                 timeout={800 + i * 100}
                                  unmountOnExit
                               >
                                  <Box>
                                     <Slide
                                        in={open}
                                        direction="right"
-                                       timeout={800 + i * 150}
+                                       timeout={800 + i * 100}
                                        unmountOnExit
                                     >
                                        <Box>
