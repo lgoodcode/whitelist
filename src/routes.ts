@@ -2,7 +2,8 @@ import {
    Home as HomeIcon,
    MiscellaneousServices as MiscellaneousServicesIcon,
    ShoppingBag as ShoppingBagIcon,
-   LocalPhone as LocalPhoneIcon
+   LocalPhone as LocalPhoneIcon,
+   ShoppingCart as ShoppingCartIcon
 } from '@mui/icons-material'
 import type { SvgIconProps } from '@mui/material'
 
@@ -16,7 +17,7 @@ import ItemPage from 'pages/Item'
 export interface Route {
    name: string
    path: string
-   nav: boolean
+   nav: 'desktop' | 'mobile' | 'both' | 'none'
    Component: () => JSX.Element
    Icon?: (props: SvgIconProps) => JSX.Element
 }
@@ -26,14 +27,14 @@ const routes: Route[] = [
       Icon: HomeIcon,
       name: 'Home',
       path: '/',
-      nav: true,
+      nav: 'both',
       Component: Home
    },
    {
       Icon: MiscellaneousServicesIcon,
       name: 'Services',
       path: '/services',
-      nav: true,
+      nav: 'both',
       // Component: Services
       Component: PageNotFound
    },
@@ -41,27 +42,40 @@ const routes: Route[] = [
       Icon: ShoppingBagIcon,
       name: 'Products',
       path: '/products',
-      nav: true,
+      nav: 'both',
       Component: Products
    },
    {
       name: 'Item Page',
       path: '/products/:name',
-      nav: false,
+      nav: 'none',
       Component: ItemPage
    },
    {
       Icon: LocalPhoneIcon,
       name: 'Contact Us',
       path: '/contact',
-      nav: true,
+      nav: 'both',
       // Component: Contact
+      Component: PageNotFound
+   },
+   {
+      Icon: ShoppingCartIcon,
+      name: 'Cart',
+      path: '/cart',
+      nav: 'mobile',
+      Component: PageNotFound
+   },
+   {
+      name: 'Checkout',
+      path: '/checkout',
+      nav: 'none',
       Component: PageNotFound
    },
    {
       name: 'Page Not Found',
       path: '*',
-      nav: false,
+      nav: 'none',
       Component: PageNotFound
    }
 ]

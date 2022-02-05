@@ -36,7 +36,7 @@ function Featured() {
                      variant="h3"
                      fontWeight="fontWeightLight"
                   >
-                     Our Products
+                     Featured Products
                   </Typography>
                </Box>
                <Box

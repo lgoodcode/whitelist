@@ -58,7 +58,7 @@ function NavbarDesktop({ routes, ...rest }: NavbarProps) {
                   <Box component="nav" ml="auto">
                      {routes.map(
                         (route, i) =>
-                           route.nav && (
+                           route.nav.match(/desktop|both/) && (
                               <NavButton
                                  key={i}
                                  name={route.name}

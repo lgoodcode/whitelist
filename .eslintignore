@@ -1,7 +1,3 @@
-.idea
-.storybook
-.config
-*.config.js
 node_modules/*
 config/*
 public/*
