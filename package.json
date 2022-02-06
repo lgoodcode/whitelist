@@ -28,7 +28,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.2.5",
-    "@mui/material": "^5.2.8",
+    "@mui/material": "^5.4.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@reduxjs/toolkit": "^1.7.1",
     "@svgr/webpack": "^6.2.0",
