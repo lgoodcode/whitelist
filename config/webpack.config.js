@@ -27,6 +27,7 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash')
 const chalk = require('react-dev-utils/chalk')
@@ -482,7 +483,7 @@ module.exports = function (webpackEnv) {
          new ProgressBarPlugin({
             format: `${chalk.green.bold('building...')} ${chalk.cyan(
                '[:bar]'
-            )} [:percent] [:elapsed seconds] - :msg`
+            )} [:percent] [:elapsed seconds] - :msg\n`
          }),
          // Generates an `index.html` file with the <script> injected.
          new HtmlWebpackPlugin(
@@ -680,7 +681,12 @@ module.exports = function (webpackEnv) {
                   sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
                }
             ]
-         })
+         }),
+         // Checks if there are duplicate packages within the project with different versions
+         isEnvDevelopment && 
+            new DuplicatePackageCheckerPlugin({
+               verbose: true,
+            })
       ].filter(Boolean),
       // Turn off performance processing because we utilize
       // our own hints via the FileSizeReporter
