@@ -1,61 +1,83 @@
 import { Box } from '@mui/material'
+import { useRef } from 'react'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
+import { getImageAlt } from 'utilities'
 
 const galleryOptions = {
    buttons: {
       showAutoplayButton: false,
       showDownloadButton: false,
       showThumbnailsButton: false
+   },
+   caption: {
+      showCaption: false
    }
 }
 
 function Gallery({ images }: { images: string[] }) {
-   return (
-      <SimpleReactLightbox>
-         <Box display="flex" justifyContent="center">
-            <Box>
-               <Box maxWidth={480}>
-                  <a href={images[0]}>
-                     <img src={images[0]} width="100%" />
-                  </a>
-               </Box>
+   const mainImageRef = useRef<HTMLElement>()
+   const handleMainImageClick = () => {
+      if (mainImageRef.current) {
+         mainImageRef.current.click()
+      }
+   }
 
-               {images && (
-                  <SRLWrapper options={galleryOptions}>
-                     <Box
-                        mt={8}
-                        py={1}
-                        display="flex"
-                        flexDirection="row"
-                        flexWrap="wrap"
-                        justifyContent="center"
-                        alignItems="center"
-                        bgcolor="rgb(255 255 255 / 10%)"
-                     >
-                        {images.map((image) => (
-                           <Box key={image} m={1} overflow="hidden" height={80}>
-                              <a href={image}>
-                                 <Box
-                                    component="img"
-                                    src={image}
-                                    height={80}
-                                    width="auto"
-                                    sx={{
-                                       transition: 'all 0.3s ease-in-out',
-                                       ':hover': {
-                                          transform: 'scale(1.15)'
-                                       }
-                                    }}
-                                 />
-                              </a>
-                           </Box>
-                        ))}
-                     </Box>
-                  </SRLWrapper>
-               )}
-            </Box>
+   return (
+      <Box display="flex" justifyContent="center" flexDirection="column">
+         <Box display="flex" mx="auto" maxWidth={480}>
+            <Box
+               component="img"
+               src={images[0]}
+               width="100%"
+               alt={getImageAlt(images[0])}
+               sx={{ cursor: 'pointer' }}
+               onClick={handleMainImageClick}
+            />
          </Box>
-      </SimpleReactLightbox>
+
+         {images && (
+            <SimpleReactLightbox>
+               <SRLWrapper options={galleryOptions}>
+                  <Box
+                     mt={8}
+                     py={1}
+                     display="flex"
+                     flexDirection="row"
+                     flexWrap="wrap"
+                     justifyContent="center"
+                     alignItems="center"
+                     bgcolor="rgb(255 255 255 / 10%)"
+                  >
+                     {images.map((image, i) => (
+                        <Box
+                           key={image}
+                           m={1}
+                           height={80}
+                           border={2}
+                           borderColor="rgb(255 255 255 / 40%)"
+                           boxShadow={15}
+                           sx={{
+                              ':hover': {
+                                 boxShadow: '0px 0px 11px 3px rgb(255 255 255 / 20%)'
+                              }
+                           }}
+                        >
+                           <Box
+                              ref={i === 0 ? mainImageRef : undefined}
+                              component="img"
+                              src={image}
+                              height={76}
+                              width="auto"
+                              alt={getImageAlt(image)}
+                              sx={{ cursor: 'pointer' }}
+                           />
+                        </Box>
+                     ))}
+                  </Box>
+               </SRLWrapper>
+            </SimpleReactLightbox>
+         )}
+      </Box>
    )
 }
 
