@@ -93,14 +93,14 @@ function NavbarMobile({ routes }: NavbarProps) {
                                  key={route.path}
                                  in={open}
                                  timeout={800 + i * 100}
-                                 mountOnEnter={false}
+                                 unmountOnExit
                               >
                                  <Box>
                                     <Slide
                                        in={open}
                                        direction="right"
                                        timeout={800 + i * 100}
-                                       mountOnEnter={false}
+                                       unmountOnExit
                                     >
                                        <Box>
                                           <ListItem>

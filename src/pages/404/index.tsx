@@ -13,13 +13,16 @@ function PageNotFound() {
    return (
       <Box
          component="section"
-         height="75vh"
-         mt={{
-            xs: 8,
-            sm: 12,
-            md: 24
-         }}
          bgcolor="background.default"
+         sx={{
+            backgroundImage: 'linear-gradient(180deg, #253380 0%, rgba(61,63,199,0) 100%)'
+         }}
+         py={{
+            xs: 4,
+            sm: 8,
+            md: 12,
+            lg: 16
+         }}
       >
          <Container>
             <Grid container>
