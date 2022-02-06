@@ -149,3 +149,4 @@ Configured a restrictive CSP on the Netlify headers value for:
 
 - No Frames
 - All scripts, styles, images have to originate from self
+- Set XSS protection
