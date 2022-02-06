@@ -2,7 +2,6 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import SimpleReactLightbox from 'simple-react-lightbox'
 import App from './App'
 import store from './app/store'
 import './index.css'
@@ -13,9 +12,7 @@ ReactDOM.render(
    <React.StrictMode>
       <BrowserRouter>
          <Provider store={store}>
-            <SimpleReactLightbox>
-               <App />
-            </SimpleReactLightbox>
+            <App />
          </Provider>
       </BrowserRouter>
    </React.StrictMode>,

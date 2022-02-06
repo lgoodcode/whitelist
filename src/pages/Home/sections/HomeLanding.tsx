@@ -23,7 +23,10 @@ const landingStyles = {
 function HomeLanding() {
    return (
       <Box component="section" display="flex" height="100vh" sx={landingStyles}>
+         {/* Seperate element for the gradient because of the infinite looping
+            background image */}
          <Box
+            role="background gradient"
             position="absolute"
             height="100vh"
             width="100%"

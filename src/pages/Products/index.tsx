@@ -9,37 +9,51 @@ function ProductsPage() {
    const loading = status === 'pending'
 
    return (
-      <Box
-         component="section"
-         mt={{
-            xs: 6,
-            sm: 16,
-            md: 24
-         }}
-         pb={8}
-      >
-         <Container>
-            <Box mt={6} width="auto" maxWidth={300}>
-               <Typography variant="h3">Products</Typography>
-               <Divider />
-            </Box>
-            {/* TODO: add filtering and sorting */}
-            <Box></Box>
-            <Box mt={6}>
-               <Grid
-                  container
-                  rowSpacing={{ xs: 8, md: 6 }}
-                  columnSpacing={{ xs: 0, md: 6 }}
+      <>
+         <Box
+            role="background gradient"
+            position="absolute"
+            height="100vh"
+            width="100%"
+            zIndex={-1}
+            sx={{
+               backgroundImage:
+                  'linear-gradient(180deg, #253380 0%, rgba(61,63,199,0) 100%)'
+            }}
+         ></Box>
+         <Box component="section" display="flex" py={8}>
+            <Container>
+               <Box
+                  mt={{
+                     md: 4,
+                     lg: 8
+                  }}
+                  width="auto"
+                  maxWidth={300}
                >
-                  {(loading ? Array.from(new Array(3)) : products).map((product, key) => (
-                     <Grid item key={key} xs={12} md={3} mx="auto">
-                        <ProductCard product={product} useDesc={false} />
-                     </Grid>
-                  ))}
-               </Grid>
-            </Box>
-         </Container>
-      </Box>
+                  <Typography variant="h3">Products</Typography>
+                  <Divider />
+               </Box>
+               {/* TODO: add filtering and sorting */}
+               <Box></Box>
+               <Box mt={6}>
+                  <Grid
+                     container
+                     rowSpacing={{ xs: 8, md: 6 }}
+                     columnSpacing={{ xs: 0, md: 6 }}
+                  >
+                     {(loading ? Array.from(new Array(3)) : products).map(
+                        (product, key) => (
+                           <Grid item key={key} xs={12} md={3} mx="auto">
+                              <ProductCard product={product} useDesc={false} />
+                           </Grid>
+                        )
+                     )}
+                  </Grid>
+               </Box>
+            </Container>
+         </Box>
+      </>
    )
 }
 
