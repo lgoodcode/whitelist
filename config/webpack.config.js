@@ -483,7 +483,7 @@ module.exports = function (webpackEnv) {
          new ProgressBarPlugin({
             format: `${chalk.green.bold('building...')} ${chalk.cyan(
                '[:bar]'
-            )} [:percent] [:elapsed seconds] - :msg\n`
+            )} [:percent] [:elapsed seconds] - :msg`
          }),
          // Generates an `index.html` file with the <script> injected.
          new HtmlWebpackPlugin(
