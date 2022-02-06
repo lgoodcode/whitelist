@@ -130,35 +130,22 @@ a certain project for billable hours.
 
 WakaTime - full statistics on total coding time.
 
+Better TOML - used to support syntax for the .toml files (Netlify)
+
+## Netlify deployment
+
+The `.netlify` folder is added to the project containing the site-id to deploy
+to through the netlify CLI.
+
+It is added to .gitignore
+
+`netlify.toml` in the `/public` directory for the Netlify deployments, containing
+the redirect for all routes to `index.html` since it is SPA. It also contains the
+headers for security.
+
 ## CSP (Content-Policy Security)
 
-Add security to prevent scripts from being added inline to the app. Styles aren't
-set because the nonce value isn't added when the main.bundle.js file adds the
-compiled css files so CSP blocks them.
+Configured a restrictive CSP on the Netlify headers value for:
 
-Place the config after the HtmlWebpackPlugin
-
-```js
-{
-   new CspHtmlWebpackPlugin(
-      {
-         'base-uri': "'self'",
-         'object-src': "'none'",
-         'script-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"],
-         'style-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"]
-      },
-      {
-         enabled: true,
-         hashingMethod: 'sha256',
-         hashEnabled: {
-            'script-src': true,
-            'style-src': false
-         },
-         nonceEnabled: {
-            'script-src': true,
-            'style-src': false
-         }
-      }
-   )
-}
-```
+- No Frames
+- All scripts, styles, images have to originate from self

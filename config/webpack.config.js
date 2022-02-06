@@ -27,7 +27,6 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
-const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin')
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash')
 const chalk = require('react-dev-utils/chalk')
@@ -510,27 +509,6 @@ module.exports = function (webpackEnv) {
                     }
                   : undefined
             )
-         ),
-         // Generates a CSP policy as a meta tag
-         new CspHtmlWebpackPlugin(
-            {
-               'base-uri': "'self'",
-               'object-src': "'none'",
-               'script-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"],
-               'style-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"]
-            },
-            {
-               enabled: true,
-               hashingMethod: 'sha256',
-               hashEnabled: {
-                  'script-src': true,
-                  'style-src': false
-               },
-               nonceEnabled: {
-                  'script-src': true,
-                  'style-src': false
-               }
-            }
          ),
          // Inlines the webpack runtime script. This script is too small to warrant
          // a network request.
