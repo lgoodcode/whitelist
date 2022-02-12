@@ -2,6 +2,7 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import { LoremIpsum } from 'lorem-ipsum'
 
 import { Section } from 'components/Section'
+import ScrollAnimation from 'components/ScrollAnimation/animate.css'
 import MyDivider from 'components/MyDivider'
 import Image from 'components/Image'
 import lineBar from 'assets/img/landing/landing-bar.jpg'
@@ -45,23 +46,25 @@ function About() {
                   }}
                >
                   <Grid item xs={12} md={8} lg={6}>
-                     <Box
-                        display="flex"
-                        justifyContent="center"
-                        sx={{
-                           backgroundImage:
-                              'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
-                        }}
-                     >
-                        <Image
-                           src={laptopImg}
-                           alt="Laptop visual"
-                           width={{
-                              xs: '75%',
-                              md: '50%'
+                     <ScrollAnimation animation="fadeInLeft" duration={800}>
+                        <Box
+                           display="flex"
+                           justifyContent="center"
+                           sx={{
+                              backgroundImage:
+                                 'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
                            }}
-                        />
-                     </Box>
+                        >
+                           <Image
+                              src={laptopImg}
+                              alt="Laptop visual"
+                              width={{
+                                 xs: '75%',
+                                 md: '50%'
+                              }}
+                           />
+                        </Box>
+                     </ScrollAnimation>
                   </Grid>
 
                   <Grid
@@ -74,45 +77,47 @@ function About() {
                      justifyContent="center"
                      alignItems="center"
                   >
-                     <Box
-                        maxWidth={{
-                           xs: '100%',
-                           lg: 480
-                        }}
-                     >
-                        <Typography
-                           variant="h3"
-                           fontWeight="medium"
-                           fontFamily="Titillium Web"
-                        >
-                           Blockchain Education
-                        </Typography>
-
-                        <MyDivider />
-
-                        <Typography paragraph sx={{ mt: 4 }}>
-                           {lorem.generateParagraphs(1)}
-                        </Typography>
-
-                        <Button
-                           variant="contained"
-                           size="large"
-                           sx={{
-                              px: 4,
-                              py: 1.5,
-                              mt: {
-                                 xs: 2,
-                                 md: 0
-                              },
-                              letterSpacing: '0.1em',
-                              fontFamily: 'Titillium Web',
-                              fontWeight: 'medium',
-                              boxShadow: 5
+                     <ScrollAnimation animation="fadeInRight" duration={800}>
+                        <Box
+                           maxWidth={{
+                              xs: '100%',
+                              lg: 480
                            }}
                         >
-                           View Courses
-                        </Button>
-                     </Box>
+                           <Typography
+                              variant="h3"
+                              fontWeight="medium"
+                              fontFamily="Titillium Web"
+                           >
+                              Blockchain Education
+                           </Typography>
+
+                           <MyDivider />
+
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+
+                           <Button
+                              variant="contained"
+                              size="large"
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 mt: {
+                                    xs: 2,
+                                    md: 0
+                                 },
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
+                              }}
+                           >
+                              View Courses
+                           </Button>
+                        </Box>
+                     </ScrollAnimation>
                   </Grid>
                </Grid>
             </Box>
@@ -147,19 +152,21 @@ function About() {
                      justifyContent="center"
                      alignItems="center"
                   >
-                     <Box
-                        sx={{
-                           backgroundImage:
-                              'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
-                        }}
-                     >
-                        <Image src={hotspotsImg} alt="Hotspot devices visual" />
-                        <Box display="none">
-                           <a href="https://www.freepik.com/vectors/banner">
-                              Banner vector created by fullvector - www.freepik.com
-                           </a>
+                     <ScrollAnimation animation="fadeInRight" duration={800}>
+                        <Box
+                           sx={{
+                              backgroundImage:
+                                 'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
+                           }}
+                        >
+                           <Image src={hotspotsImg} alt="Hotspot devices visual" />
+                           <Box display="none">
+                              <a href="https://www.freepik.com/vectors/banner">
+                                 Banner vector created by fullvector - www.freepik.com
+                              </a>
+                           </Box>
                         </Box>
-                     </Box>
+                     </ScrollAnimation>
                   </Grid>
 
                   <Grid
@@ -176,30 +183,32 @@ function About() {
                         lg: 1
                      }}
                   >
-                     <Box
-                        maxWidth={{
-                           xs: '100%',
-                           lg: 480
-                        }}
-                     >
-                        <Typography
-                           variant="h3"
-                           fontWeight="medium"
-                           fontFamily="Titillium Web"
+                     <ScrollAnimation animation="fadeInLeft" duration={800}>
+                        <Box
+                           maxWidth={{
+                              xs: '100%',
+                              lg: 480
+                           }}
                         >
-                           Helium Hotspots
-                        </Typography>
+                           <Typography
+                              variant="h3"
+                              fontWeight="medium"
+                              fontFamily="Titillium Web"
+                           >
+                              Helium Hotspots
+                           </Typography>
 
-                        <MyDivider />
+                           <MyDivider />
 
-                        <Typography paragraph sx={{ mt: 4 }}>
-                           {lorem.generateParagraphs(1)}
-                        </Typography>
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
 
-                        <Typography paragraph sx={{ mt: 4 }}>
-                           {lorem.generateParagraphs(1)}
-                        </Typography>
-                     </Box>
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+                        </Box>
+                     </ScrollAnimation>
                   </Grid>
                </Grid>
             </Box>
@@ -222,19 +231,22 @@ function About() {
                   }}
                >
                   <Grid item xs={12} md={8} lg={6} display="flex" alignItems="center">
-                     <Box
-                        sx={{
-                           backgroundImage:
-                              'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
-                        }}
-                     >
-                        <Image src={phoneImg} alt="Phone visual" />
-                        <Box display="none">
-                           <a href="https://www.freepik.com/vectors/infographic">
-                              Infographic vector created by fullvector - www.freepik.com
-                           </a>
+                     <ScrollAnimation animation="fadeInLeft" duration={800}>
+                        <Box
+                           sx={{
+                              backgroundImage:
+                                 'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
+                           }}
+                        >
+                           <Image src={phoneImg} alt="Phone visual" />
+                           <Box display="none">
+                              <a href="https://www.freepik.com/vectors/infographic">
+                                 Infographic vector created by fullvector -
+                                 www.freepik.com
+                              </a>
+                           </Box>
                         </Box>
-                     </Box>
+                     </ScrollAnimation>
                   </Grid>
 
                   <Grid
@@ -247,30 +259,32 @@ function About() {
                      justifyContent="center"
                      alignItems="center"
                   >
-                     <Box
-                        maxWidth={{
-                           xs: '100%',
-                           lg: 480
-                        }}
-                     >
-                        <Typography
-                           variant="h3"
-                           fontWeight="medium"
-                           fontFamily="Titillium Web"
+                     <ScrollAnimation animation="fadeInRight" duration={800}>
+                        <Box
+                           maxWidth={{
+                              xs: '100%',
+                              lg: 480
+                           }}
                         >
-                           Earn Passive Income
-                        </Typography>
+                           <Typography
+                              variant="h3"
+                              fontWeight="medium"
+                              fontFamily="Titillium Web"
+                           >
+                              Earn Passive Income
+                           </Typography>
 
-                        <MyDivider />
+                           <MyDivider />
 
-                        <Typography paragraph sx={{ mt: 4 }}>
-                           {lorem.generateParagraphs(1)}
-                        </Typography>
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
 
-                        <Typography paragraph sx={{ mt: 4 }}>
-                           {lorem.generateParagraphs(1)}
-                        </Typography>
-                     </Box>
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+                        </Box>
+                     </ScrollAnimation>
                   </Grid>
                </Grid>
             </Box>

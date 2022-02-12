@@ -1,5 +1,18 @@
 @import 'assets/styles/fonts.css';
 
+/**
+ * Respect prefers-reduced-motion and don't do animations by setting the
+ * global duration short. Also, set the repeat to 0 in case it is set.
+ * https://css-tricks.com/revisiting-prefers-reduced-motion/
+ */
+@media screen and (prefers-reduced-motion: reduce) {
+   :root {
+      --animation-duration: 0.001ms !important; 
+      --transition-duration: 0.001ms !important;
+      --animate-repeat: 0 !important;
+    }
+}
+
 html {
    scroll-behavior: smooth;
 }
@@ -41,9 +54,4 @@ input:-webkit-autofill:active {
 /* Locks the page from scrolling when mobile menu is open */
 .lock-scroll {
    overflow: hidden;
-}
-
-/* Make sure the horizontal bar doesn't show because of the MUI transitions */
-.simplebar-horizontal {
-    visibility: hidden !important;
 }

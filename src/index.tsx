@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import store from './app/store'
 import './index.css'
+import 'animate.css/animate.min.css'
 import * as serviceWorker from './serviceWorkerRegistration'
 // import reportWebVitals from 'performance/reportWebVitals'
 
