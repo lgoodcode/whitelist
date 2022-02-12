@@ -13,4 +13,4 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; frame-src 'none'; manifest-src 'self'"
+    Content-Security-Policy = "base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; frame-src youtube.com www.youtube.com; manifest-src 'self'"

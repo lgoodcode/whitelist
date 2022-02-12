@@ -1,6 +1,6 @@
 import {
    Home as HomeIcon,
-   MiscellaneousServices as MiscellaneousServicesIcon,
+   School as SchoolIcon,
    ShoppingBag as ShoppingBagIcon,
    LocalPhone as LocalPhoneIcon,
    ShoppingCart as ShoppingCartIcon
@@ -8,7 +8,7 @@ import {
 import type { SvgIconProps } from '@mui/material'
 
 import Home from 'pages/Home'
-// import Services from 'pages/Services'
+// import Courses from 'pages/Courses'
 import Products from 'pages/Products'
 // import Contact from 'pages/Contact'
 import PageNotFound from 'pages/404'
@@ -31,11 +31,11 @@ const routes: Route[] = [
       Component: Home
    },
    {
-      Icon: MiscellaneousServicesIcon,
-      name: 'Services',
-      path: '/services',
+      Icon: SchoolIcon,
+      name: 'Courses',
+      path: '/courses',
       nav: 'both',
-      // Component: Services
+      // Component: Courses
       Component: PageNotFound
    },
    {

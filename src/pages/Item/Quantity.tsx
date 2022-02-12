@@ -81,8 +81,8 @@ function Quantity({
                   {inStock ? (
                      <Button
                         fullWidth
+                        color="secondary"
                         variant="contained"
-                        color="inherit"
                         onClick={handleAddItem}
                         disabled={quantity < 1}
                      >

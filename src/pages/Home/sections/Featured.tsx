@@ -2,24 +2,9 @@ import { Box, Container, Typography } from '@mui/material'
 
 import { useAppSelector } from 'app/hooks'
 import { selectProductsFeatured, selectProductsStatus } from 'app/products/productsSlice'
+import { Section } from 'components/Section'
+import MyDivider from 'components/MyDivider'
 import ProductCard from 'components/ProductCard'
-import bgImage from 'assets/img/landing-particles.jpg'
-
-const bgStyles = {
-   backgroundImage: `url(${bgImage})`,
-   backgroundSize: 'cover',
-   backgroundRepeat: 'repeat-y',
-   backgroundAttachment: 'fixed',
-   '@keyframes animate': {
-      from: {
-         backgroundPositionY: 0
-      },
-      to: {
-         backgroundPositionY: '-10000px'
-      }
-   },
-   animation: 'animate 500s linear infinite alternate'
-}
 
 function Featured() {
    const status = useAppSelector(selectProductsStatus)
@@ -27,35 +12,37 @@ function Featured() {
    const loading = status === 'pending'
 
    return (
-      <Box component="section" py={8} pt={14} sx={bgStyles}>
+      <Section sx={{ pt: '64px !important', pb: '48px !important' }}>
          <Container>
-            <Box>
-               <Box textAlign="center">
-                  <Typography
-                     color="text.primary"
-                     variant="h3"
-                     fontWeight="fontWeightLight"
-                  >
-                     Featured Products
-                  </Typography>
-               </Box>
-               <Box
-                  mx="auto"
-                  mt={8}
-                  display="flex"
-                  flexWrap={'wrap'}
-                  justifyContent="space-around"
-                  flexDirection={{ xs: 'column', md: 'row' }}
+            <Box maxWidth="sm" display="flex" flexDirection="column" mx="auto">
+               <Typography
+                  variant="h3"
+                  textAlign="center"
+                  fontWeight="fontWeightLight"
+                  fontFamily="Titillium Web"
                >
-                  {(loading ? Array.from(new Array(2)) : products).map((product, key) => (
-                     <Box key={key} mx="auto" mb={8} width={{ xs: 300, lg: 350 }}>
-                        <ProductCard product={product} />
-                     </Box>
-                  ))}
-               </Box>
+                  Featured Products
+               </Typography>
+
+               <MyDivider />
+            </Box>
+
+            <Box
+               mx="auto"
+               mt={8}
+               display="flex"
+               flexWrap="wrap"
+               justifyContent="space-around"
+               flexDirection={{ xs: 'column', md: 'row' }}
+            >
+               {(loading ? Array.from(new Array(2)) : products).map((product, key) => (
+                  <Box key={key} mx="auto" mb={8} width={{ xs: 300, lg: 350 }}>
+                     <ProductCard product={product} />
+                  </Box>
+               ))}
             </Box>
          </Container>
-      </Box>
+      </Section>
    )
 }
 
