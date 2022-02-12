@@ -5,7 +5,12 @@ import { Provider } from 'react-redux'
 import Home from 'pages/Home'
 import store from 'app/store'
 
-test('renders home page', () => {
+// Need to import it manually because it has to set the window
+// property, whereas jest.mock() simply imports the module
+// eslint-disable-next-line jest/no-mocks-import
+import './__mocks__/intersectionObserverMock'
+
+test('renders home page without crashing', () => {
    render(
       <Provider store={store}>
          <BrowserRouter>
