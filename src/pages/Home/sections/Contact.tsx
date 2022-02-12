@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material'
 import { Section } from 'components/Section'
 import MyDivider from 'components/MyDivider'
-import ScrollAnimation from 'components/ScrollAnimation/animate.css'
+import ScrollAnimation from 'components/ScrollAnimation'
 import arrowLines from 'assets/img/landing/contact-lines.svg'
 import floatingBlock from 'assets/img/landing/blocks.png'
 
@@ -27,7 +27,7 @@ function Contact() {
             }}
          />
          {/* Need a lower threshold because of no top padding for the divider */}
-         <ScrollAnimation animation="fadeIn" threshold={30}>
+         <ScrollAnimation animation="fadeInUp" threshold={30}>
             <Container maxWidth="md">
                <Box maxWidth="sm" mx="auto">
                   <Typography variant="h4" fontFamily="Titillium Web" textAlign="center">

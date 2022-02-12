@@ -8,10 +8,11 @@ const IntersectionObserverMock = function () {
    }
 }
 
-// Assign mock directly for it to detect methods
+// Assign mock directly for it to detect methods. Need to disable ts lint because
+// the mock doesn't actually implement all the properties for the type checker
 // https://stackoverflow.com/questions/67574691/jest-react-intersectionobserver-mock-not-working
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 window.IntersectionObserver = IntersectionObserverMock
 
-export default IntersectionObserver
+export default IntersectionObserverMock

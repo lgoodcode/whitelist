@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@mui/material'
 import { LoremIpsum } from 'lorem-ipsum'
 
 import { Section } from 'components/Section'
-import ScrollAnimation from 'components/ScrollAnimation/animate.css'
+import ScrollAnimation from 'components/ScrollAnimation'
 import scatteredForcefields from 'assets/img/landing/scattered-forcefields.svg'
 import MyDivider from 'components/MyDivider'
 
@@ -33,7 +33,7 @@ function Courses() {
             backgroundSize: 'contain'
          }}
       >
-         <ScrollAnimation animation="fadeInLeft" duration={1200}>
+         <ScrollAnimation animation="fadeInLeftBig" duration={1200} threshold={20}>
             <Grid
                container
                columnSpacing={{
@@ -52,7 +52,7 @@ function Courses() {
                }}
             >
                <Grid item xs={12} lg={4}>
-                  <ScrollAnimation animation="fadeIn" delay={400}>
+                  <ScrollAnimation animation="fadeIn" delay={100}>
                      <>
                         <Typography variant="h3" fontFamily="Titillium Web">
                            Courses
@@ -71,7 +71,7 @@ function Courses() {
                </Grid>
 
                <Grid item xs={12} lg={4}>
-                  <ScrollAnimation animation="fadeIn" delay={500}>
+                  <ScrollAnimation animation="fadeIn" delay={150}>
                      <>
                         <Typography paragraph>{lorem.generateSentences(4)}</Typography>
                         <Typography paragraph>{lorem.generateSentences(4)}</Typography>
@@ -80,7 +80,7 @@ function Courses() {
                </Grid>
 
                <Grid item xs={12} lg={4}>
-                  <ScrollAnimation animation="fadeIn" delay={600}>
+                  <ScrollAnimation animation="fadeIn" delay={200}>
                      <Box
                         height="100%"
                         mt={{

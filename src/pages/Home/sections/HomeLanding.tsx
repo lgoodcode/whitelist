@@ -2,7 +2,7 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material'
 
 import { SectionHeader } from 'components/Section'
 import Image from 'components/Image'
-import ScrollAnimation from 'components/ScrollAnimation/animate.css'
+import ScrollAnimation from 'components/ScrollAnimation'
 import bgImage from 'assets/img/landing/particles.jpg'
 import landingBlockImage from 'assets/img/landing/blocks-server.svg'
 import linesImg from 'assets/img/landing/landing-lines.png'
@@ -50,7 +50,7 @@ function HomeLanding() {
                justifyContent={{ xs: 'center', lg: 'space-between' }}
             >
                <Grid item xs={12} md={10} lg={6}>
-                  <ScrollAnimation animation="fadeInLeft">
+                  <ScrollAnimation animation="fadeInRight">
                      <Typography
                         variant="h2"
                         letterSpacing="-0.05em"
@@ -61,7 +61,7 @@ function HomeLanding() {
                      </Typography>
                   </ScrollAnimation>
 
-                  <ScrollAnimation animation="fadeInUp" delay={300}>
+                  <ScrollAnimation animation="fadeInUp" delay={200}>
                      <Box mt={4}>
                         <Typography lineHeight="1.75" fontWeight="regular">
                            We provide quality cryptocurrency consultation and mining
@@ -97,7 +97,7 @@ function HomeLanding() {
                </Grid>
 
                <Grid item xs={12} md={8} lg={6} mx="auto" mt={{ xs: 8, lg: 0 }}>
-                  <ScrollAnimation animation="fadeInUp" duration={1200}>
+                  <ScrollAnimation animation="fadeInUp" delay={400}>
                      <Box>
                         <Image
                            maxWidth={600}
