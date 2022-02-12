@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "private": true,
   "engines": {
     "node": "^16.x || ^17.x"
@@ -18,7 +18,8 @@
     "analyze": "node scripts/analyze.js",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
-    "deploy": "node scripts/build.js && netlify deploy --alias test"
+    "deploy:test": "netlify deploy --alias test", 
+    "deploy:build": "node scripts/build.js && netlify deploy --alias test"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
@@ -35,6 +36,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "animate.css": "^4.1.1",
     "axios": "^0.25.0",
     "babel-jest": "^27.4.2",
     "babel-loader": "^8.2.3",

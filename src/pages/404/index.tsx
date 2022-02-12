@@ -1,40 +1,28 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
-import { useTheme } from '@mui/material/styles'
 import { useNavigate } from 'react-router-dom'
+
+import { Section } from 'components/Section'
 import Graphic from './Graphic'
 
 function PageNotFound() {
-   const {
-      palette: { mode }
-   } = useTheme()
    const navigate = useNavigate()
    const handleClick = () => navigate('/')
 
    return (
-      <Box
-         component="section"
-         bgcolor="background.default"
-         sx={{
-            backgroundImage: 'linear-gradient(180deg, #253380 0%, rgba(61,63,199,0) 100%)'
-         }}
-         py={{
-            xs: 4,
-            sm: 8,
-            md: 12,
-            lg: 16
-         }}
-      >
+      <Section height="100vh">
          <Container>
             <Grid container>
-               <Grid item xs={12} lg={6}>
-                  <Graphic theme={mode} />
+               <Grid item xs={12} sm={6} lg={6}>
+                  <Graphic />
                </Grid>
+
                <Grid
                   item
                   xs={12}
+                  sm={6}
                   lg={6}
                   display="flex"
-                  mt={{ xs: 8, md: 0 }}
+                  mt={{ xs: 4, md: 0 }}
                   alignItems="center"
                >
                   <Box>
@@ -65,7 +53,7 @@ function PageNotFound() {
                </Grid>
             </Grid>
          </Container>
-      </Box>
+      </Section>
    )
 }
 

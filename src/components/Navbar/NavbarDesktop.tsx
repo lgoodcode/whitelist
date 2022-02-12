@@ -22,7 +22,7 @@ function NavbarDesktop({ routes, ...rest }: NavbarProps) {
          sx={{
             display: {
                xs: 'none',
-               md: 'block'
+               lg: 'block'
             },
             boxShadow: 'none',
             background: 'transparent'

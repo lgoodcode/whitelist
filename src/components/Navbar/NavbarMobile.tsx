@@ -41,7 +41,7 @@ function NavbarMobile({ routes }: NavbarProps) {
          sx={{
             display: {
                xs: 'flex',
-               md: 'none'
+               lg: 'none'
             },
             bgcolor: '#253380',
             transition: 'all 0.3s ease-in-out',

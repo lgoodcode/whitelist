@@ -2,8 +2,12 @@ import { Box } from '@mui/material'
 import type { PaletteMode } from '@mui/material'
 import { gsap } from 'gsap'
 import { useEffect } from 'react'
+import { useTheme } from '@mui/material/styles'
 
-export default ({ theme }: { theme: PaletteMode }) => {
+export default () => {
+   const { palette } = useTheme()
+   const { mode }: { mode: PaletteMode } = palette
+
    useEffect(() => {
       gsap.set('svg', { visibility: 'visible' })
       gsap.to('#headStripe', {
@@ -110,7 +114,7 @@ c6.755-0.61,20.546-0.608,41.785,5.087s33.181,12.591,38.725,16.498c2.387,1.682,3.
                <g id="planet">
                   <circle
                      fill="none"
-                     stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                     stroke={mode === 'light' ? '#0E0620' : '#fff'}
                      strokeWidth="3"
                      strokeMiterlimit="10"
                      cx="572.859"
@@ -121,7 +125,7 @@ c6.755-0.61,20.546-0.608,41.785,5.087s33.181,12.591,38.725,16.498c2.387,1.682,3.
                   <circle
                      id="craterBig"
                      fill="none"
-                     stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                     stroke={mode === 'light' ? '#0E0620' : '#fff'}
                      strokeWidth="3"
                      strokeMiterlimit="10"
                      cx="548.891"
@@ -132,7 +136,7 @@ c6.755-0.61,20.546-0.608,41.785,5.087s33.181,12.591,38.725,16.498c2.387,1.682,3.
                   <circle
                      id="craterSmall"
                      fill="none"
-                     stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                     stroke={mode === 'light' ? '#0E0620' : '#fff'}
                      strokeWidth="3"
                      strokeMiterlimit="10"
                      cx="591.743"
@@ -142,7 +146,7 @@ c6.755-0.61,20.546-0.608,41.785,5.087s33.181,12.591,38.725,16.498c2.387,1.682,3.
                   <path
                      id="ring"
                      fill="none"
-                     stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                     stroke={mode === 'light' ? '#0E0620' : '#fff'}
                      strokeWidth="3"
                      strokeLinecap="round"
                      strokeMiterlimit="10"
@@ -155,7 +159,7 @@ c0-3.378-15.347-4.988-40.243-7.225"
                      id="ringShadow"
                      opacity="0.5"
                      fill="none"
-                     stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                     stroke={mode === 'light' ? '#0E0620' : '#fff'}
                      strokeWidth="3"
                      strokeLinecap="round"
                      strokeMiterlimit="10"
@@ -168,7 +172,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -180,7 +184,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -193,7 +197,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -205,7 +209,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -218,7 +222,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -230,7 +234,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -243,7 +247,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -255,7 +259,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -270,7 +274,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -282,7 +286,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -295,7 +299,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -307,7 +311,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -320,7 +324,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -332,7 +336,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -345,7 +349,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -357,7 +361,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -370,7 +374,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -382,7 +386,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -395,7 +399,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                      <g>
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -407,7 +411,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                           stroke={mode === 'light' ? '#0E0620' : '#fff'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeMiterlimit="10"
@@ -421,7 +425,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                   <g id="circlesBig">
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -432,7 +436,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -443,7 +447,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -454,7 +458,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -465,7 +469,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -476,7 +480,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -487,7 +491,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -498,7 +502,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
 
                      <circle
                         fill="none"
-                        stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                        stroke={mode === 'light' ? '#0E0620' : '#fff'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeMiterlimit="10"
@@ -509,43 +513,43 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                   </g>
                   <g id="circlesSmall">
                      <circle
-                        fill={theme === 'light' ? '#0E0620' : '#fff'}
+                        fill={mode === 'light' ? '#0E0620' : '#fff'}
                         cx="549.879"
                         cy="296.402"
                         r="2.651"
                      />
                      <circle
-                        fill={theme === 'light' ? '#0E0620' : '#fff'}
+                        fill={mode === 'light' ? '#0E0620' : '#fff'}
                         cx="253.29"
                         cy="229.24"
                         r="2.651"
                      />
                      <circle
-                        fill={theme === 'light' ? '#0E0620' : '#fff'}
+                        fill={mode === 'light' ? '#0E0620' : '#fff'}
                         cx="434.824"
                         cy="263.931"
                         r="2.651"
                      />
                      <circle
-                        fill={theme === 'light' ? '#0E0620' : '#fff'}
+                        fill={mode === 'light' ? '#0E0620' : '#fff'}
                         cx="183.708"
                         cy="544.176"
                         r="2.651"
                      />
                      <circle
-                        fill={theme === 'light' ? '#0E0620' : '#fff'}
+                        fill={mode === 'light' ? '#0E0620' : '#fff'}
                         cx="382.515"
                         cy="530.923"
                         r="2.651"
                      />
                      <circle
-                        fill={theme === 'light' ? '#0E0620' : '#fff'}
+                        fill={mode === 'light' ? '#0E0620' : '#fff'}
                         cx="130.693"
                         cy="305.608"
                         r="2.651"
                      />
                      <circle
-                        fill={theme === 'light' ? '#0E0620' : '#fff'}
+                        fill={mode === 'light' ? '#0E0620' : '#fff'}
                         cx="480.296"
                         cy="477.014"
                         r="2.651"
@@ -556,7 +560,7 @@ M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.9
                   <path
                      id="cord"
                      fill="none"
-                     stroke={theme === 'light' ? '#0E0620' : '#fff'}
+                     stroke={mode === 'light' ? '#0E0620' : '#fff'}
                      strokeWidth="3"
                      strokeLinecap="round"
                      strokeLinejoin="round"
@@ -569,7 +573,7 @@ c-68.038-7.178-134.288-43.963-167.33-103.87c-0.908-1.646-1.793-3.3-2.654-4.964c-
                   <path
                      id="backpack"
                      fill="#FFFFFF"
-                     stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                     stroke={mode === 'light' ? '#fff' : '#0E0620'}
                      strokeWidth="3"
                      strokeLinecap="round"
                      strokeLinejoin="round"
@@ -582,7 +586,7 @@ C360.647,451.083,349.251,457.661,338.164,454.689z"
                   <g id="antenna">
                      <line
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -594,7 +598,7 @@ C360.647,451.083,349.251,457.661,338.164,454.689z"
                      />
                      <circle
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -607,7 +611,7 @@ C360.647,451.083,349.251,457.661,338.164,454.689z"
                   <g id="armR">
                      <path
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -619,7 +623,7 @@ c-6.649,3.855-15.164,1.59-19.02-5.059l-5.603-9.663"
 
                      <path
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -633,7 +637,7 @@ C375.625,437.355,383.087,437.973,388.762,434.677z"
                   <g id="armL">
                      <path
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -645,7 +649,7 @@ c3.829,6.664,12.335,8.963,18.999,5.134l9.685-5.564"
 
                      <path
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -659,7 +663,7 @@ C252.013,404.214,245.243,401.017,241.978,395.324z"
                   <g id="body">
                      <path
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -671,7 +675,7 @@ c26.513,7.108,53.771-8.632,60.883-35.158l1.374-5.123C371.778,395.999,365.971,377
                      />
                      <path
                         fill="none"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -684,7 +688,7 @@ M269.678,394.912L269.678,394.912c26.3,20.643,59.654,29.585,93.106,25.724l2.419-0
                      <g id="legR">
                         <path
                            fill="#FFFFFF"
-                           stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                           stroke={mode === 'light' ? '#fff' : '#0E0620'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeLinejoin="round"
@@ -696,7 +700,7 @@ C333.451,455.886,323.526,457.387,312.957,456.734z"
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                           stroke={mode === 'light' ? '#fff' : '#0E0620'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeLinejoin="round"
@@ -710,7 +714,7 @@ C333.451,455.886,323.526,457.387,312.957,456.734z"
                      <g id="legL">
                         <path
                            fill="#FFFFFF"
-                           stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                           stroke={mode === 'light' ? '#fff' : '#0E0620'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeLinejoin="round"
@@ -722,7 +726,7 @@ C278.993,441.286,286.836,447.55,296.315,452.273z"
 
                         <line
                            fill="none"
-                           stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                           stroke={mode === 'light' ? '#fff' : '#0E0620'}
                            strokeWidth="3"
                            strokeLinecap="round"
                            strokeLinejoin="round"
@@ -738,7 +742,7 @@ C278.993,441.286,286.836,447.55,296.315,452.273z"
                      <ellipse
                         transform="matrix(0.259 -0.9659 0.9659 0.259 -51.5445 563.2371)"
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -751,7 +755,7 @@ C278.993,441.286,286.836,447.55,296.315,452.273z"
                      <path
                         id="headStripe"
                         fill="none"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -762,7 +766,7 @@ M330.868,261.338c-7.929,1.72-15.381,5.246-21.799,10.246"
 
                      <path
                         fill="#FFFFFF"
-                        stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                        stroke={mode === 'light' ? '#fff' : '#0E0620'}
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -776,7 +780,7 @@ s33.181,12.591,38.725,16.498c2.387,1.682,3.461,4.668,2.705,7.488L380.857,346.164
                         <polygon
                            id="glassShine"
                            fill="none"
-                           stroke={theme === 'light' ? '#fff' : '#0E0620'}
+                           stroke={mode === 'light' ? '#fff' : '#0E0620'}
                            strokeWidth="3"
                            strokeMiterlimit="10"
                            points="

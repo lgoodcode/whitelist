@@ -7,7 +7,7 @@ import type { PaletteMode } from '@mui/material'
 import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { fetchProducts, selectProductsStatus } from 'app/products/productsSlice'
 import Layout from 'components/Layout'
-import Theme from 'assets/theme'
+import { ComponentTheme, StyleTheme } from 'assets/theme'
 import routes from 'routes'
 
 // const lazyLoadPage = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -40,15 +40,17 @@ function App() {
    }, [pathname])
 
    return (
-      <ThemeProvider theme={Theme(themeMode)}>
-         <CssBaseline />
-         <Routes>
-            <Route path="/" element={<Layout />}>
-               {routes.map(({ path, Component }) => (
-                  <Route key={path} path={path} element={<Component />} />
-               ))}
-            </Route>
-         </Routes>
+      <ThemeProvider theme={StyleTheme(themeMode)}>
+         <ThemeProvider theme={ComponentTheme}>
+            <CssBaseline />
+            <Routes>
+               <Route path="/" element={<Layout />}>
+                  {routes.map(({ path, Component }) => (
+                     <Route key={path} path={path} element={<Component />} />
+                  ))}
+               </Route>
+            </Routes>
+         </ThemeProvider>
       </ThemeProvider>
    )
 }

@@ -1,20 +1,23 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import { ShortFade, SlideFade } from 'components/SlideFade'
 
-import bgImage from 'assets/img/landing-particles.jpg'
-import landingBlockImage from 'assets/img/blocks-server.svg'
+import { SectionHeader } from 'components/Section'
+import Image from 'components/Image'
+import bgImage from 'assets/img/landing/particles.jpg'
+import landingBlockImage from 'assets/img/landing/blocks-server.svg'
+import linesImg from 'assets/img/landing/landing-lines.png'
 
 const landingStyles = {
    backgroundImage: `url(${bgImage})`,
-   backgroundSize: 'cover',
+   backgroundSize: 'cover, contain',
    backgroundRepeat: 'repeat-y',
    backgroundAttachment: 'fixed',
    '@keyframes animate': {
       from: {
-         backgroundPositionY: '0'
+         backgroundPositionY: '0px'
       },
       to: {
-         backgroundPositionY: '-10000px'
+         backgroundPositionY: '10000px'
       }
    },
    animation: 'animate 500s linear infinite alternate'
@@ -22,53 +25,44 @@ const landingStyles = {
 
 function HomeLanding() {
    return (
-      <Box component="section" display="flex" height="100vh" sx={landingStyles}>
-         {/* Seperate element for the gradient because of the infinite looping
-            background image */}
+      <SectionHeader sx={landingStyles} pb={0}>
          <Box
-            role="background gradient"
-            position="absolute"
-            height="100vh"
-            width="100%"
-            zIndex={-1}
             sx={{
+               position: 'absolute',
+               top: {
+                  xs: 56,
+                  md: 64,
+                  lg: 0
+               },
+               bottom: 0,
+               left: 0,
+               right: 0,
+               zIndex: -1,
                backgroundImage:
                   'linear-gradient(180deg, #253380 0%, rgba(61,63,199,0) 100%)'
             }}
          ></Box>
-         <Container
-            sx={{
-               mt: {
-                  xs: 6,
-                  sm: 12,
-                  md: 18,
-                  lg: 24
-               }
-            }}
-         >
+         <Container>
             <Grid
                container
                display="flex"
                flexDirection="row"
-               justifyContent="space-between"
+               justifyContent={{ xs: 'center', lg: 'space-between' }}
             >
-               <Grid item xs={12} md={6}>
+               <Grid item xs={12} md={10} lg={6}>
                   <SlideFade in direction="right">
                      <Typography
                         variant="h2"
                         letterSpacing="-0.05em"
                         fontFamily="Titillium Web"
+                        textAlign={{ xs: 'center', lg: 'start' }}
                      >
                         Your go-to Helium Center
                      </Typography>
                   </SlideFade>
 
                   <SlideFade mt={4} delay={300}>
-                     <Typography
-                        color="text.primary"
-                        lineHeight="1.75"
-                        fontWeight="regular"
-                     >
+                     <Typography lineHeight="1.75" fontWeight="regular">
                         We provide quality cryptocurrency consultation and mining
                         equipment installation services. If you're interested in investing
                         the ever growing blockhain industry whether it is through
@@ -78,17 +72,17 @@ function HomeLanding() {
                   </SlideFade>
 
                   <SlideFade mt={4} delay={500}>
-                     <Box>
+                     <Box display="flex" justifyContent={{ xs: 'center', lg: 'start' }}>
                         <Button
                            variant="contained"
-                           color="secondary"
                            size="large"
                            sx={{
                               px: 4,
                               py: 1.5,
-                              letterSpacing: '0.075em',
+                              letterSpacing: '0.1em',
                               fontFamily: 'Titillium Web',
-                              fontWeight: 'bold'
+                              fontWeight: 'medium',
+                              boxShadow: 5
                            }}
                         >
                            Get Started
@@ -97,11 +91,11 @@ function HomeLanding() {
                   </SlideFade>
                </Grid>
 
-               <Grid item xs={12} sm={8} md={5} mx="auto" mt={{ xs: 6, md: 0 }}>
+               <Grid item xs={12} md={8} lg={6} mx="auto" mt={{ xs: 8, lg: 0 }}>
                   <ShortFade direction="up" duration={1200}>
                      <Box>
-                        <img
-                           width="100%"
+                        <Image
+                           maxWidth={600}
                            src={landingBlockImage}
                            alt="servers illustration"
                         />
@@ -115,7 +109,19 @@ function HomeLanding() {
                </Grid>
             </Grid>
          </Container>
-      </Box>
+
+         <Box
+            sx={{
+               height: {
+                  xs: 300,
+                  lg: 400
+               },
+               backgroundRepeat: 'no-repeat',
+               backgroundPosition: 'bottom center',
+               backgroundImage: `url(${linesImg})`
+            }}
+         ></Box>
+      </SectionHeader>
    )
 }
 

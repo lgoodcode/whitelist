@@ -50,14 +50,14 @@ function Cart() {
                <Box p={3} display="flex" flexDirection="column">
                   <Button
                      variant="contained"
-                     color="inherit"
+                     color="secondary"
                      onClick={handleNavigate('/checkout')}
                   >
                      Checkout now
                   </Button>
                   <Button
                      variant="outlined"
-                     color="inherit"
+                     color="secondary"
                      onClick={handleNavigate('/cart')}
                      sx={{ mt: 2 }}
                   >
