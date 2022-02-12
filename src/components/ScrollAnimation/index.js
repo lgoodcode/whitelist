@@ -1,3 +1,5 @@
 import ScrollAnimationCss from './animate.css'
+import ScrollAnimationSpring from './reactSpring'
 
-export default ScrollAnimationCss
+export { ScrollAnimationCss, ScrollAnimationSpring }
+export default ScrollAnimationSpring

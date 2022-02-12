@@ -5,7 +5,7 @@ import { selectProductsFeatured, selectProductsStatus } from 'app/products/produ
 import { Section } from 'components/Section'
 import MyDivider from 'components/MyDivider'
 import ProductCard from 'components/ProductCard'
-import ScrollAnimation from 'components/ScrollAnimation/animate.css'
+import ScrollAnimation from 'components/ScrollAnimation'
 
 function Featured() {
    const status = useAppSelector(selectProductsStatus)

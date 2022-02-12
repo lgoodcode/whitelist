@@ -1,5 +1,7 @@
-// Requires animate.css/animate.min.css to be imported in App
 import React, { useEffect, useRef, useState } from 'react'
+import { useSpring, animated, easings } from 'react-spring'
+import animations from './animations'
+
 export interface ScrollAnimationProps {
    children: React.ReactElement
    animation: string
@@ -8,39 +10,43 @@ export interface ScrollAnimationProps {
     * viewport to set the "isIntersecting" value to true
     */
    threshold?: number
-   animateOnce?: boolean
-   duration?: number | string
-   delay?: number | string
-   repeat?: 1 | 2 | 3 | 'infinite'
+   duration?: number
+   delay?: number
+   easing?: string
 }
 
 const ScrollAnimation = ({
    children,
    animation,
-   threshold = 50,
+   threshold = 30,
    duration = 1000,
-   delay = 0,
-   repeat = undefined
+   delay = 0
 }: ScrollAnimationProps) => {
-   if (threshold < 0 || threshold > 100) {
-      throw new Error('Invalid threshold supplied. Must be within range of 0 and 100')
+   if (animation.startsWith('zoom')) {
+      duration /= 2
    }
 
    const containerRef = useRef<HTMLDivElement>(null)
    const [isVisible, setIsVisible] = useState<boolean>(false)
-   const animationClass = [
-      ` animate__animated animate__${animation}`,
-      repeat ? ` animate__${repeat === 'infinite' ? 'infinite' : `repeat-${repeat}`}` : ''
-   ].join('')
-   const animationDuration = typeof duration === 'number' ? `${duration}ms` : duration
-   const animationDelay = typeof delay === 'number' ? `${delay}ms` : delay
-
+   const [styles, api] = useSpring(() => ({
+      ...animations[animation]().from
+   }))
    const callback = (entries: IntersectionObserverEntry[]) => {
       const [entry] = entries
       setIsVisible(entry.isIntersecting)
 
       if (entry.isIntersecting && containerRef.current) {
-         containerRef.current.style.visibility = 'visible'
+         // Need to pass in the properties here when starting the animation.
+         // If passed in the initial config, it will trigger all animations
+         // whether scrolled into view or not.
+         api.start({
+            ...animations[animation]().to,
+            delay,
+            config: {
+               duration,
+               easing: easings.easeInOutCubic
+            }
+         })
       }
    }
 
@@ -58,20 +64,16 @@ const ScrollAnimation = ({
 
       if (containerRef.current) {
          observer.observe(containerRef.current)
-         containerRef.current.style.visibility = 'hidden'
       }
 
       return () => observer.disconnect()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [threshold, containerRef, isVisible, options])
 
    return (
-      <div
-         ref={containerRef}
-         style={{ animationDuration, animationDelay }}
-         className={['scrollAnimaton', isVisible ? animationClass : undefined].join('')}
-      >
+      <animated.div ref={containerRef} style={styles}>
          {children}
-      </div>
+      </animated.div>
    )
 }
 

@@ -2,7 +2,7 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import { LoremIpsum } from 'lorem-ipsum'
 
 import { Section } from 'components/Section'
-import ScrollAnimation from 'components/ScrollAnimation/animate.css'
+import ScrollAnimation from 'components/ScrollAnimation'
 import MyDivider from 'components/MyDivider'
 import Image from 'components/Image'
 import lineBar from 'assets/img/landing/landing-bar.jpg'
@@ -46,7 +46,7 @@ function About() {
                   }}
                >
                   <Grid item xs={12} md={8} lg={6}>
-                     <ScrollAnimation animation="fadeInLeft" duration={800}>
+                     <ScrollAnimation animation="fadeInRight">
                         <Box
                            display="flex"
                            justifyContent="center"
@@ -77,7 +77,7 @@ function About() {
                      justifyContent="center"
                      alignItems="center"
                   >
-                     <ScrollAnimation animation="fadeInRight" duration={800}>
+                     <ScrollAnimation animation="fadeInLeft">
                         <Box
                            maxWidth={{
                               xs: '100%',
@@ -152,7 +152,7 @@ function About() {
                      justifyContent="center"
                      alignItems="center"
                   >
-                     <ScrollAnimation animation="fadeInRight" duration={800}>
+                     <ScrollAnimation animation="fadeInRight">
                         <Box
                            sx={{
                               backgroundImage:
@@ -183,7 +183,7 @@ function About() {
                         lg: 1
                      }}
                   >
-                     <ScrollAnimation animation="fadeInLeft" duration={800}>
+                     <ScrollAnimation animation="fadeInLeft">
                         <Box
                            maxWidth={{
                               xs: '100%',
@@ -231,7 +231,7 @@ function About() {
                   }}
                >
                   <Grid item xs={12} md={8} lg={6} display="flex" alignItems="center">
-                     <ScrollAnimation animation="fadeInLeft" duration={800}>
+                     <ScrollAnimation animation="fadeInRight">
                         <Box
                            sx={{
                               backgroundImage:
@@ -259,7 +259,7 @@ function About() {
                      justifyContent="center"
                      alignItems="center"
                   >
-                     <ScrollAnimation animation="fadeInRight" duration={800}>
+                     <ScrollAnimation animation="fadeInLeft">
                         <Box
                            maxWidth={{
                               xs: '100%',
