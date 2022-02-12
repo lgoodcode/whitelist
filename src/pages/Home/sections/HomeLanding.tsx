@@ -1,8 +1,8 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
-import { ShortFade, SlideFade } from 'components/SlideFade'
 
 import { SectionHeader } from 'components/Section'
 import Image from 'components/Image'
+import ScrollAnimation from 'components/ScrollAnimation/animate.css'
 import bgImage from 'assets/img/landing/particles.jpg'
 import landingBlockImage from 'assets/img/landing/blocks-server.svg'
 import linesImg from 'assets/img/landing/landing-lines.png'
@@ -50,7 +50,7 @@ function HomeLanding() {
                justifyContent={{ xs: 'center', lg: 'space-between' }}
             >
                <Grid item xs={12} md={10} lg={6}>
-                  <SlideFade in direction="right">
+                  <ScrollAnimation animation="fadeInLeft">
                      <Typography
                         variant="h2"
                         letterSpacing="-0.05em"
@@ -59,40 +59,45 @@ function HomeLanding() {
                      >
                         Your go-to Helium Center
                      </Typography>
-                  </SlideFade>
+                  </ScrollAnimation>
 
-                  <SlideFade mt={4} delay={300}>
-                     <Typography lineHeight="1.75" fontWeight="regular">
-                        We provide quality cryptocurrency consultation and mining
-                        equipment installation services. If you're interested in investing
-                        the ever growing blockhain industry whether it is through
-                        long-term holding, similar to stocks, or mining equipment to
-                        generate passive income, we are your go-to solution.
-                     </Typography>
-                  </SlideFade>
+                  <ScrollAnimation animation="fadeInUp" delay={300}>
+                     <Box mt={4}>
+                        <Typography lineHeight="1.75" fontWeight="regular">
+                           We provide quality cryptocurrency consultation and mining
+                           equipment installation services. If you're interested in
+                           investing the ever growing blockhain industry whether it is
+                           through long-term holding, similar to stocks, or mining
+                           equipment to generate passive income, we are your go-to
+                           solution.
+                        </Typography>
 
-                  <SlideFade mt={4} delay={500}>
-                     <Box display="flex" justifyContent={{ xs: 'center', lg: 'start' }}>
-                        <Button
-                           variant="contained"
-                           size="large"
-                           sx={{
-                              px: 4,
-                              py: 1.5,
-                              letterSpacing: '0.1em',
-                              fontFamily: 'Titillium Web',
-                              fontWeight: 'medium',
-                              boxShadow: 5
-                           }}
+                        <Box
+                           display="flex"
+                           mt={4}
+                           justifyContent={{ xs: 'center', lg: 'start' }}
                         >
-                           Get Started
-                        </Button>
+                           <Button
+                              variant="contained"
+                              size="large"
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
+                              }}
+                           >
+                              Get Started
+                           </Button>
+                        </Box>
                      </Box>
-                  </SlideFade>
+                  </ScrollAnimation>
                </Grid>
 
                <Grid item xs={12} md={8} lg={6} mx="auto" mt={{ xs: 8, lg: 0 }}>
-                  <ShortFade direction="up" duration={1200}>
+                  <ScrollAnimation animation="fadeInUp" duration={1200}>
                      <Box>
                         <Image
                            maxWidth={600}
@@ -105,7 +110,7 @@ function HomeLanding() {
                            </a>
                         </Box>
                      </Box>
-                  </ShortFade>
+                  </ScrollAnimation>
                </Grid>
             </Grid>
          </Container>

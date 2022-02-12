@@ -18,16 +18,16 @@ import routes from 'routes'
 
 function App() {
    const dispatch = useAppDispatch()
+   const { pathname } = useLocation()
+   // Load products into state on app load to cache
+   const productsStatus = useAppSelector(selectProductsStatus)
    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
    // TODO: implement light/dark mode switch
    // eslint-disable-next-line
    const [themeMode, setThemeMode] = useState<PaletteMode>(
       prefersDarkMode ? 'light' : 'dark'
    )
-   const { pathname } = useLocation()
 
-   // Load products into state on app load to cache
-   const productsStatus = useAppSelector(selectProductsStatus)
    useEffect(() => {
       if (productsStatus === 'pending') {
          dispatch(fetchProducts())

@@ -5,6 +5,7 @@ import { selectProductsFeatured, selectProductsStatus } from 'app/products/produ
 import { Section } from 'components/Section'
 import MyDivider from 'components/MyDivider'
 import ProductCard from 'components/ProductCard'
+import ScrollAnimation from 'components/ScrollAnimation/animate.css'
 
 function Featured() {
    const status = useAppSelector(selectProductsStatus)
@@ -13,35 +14,38 @@ function Featured() {
 
    return (
       <Section sx={{ pt: '64px !important', pb: '48px !important' }}>
-         <Container>
-            <Box maxWidth="sm" display="flex" flexDirection="column" mx="auto">
-               <Typography
-                  variant="h3"
-                  textAlign="center"
-                  fontWeight="fontWeightLight"
-                  fontFamily="Titillium Web"
+         {/* Need a lower threshold because the padding top is reduced */}
+         <ScrollAnimation animation="fadeInUp" threshold={20}>
+            <Container>
+               <Box maxWidth="sm" display="flex" flexDirection="column" mx="auto">
+                  <Typography
+                     variant="h3"
+                     textAlign="center"
+                     fontWeight="fontWeightLight"
+                     fontFamily="Titillium Web"
+                  >
+                     Featured Products
+                  </Typography>
+
+                  <MyDivider />
+               </Box>
+
+               <Box
+                  mx="auto"
+                  mt={8}
+                  display="flex"
+                  flexWrap="wrap"
+                  justifyContent="space-around"
+                  flexDirection={{ xs: 'column', md: 'row' }}
                >
-                  Featured Products
-               </Typography>
-
-               <MyDivider />
-            </Box>
-
-            <Box
-               mx="auto"
-               mt={8}
-               display="flex"
-               flexWrap="wrap"
-               justifyContent="space-around"
-               flexDirection={{ xs: 'column', md: 'row' }}
-            >
-               {(loading ? Array.from(new Array(2)) : products).map((product, key) => (
-                  <Box key={key} mx="auto" mb={8} width={{ xs: 300, lg: 350 }}>
-                     <ProductCard product={product} />
-                  </Box>
-               ))}
-            </Box>
-         </Container>
+                  {(loading ? Array.from(new Array(2)) : products).map((product, key) => (
+                     <Box key={key} mx="auto" mb={8} width={{ xs: 300, lg: 350 }}>
+                        <ProductCard product={product} />
+                     </Box>
+                  ))}
+               </Box>
+            </Container>
+         </ScrollAnimation>
       </Section>
    )
 }
