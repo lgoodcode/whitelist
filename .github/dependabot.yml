@@ -14,3 +14,5 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    # Disable version updates for npm dependencies
+    open-pull-requests-limit: 0
