@@ -2,14 +2,13 @@ import {
    Box,
    CardActionArea,
    CardContent,
-   CardMedia,
    Chip,
    Divider,
    Skeleton,
    Typography
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-
+import Image from 'components/Image'
 import StyledCard from './StyledCard'
 import ProductDescription from './ProductDescription'
 import type { Product } from 'types'
@@ -38,8 +37,8 @@ function ProductCard({ product, useDesc = true }: ProductCardProps) {
             }}
          >
             {product ? (
-               <CardMedia
-                  component="img"
+               <Image
+                  skeleton
                   src={product.images[0]}
                   alt={getImageAlt(product.images[0])}
                />

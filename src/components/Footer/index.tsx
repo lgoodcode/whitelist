@@ -1,9 +1,10 @@
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Container, SvgIcon, Typography } from '@mui/material'
 import {
    YouTube as YouTubeIcon,
    Facebook as FacebookIcon,
    Twitter as TwitterIcon
 } from '@mui/icons-material'
+import { ReactComponent as DiscordIcon } from 'assets/img/discord.svg'
 
 function Footer() {
    return (
@@ -17,16 +18,44 @@ function Footer() {
                </Box>
 
                <Box display="flex" alignItems="center">
-                  <YouTubeIcon
+                  <a
+                     href="https://www.youtube.com/channel/UC5_0jij62Sf45SGt6zfrnbA"
+                     target="_blank"
+                     referrerPolicy="no-referrer"
+                     style={{
+                        display: 'flex',
+                        color: 'GrayText'
+                     }}
+                  >
+                     <YouTubeIcon
+                        fontSize="large"
+                        sx={{
+                           mr: 2,
+                           ':hover': {
+                              cursor: 'pointer',
+                              color: '#FF0000'
+                           }
+                        }}
+                     />
+                  </a>
+
+                  <SvgIcon
+                     component={DiscordIcon}
                      fontSize="large"
                      sx={{
                         mr: 2,
+                        '& path': {
+                           fill: 'GrayText'
+                        },
                         ':hover': {
                            cursor: 'pointer',
-                           color: '#FF0000'
+                           '& path': {
+                              fill: '#5865F2'
+                           }
                         }
                      }}
                   />
+
                   <FacebookIcon
                      fontSize="large"
                      sx={{
@@ -37,6 +66,7 @@ function Footer() {
                         }
                      }}
                   />
+
                   <TwitterIcon
                      fontSize="large"
                      sx={{

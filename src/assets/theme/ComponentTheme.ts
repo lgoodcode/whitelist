@@ -20,6 +20,13 @@ export default (theme: Theme): Theme =>
                   }
                }
             }
+         },
+         MuiListItemSecondaryAction: {
+            styleOverrides: {
+               root: {
+                  right: 24
+               }
+            }
          }
       }
    })
