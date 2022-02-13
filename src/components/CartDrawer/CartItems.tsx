@@ -1,7 +1,7 @@
 import { Delete as DeleteIcon } from '@mui/icons-material'
-import { Box, List, ListItem, IconButton, Avatar, Typography } from '@mui/material'
+import { Box, List, ListItem, IconButton, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-
+import Image from 'components/Image'
 import { formatPrice } from 'utilities'
 import { useAppSelector } from 'app/hooks'
 import { selectCartItems } from 'app/cart/cartSlice'
@@ -38,12 +38,12 @@ function CartItems({
                         </IconButton>
                      }
                   >
-                     <Box>
+                     <Box width={100}>
                         <Link to={`/products/${item.product.name}`} onClick={handleClose}>
-                           <Avatar
+                           <Image
+                              skeleton="circular"
                               alt={item.product.name}
                               src={item.product.images[0]}
-                              sx={{ mx: 2, height: '80px', width: '80px' }}
                            />
                         </Link>
                      </Box>

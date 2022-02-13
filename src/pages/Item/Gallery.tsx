@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import { useRef } from 'react'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
+import Image from 'components/Image'
 import { getImageAlt } from 'utilities'
 
 const galleryOptions = {
@@ -25,10 +26,9 @@ function Gallery({ images }: { images: string[] }) {
    return (
       <Box display="flex" justifyContent="center" flexDirection="column">
          <Box display="flex" mx="auto" maxWidth={480}>
-            <Box
-               component="img"
+            <Image
+               skeleton="circular"
                src={images[0]}
-               width="100%"
                alt={getImageAlt(images[0])}
                sx={{ cursor: 'pointer' }}
                onClick={handleMainImageClick}
