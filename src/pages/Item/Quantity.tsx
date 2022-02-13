@@ -1,9 +1,5 @@
 import { Add as AddIcon, Remove as RemoveIcon } from '@mui/icons-material'
 import { Box, Button, Fab, Skeleton, TextField, Typography } from '@mui/material'
-import { selectAlertOpen, closeAlert } from 'app/cart/cartSlice'
-import { useAppDispatch, useAppSelector } from 'app/hooks'
-import Toast from 'components/Toast'
-
 interface QuantityProps {
    loading: boolean
    inStock: boolean
@@ -23,14 +19,14 @@ function Quantity({
    handleDecrement,
    handleAddItem
 }: QuantityProps): JSX.Element {
-   const dispatch = useAppDispatch()
-   const open = useAppSelector(selectAlertOpen)
-   const handleClose = () => dispatch(closeAlert())
-
    return (
       <Box>
          {loading ? (
-            <Skeleton height={120} width="75%" />
+            <>
+               <Skeleton height={30} width="40%" />
+               <Skeleton height={80} width="50%" />
+               <Skeleton height={40} width="100%" />
+            </>
          ) : (
             <>
                <Box>
@@ -96,13 +92,6 @@ function Quantity({
                </Box>
             </>
          )}
-
-         <Toast
-            open={open}
-            severity="success"
-            handleClose={handleClose}
-            message="Item Added to Cart"
-         />
       </Box>
    )
 }
