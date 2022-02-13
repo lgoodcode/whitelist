@@ -1,11 +1,10 @@
 import { Box, Container, Grid, Typography, Divider, Skeleton } from '@mui/material'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
-
 import { useAppSelector, useAppDispatch } from 'app/hooks'
-import { setItem } from 'app/cart/cartSlice'
+import { setItem, selectAlertOpen, closeAlert } from 'app/cart/cartSlice'
 import { selectProductByName } from 'app/products/productsSlice'
-
+import Toast from 'components/Toast'
 import Gallery from './Gallery'
 import Price from './Price'
 import Quantity from './Quantity'
@@ -14,8 +13,16 @@ function ItemPage() {
    const { name = '' } = useParams()
    const dispatch = useAppDispatch()
    const [qty, setQty] = useState<number>(0)
+   const open = useAppSelector(selectAlertOpen)
    const product = useAppSelector(selectProductByName(name))
+   const inStock = !product ? false : product.quantity > 0
 
+   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+      if (reason === 'clickaway') {
+         return false
+      }
+      dispatch(closeAlert())
+   }
    const handleAddItem = !product
       ? () => null
       : () => dispatch(setItem({ product, quantity: qty }))
@@ -29,10 +36,17 @@ function ItemPage() {
       : () => {
            if (qty > 0) setQty(qty - 1)
         }
-   const inStock = !product ? false : product.quantity > 0
 
    return (
       <Box component="section" py={4} mt={{ xs: 0, md: 10 }} bgcolor="background.default">
+         <Toast
+            open={open}
+            handleClose={handleClose}
+            severity="success"
+            message="Item Added to Cart"
+            bgcolor="background.paper"
+         />
+
          <Container>
             <Grid container spacing={2} justifyContent="center">
                <Grid item xs={12} lg={6}>
@@ -40,8 +54,8 @@ function ItemPage() {
                      <Gallery images={product.images} />
                   ) : (
                      <Box>
-                        <Skeleton variant="rectangular" height={300} />
-                        <Skeleton variant="rectangular" height={75} sx={{ mt: 2 }} />
+                        <Skeleton variant="rectangular" height={480} />
+                        <Skeleton variant="rectangular" height={100} sx={{ mt: 2 }} />
                      </Box>
                   )}
                </Grid>
@@ -78,8 +92,8 @@ function ItemPage() {
                         </>
                      ) : (
                         <>
-                           <Skeleton height={48} width="25%" />
-                           <Skeleton height={48} width="25%" sx={{ ml: 1 }} />
+                           <Skeleton height={48} width="50%" />
+                           <Skeleton height={48} width={36} sx={{ ml: 1 }} />
                         </>
                      )}
                   </Box>
@@ -114,6 +128,7 @@ function ItemPage() {
                      </Box>
                   ) : (
                      <Box my={2}>
+                        <Divider />
                         <Skeleton height={48} width="33%" />
                         <Skeleton height={240} />
                      </Box>

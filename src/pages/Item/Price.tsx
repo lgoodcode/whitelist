@@ -25,24 +25,26 @@ function Price({ inStock, product }: PriceDisplay) {
          )}
 
          {product ? (
-            <Typography
-               variant="h5"
-               fontWeight="light"
-               color={product.discount > 0 ? 'gray' : ''}
-               sx={{
-                  ml: 1,
-                  textDecorationLine: product.discount > 0 ? 'line-through' : ''
-               }}
-            >
-               ${formatPrice(product.price)}
-            </Typography>
-         ) : (
-            <Skeleton height={64} width="40%" />
-         )}
+            <>
+               <Typography
+                  variant="h5"
+                  fontWeight="light"
+                  color={product.discount > 0 ? 'gray' : ''}
+                  sx={{
+                     ml: 1,
+                     textDecorationLine: product.discount > 0 ? 'line-through' : ''
+                  }}
+               >
+                  ${formatPrice(product.price)}
+               </Typography>
 
-         <Typography variant="h5" fontWeight="regular" sx={{ ml: 1 }}>
-            USD
-         </Typography>
+               <Typography variant="h5" fontWeight="regular" sx={{ ml: 1 }}>
+                  USD
+               </Typography>
+            </>
+         ) : (
+            <Skeleton height={64} width="50%" />
+         )}
 
          {product && (
             <Box ml={2} display="flex" alignItems="center">
