@@ -11,7 +11,6 @@ permissions:
 
 jobs:
   automerge:
-    name: Automerge dependabot PR
     runs-on: ubuntu-latest
     # Checking the actor will prevent your Action run failing on non-Dependabot
     # PRs but also ensures that it only does work for Dependabot PRs.
@@ -19,9 +18,9 @@ jobs:
     steps:
       - name: 'Wait for status checks'
         id: waitforstatuschecks
-        uses: "WyriHaximus/github-action-wait-for-status@latest"
+        uses: "WyriHaximus/github-action-wait-for-status@v1.4.0"
         with:
-          ignoreActions: Automerge dependabot PR
+          ignoreActions: automerge
           checkInterval: 20
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
