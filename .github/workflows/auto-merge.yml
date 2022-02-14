@@ -48,7 +48,7 @@ jobs:
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.AUTO_MERGE }}
+          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
 
       # Finally, this sets the PR to allow auto-merging for patch and minor
       # updates if all checks pass
@@ -57,13 +57,13 @@ jobs:
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.AUTO_MERGE }}
+          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
 
       # After successfully merging the PR, this updates the other open PRs
       # with the new result of the merge.
       - name: Update remaining PRs
         if: steps.merge.outputs.merge_status == 0
         uses: tzkhan/pr-update-action@v2
-          repo-token: ${{ secrets.AUTO_MERGE }}
+          repo-token: "${{ secrets.AUTO_MERGE }}"
 
       #   run: bash .github/workflows/pull-request-update.sh "${{ secrets.AUTO_MERGE }}" "${{ secrets.AUTO_MERGE }}"
