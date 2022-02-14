@@ -1,5 +1,5 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
-
+import { useNavigate } from 'react-router-dom'
 import { SectionHeader } from 'components/Section'
 import Image from 'components/Image'
 import ScrollAnimation from 'components/ScrollAnimation'
@@ -24,6 +24,9 @@ const landingStyles = {
 }
 
 function HomeLanding() {
+   const navigate = useNavigate()
+   const handleNavigate = () => navigate('/courses')
+
    return (
       <SectionHeader sx={landingStyles} pb={0}>
          <Box
@@ -80,6 +83,7 @@ function HomeLanding() {
                            <Button
                               variant="contained"
                               size="large"
+                              onClick={handleNavigate}
                               sx={{
                                  px: 4,
                                  py: 1.5,

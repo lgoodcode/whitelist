@@ -22,7 +22,9 @@ function Toast({
    lifetime = 3000,
    ...rest
 }: ToastProps) {
-   const [styles, api] = useSpring(() => {})
+   const [styles, api] = useSpring(() => ({
+      right: '100%'
+   }))
 
    useEffect(() => {
       api.start({
@@ -30,7 +32,7 @@ function Toast({
             right: '100%'
          },
          to: {
-            right: '0%'
+            right: open ? '0%' : '100%'
          },
          config: {
             duration: lifetime
