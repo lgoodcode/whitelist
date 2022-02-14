@@ -4,9 +4,8 @@ name: Test
 # and on pull requests on the main branch
 on:
   push:
-    branches: 
-      - '**'
-      - '!main'
+    branches-ignore:
+      - main
   pull_request:
     branches: 
       - main
