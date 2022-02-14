@@ -18,7 +18,7 @@ import routes from 'routes'
 
 function App() {
    const dispatch = useAppDispatch()
-   const { pathname } = useLocation()
+   const { key } = useLocation()
    // Load products into state on app load to cache
    const productsStatus = useAppSelector(selectProductsStatus)
    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -37,7 +37,7 @@ function App() {
    // Scroll back to top when changing pages
    useEffect(() => {
       window.scrollTo(0, 0)
-   }, [pathname])
+   }, [key])
 
    return (
       <ThemeProvider theme={StyleTheme(themeMode)}>

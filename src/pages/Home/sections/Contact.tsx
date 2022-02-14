@@ -34,7 +34,7 @@ function Contact() {
                      Feel free to contact us
                   </Typography>
 
-                  <MyDivider variant="middle" />
+                  <MyDivider dividerProps={{ variant: 'middle' }} />
 
                   <Typography sx={{ mt: 2 }}>
                      Send us your contact info and a short message on what you're
@@ -149,7 +149,7 @@ function Contact() {
                      }}
                   >
                      <Button
-                        color="secondary"
+                        color="tertiary"
                         variant="contained"
                         sx={{ py: 1, px: 4, boxShadow: 5 }}
                      >

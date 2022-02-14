@@ -1,17 +1,17 @@
-import { Button } from '@mui/material'
+import { Button, Typography } from '@mui/material'
 import { useLocation, useNavigate } from 'react-router-dom'
 import type { SxProps, Theme } from '@mui/material/styles'
 
 const styles = (active: boolean): SxProps<Theme> => ({
    m: 1,
    px: 2,
-   color: 'text.primary',
-   fontSize: 'typography.body1.fontSize',
-   textTransform: 'capitalize',
-   bgcolor: active ? 'rgb(156 163 175 / 0.4)' : 'transparent',
+   background: 'transparent',
+   borderBottom: `3px solid ${active ? '#5cfff3' : 'transparent'}`,
+   transition: 'background 0.3s',
 
    '&:hover': {
-      bgcolor: active ? 'rgb(156 163 175 / 0.5)' : 'rgb(156 163 175 / 0.4)'
+      background: 'linear-gradient(0deg, rgba(67, 40, 183, 0.08), rgb(0 180 230 / 33%))',
+      borderBottomColor: '#5cfff3'
    }
 })
 
@@ -22,7 +22,19 @@ function NavButton({ name, path, ...rest }: { name: string; path: string }) {
 
    return (
       <Button variant="text" sx={styles(active)} onClick={() => navigate(path)} {...rest}>
-         {name}
+         <Typography
+            fontSize="1.15rem"
+            fontWeight={700}
+            textTransform="capitalize"
+            fontFamily="Titillium Web"
+            sx={{
+               background: 'linear-gradient(90deg, #00b4e6, #5cfff3)',
+               WebkitBackgroundClip: 'text',
+               WebkitTextFillColor: 'transparent'
+            }}
+         >
+            {name}
+         </Typography>
       </Button>
    )
 }

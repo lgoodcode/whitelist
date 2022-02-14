@@ -1,6 +1,13 @@
-import { Divider } from '@mui/material'
-import type { DividerProps } from '@mui/material'
+import { Box, Divider } from '@mui/material'
+import type { BoxProps, DividerProps } from '@mui/material'
 
-export default (props: DividerProps) => (
-   <Divider {...props} sx={{ mt: 2, borderColor: '#7EBEC5' }} />
+interface MyDividerProps {
+   boxProps?: BoxProps
+   dividerProps?: DividerProps
+}
+
+export default ({ boxProps, dividerProps }: MyDividerProps) => (
+   <Box {...boxProps}>
+      <Divider {...dividerProps} sx={{ borderColor: '#5cfff3', ...dividerProps?.sx }} />
+   </Box>
 )

@@ -33,7 +33,7 @@ function Courses() {
             backgroundSize: 'contain'
          }}
       >
-         <ScrollAnimation animation="fadeInLeftBig" duration={1200} threshold={20}>
+         <ScrollAnimation animation="fadeInLeft" duration={1200} threshold={30}>
             <Grid
                container
                columnSpacing={{

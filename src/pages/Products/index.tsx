@@ -18,14 +18,25 @@ function ProductsPage() {
                   md: 4,
                   lg: 8
                }}
+               display="flex"
                width="auto"
                maxWidth={300}
             >
+               <MyDivider
+                  boxProps={{
+                     mr: 2
+                  }}
+                  dividerProps={{
+                     orientation: 'vertical',
+                     sx: {
+                        borderRightWidth: 'thick'
+                     }
+                  }}
+               />
+
                <Typography variant="h3" fontFamily="Titillium Web">
                   Products
                </Typography>
-
-               <MyDivider />
             </Box>
             {/* TODO: add filtering and sorting */}
             <Box></Box>
