@@ -22,10 +22,6 @@ const ScrollAnimation = ({
    duration = 1000,
    delay = 0
 }: ScrollAnimationProps) => {
-   if (animation.startsWith('zoom')) {
-      duration /= 2
-   }
-
    const containerRef = useRef<HTMLDivElement>(null)
    const [isVisible, setIsVisible] = useState<boolean>(false)
    const [styles, api] = useSpring(() => ({

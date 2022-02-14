@@ -109,10 +109,7 @@ function About() {
                               sx={{
                                  px: 4,
                                  py: 1.5,
-                                 mt: {
-                                    xs: 2,
-                                    md: 0
-                                 },
+                                 mt: 2,
                                  letterSpacing: '0.1em',
                                  fontFamily: 'Titillium Web',
                                  fontWeight: 'medium',
@@ -220,10 +217,7 @@ function About() {
                               sx={{
                                  px: 4,
                                  py: 1.5,
-                                 mt: {
-                                    xs: 2,
-                                    md: 0
-                                 },
+                                 mt: 2,
                                  letterSpacing: '0.1em',
                                  fontFamily: 'Titillium Web',
                                  fontWeight: 'medium',
@@ -316,10 +310,7 @@ function About() {
                               sx={{
                                  px: 4,
                                  py: 1.5,
-                                 mt: {
-                                    xs: 2,
-                                    md: 0
-                                 },
+                                 mt: 2,
                                  letterSpacing: '0.1em',
                                  fontFamily: 'Titillium Web',
                                  fontWeight: 'medium',

@@ -101,13 +101,9 @@ function HomeLanding() {
                </Grid>
 
                <Grid item xs={12} md={8} lg={6} mx="auto" mt={{ xs: 8, lg: 0 }}>
-                  <ScrollAnimation animation="fadeInUp" delay={400}>
+                  <ScrollAnimation animation="zoomIn" delay={300} duration={1500}>
                      <Box>
-                        <Image
-                           maxWidth={600}
-                           src={landingBlockImage}
-                           alt="servers illustration"
-                        />
+                        <Image src={landingBlockImage} alt="servers illustration" />
                         <Box display="none">
                            <a href="https://www.freepik.com/vectors/technology">
                               Technology vector created by fullvector - www.freepik.com

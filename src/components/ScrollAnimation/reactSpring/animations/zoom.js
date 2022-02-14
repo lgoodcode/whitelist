@@ -1,5 +1,5 @@
 export default {
-   zoomIn: (scale = 0.3) => ({
+   zoomIn: (scale = 0.5) => ({
       from: {
          opacity: 0,
          transform: `scale3d(${scale}, ${scale}, ${scale})`
