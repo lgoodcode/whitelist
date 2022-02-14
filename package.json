@@ -188,7 +188,7 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.1.4",
+    "lint-staged": "^12.3.4",
     "prettier": "^2.5.1",
     "progress-bar-webpack-plugin": "^2.1.0",
     "rimraf": "^3.0.2",
