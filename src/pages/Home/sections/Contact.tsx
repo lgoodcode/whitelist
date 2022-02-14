@@ -148,7 +148,11 @@ function Contact() {
                         lg: 'flex-end'
                      }}
                   >
-                     <Button color="secondary" variant="contained" sx={{ py: 1, px: 4 }}>
+                     <Button
+                        color="secondary"
+                        variant="contained"
+                        sx={{ py: 1, px: 4, boxShadow: 5 }}
+                     >
                         Submit
                      </Button>
                   </Box>

@@ -3,8 +3,8 @@ import Fade from './animations/fade'
 import Zoom from './animations/zoom'
 
 export type SpringAnimation = {
-   to: React.CSSProperties
-   from: React.CSSProperties
+   readonly to: React.CSSProperties
+   readonly from: React.CSSProperties
 }
 
 export interface MyAnimations {
