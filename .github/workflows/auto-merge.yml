@@ -16,7 +16,11 @@ jobs:
     # PRs but also ensures that it only does work for Dependabot PRs.
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - name: 'Wait for status checks'
+      # Skip duplicates and prevents workflows from running twice
+      - name: Cancel Previous Runs Actions
+        uses: LarchLiu/cancel_previous_runs@V1.1.0
+
+      - name: Wait for status checks
         id: waitforstatuschecks
         uses: "WyriHaximus/github-action-wait-for-status@v1.4.0"
         with:
@@ -49,3 +53,7 @@ jobs:
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update remaining PRs
+        if: steps.merge.outputs.merge_status == 0
+        run: bash .github/workflows/pull-request-update.sh "${{ secrets.GITHUB_TOKEN }}" "${{ secrets.AUTO_MERGE }}"
