@@ -25,7 +25,7 @@
     "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
   },
   "dependencies": {
-    "@babel/core": "^7.16.0",
+    "@babel/core": "^7.17.2",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.4.1",
@@ -33,7 +33,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@reduxjs/toolkit": "^1.7.1",
     "@svgr/webpack": "^6.2.0",
-    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
@@ -169,7 +169,7 @@
     "@types/aos": "^3.0.4",
     "@types/jest": "^27.0.3",
     "@types/node": "^17.0.17",
-    "@types/react": "^17.0.37",
+    "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-redux": "^7.1.22",
     "@types/redux-logger": "^3.0.9",
