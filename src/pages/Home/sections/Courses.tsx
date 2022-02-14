@@ -25,7 +25,7 @@ function Courses() {
             md: '224px !important'
          }}
          pr={{
-            md: '25%'
+            lg: '25%'
          }}
          sx={{
             backgroundImage: `url(${scatteredForcefields})`,
@@ -52,9 +52,16 @@ function Courses() {
                }}
             >
                <Grid item xs={12} lg={4}>
-                  <ScrollAnimation animation="fadeIn" delay={100}>
+                  <ScrollAnimation animation="fadeIn" delay={200}>
                      <>
-                        <Typography variant="h3" fontFamily="Titillium Web">
+                        <Typography
+                           variant="h3"
+                           fontFamily="Titillium Web"
+                           textAlign={{
+                              xs: 'center',
+                              lg: 'start'
+                           }}
+                        >
                            Courses
                         </Typography>
 
@@ -80,7 +87,7 @@ function Courses() {
                </Grid>
 
                <Grid item xs={12} lg={4}>
-                  <ScrollAnimation animation="fadeIn" delay={200}>
+                  <ScrollAnimation animation="fadeIn" delay={100}>
                      <Box
                         height="100%"
                         mt={{

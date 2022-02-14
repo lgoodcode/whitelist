@@ -1,4 +1,5 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { LoremIpsum } from 'lorem-ipsum'
 
 import { Section } from 'components/Section'
@@ -18,6 +19,9 @@ const lorem = new LoremIpsum({
 })
 
 function About() {
+   const navigate = useNavigate()
+   const handleClick = (path: string) => () => navigate(path)
+
    return (
       <Section
          sx={{
@@ -101,6 +105,7 @@ function About() {
                            <Button
                               variant="contained"
                               size="large"
+                              onClick={handleClick('/courses')}
                               sx={{
                                  px: 4,
                                  py: 1.5,
@@ -207,6 +212,26 @@ function About() {
                            <Typography paragraph sx={{ mt: 4 }}>
                               {lorem.generateParagraphs(1)}
                            </Typography>
+
+                           <Button
+                              variant="contained"
+                              size="large"
+                              onClick={handleClick('/products')}
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 mt: {
+                                    xs: 2,
+                                    md: 0
+                                 },
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
+                              }}
+                           >
+                              View Products
+                           </Button>
                         </Box>
                      </ScrollAnimation>
                   </Grid>
@@ -283,6 +308,26 @@ function About() {
                            <Typography paragraph sx={{ mt: 4 }}>
                               {lorem.generateParagraphs(1)}
                            </Typography>
+
+                           <Button
+                              variant="contained"
+                              size="large"
+                              onClick={handleClick('/products')}
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 mt: {
+                                    xs: 2,
+                                    md: 0
+                                 },
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
+                              }}
+                           >
+                              Consultations
+                           </Button>
                         </Box>
                      </ScrollAnimation>
                   </Grid>

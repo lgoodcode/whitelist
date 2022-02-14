@@ -139,13 +139,16 @@ function Contact() {
                         </Grid>
                      </Grid>
                   </Box>
-                  <Box width="100%" mt={4}>
-                     <Button
-                        fullWidth
-                        color="secondary"
-                        variant="contained"
-                        sx={{ py: 1 }}
-                     >
+                  <Box
+                     width="100%"
+                     mt={4}
+                     display="flex"
+                     justifyContent={{
+                        xs: 'center',
+                        lg: 'flex-end'
+                     }}
+                  >
+                     <Button color="secondary" variant="contained" sx={{ py: 1, px: 4 }}>
                         Submit
                      </Button>
                   </Box>

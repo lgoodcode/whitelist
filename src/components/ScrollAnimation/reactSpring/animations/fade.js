@@ -37,7 +37,7 @@ export default {
          transform: `translate3d(0, 0, 0)`
       }
    }),
-   fadeInLeftBig: (distance = 1000) => ({
+   fadeInLeftBig: (distance = 500) => ({
       from: {
          opacity: 0,
          transform: `translate3d(${distance}px, 0, 0)`
@@ -48,6 +48,16 @@ export default {
       }
    }),
    fadeInRight: (distance = 100) => ({
+      from: {
+         opacity: 0,
+         transform: `translate3d(-${distance}px, 0, 0)`
+      },
+      to: {
+         opacity: 1,
+         transform: `translate3d(0, 0, 0)`
+      }
+   }),
+   fadeInRightBig: (distance = 500) => ({
       from: {
          opacity: 0,
          transform: `translate3d(-${distance}px, 0, 0)`

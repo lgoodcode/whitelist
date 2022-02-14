@@ -14,8 +14,7 @@ function Featured() {
 
    return (
       <Section sx={{ pt: '64px !important', pb: '48px !important' }}>
-         {/* Need a lower threshold because the padding top is reduced */}
-         <ScrollAnimation animation="fadeInUp" threshold={20}>
+         <ScrollAnimation animation="fadeInUp" threshold={10}>
             <Container>
                <Box maxWidth="sm" display="flex" flexDirection="column" mx="auto">
                   <Typography

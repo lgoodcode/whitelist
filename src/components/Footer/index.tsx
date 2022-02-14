@@ -10,14 +10,41 @@ function Footer() {
    return (
       <Box component="footer" bgcolor="black">
          <Container>
-            <Box display="flex" justifyContent="space-between" color="GrayText">
-               <Box textAlign="center" py={2}>
+            <Box
+               display="flex"
+               flexDirection={{
+                  xs: 'column',
+                  md: 'row'
+               }}
+               justifyContent="space-between"
+               color="GrayText"
+            >
+               <Box
+                  textAlign="center"
+                  py={2}
+                  order={{
+                     xs: 100,
+                     md: 1
+                  }}
+               >
                   <Typography variant="subtitle2">
                      Copyright &copy; Whitelist LLC 2022
                   </Typography>
                </Box>
 
-               <Box display="flex" alignItems="center">
+               <Box
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  pt={{
+                     xs: 2,
+                     md: 0
+                  }}
+                  order={{
+                     xs: 90,
+                     md: 2
+                  }}
+               >
                   <a
                      href="https://www.youtube.com/channel/UC5_0jij62Sf45SGt6zfrnbA"
                      target="_blank"

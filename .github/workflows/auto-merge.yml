@@ -5,6 +5,10 @@ on:
     branches: 
       - main
 
+# permissions:
+#   pull-requests: write
+#   contents: write
+
 jobs:
   automerge:
     runs-on: ubuntu-latest
@@ -59,4 +63,7 @@ jobs:
       # with the new result of the merge.
       - name: Update remaining PRs
         if: steps.merge.outputs.merge_status == 0
-        run: bash .github/workflows/pull-request-update.sh "${{ secrets.AUTO_MERGE }}" "${{ secrets.AUTO_MERGE }}"
+        uses: tzkhan/pr-update-action@v2
+          repo-token: ${{ secrets.AUTO_MERGE }}
+
+      #   run: bash .github/workflows/pull-request-update.sh "${{ secrets.AUTO_MERGE }}" "${{ secrets.AUTO_MERGE }}"
