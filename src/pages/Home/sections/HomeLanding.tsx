@@ -81,6 +81,7 @@ function HomeLanding() {
                            justifyContent={{ xs: 'center', lg: 'start' }}
                         >
                            <Button
+                              color="secondary"
                               variant="contained"
                               size="large"
                               onClick={handleNavigate}
@@ -101,7 +102,7 @@ function HomeLanding() {
                </Grid>
 
                <Grid item xs={12} md={8} lg={6} mx="auto" mt={{ xs: 8, lg: 0 }}>
-                  <ScrollAnimation animation="zoomIn" delay={300} duration={1500}>
+                  <ScrollAnimation animation="zoomIn" duration={1000}>
                      <Box>
                         <Image src={landingBlockImage} alt="servers illustration" />
                         <Box display="none">

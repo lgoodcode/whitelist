@@ -35,7 +35,7 @@ function NavbarDesktop({ routes, ...rest }: NavbarProps) {
                   <Box
                      display="flex"
                      aria-label="Whitelist"
-                     onClick={() => navigate('/')}
+                     onClick={() => navigate('')}
                      sx={{
                         '&:hover': {
                            cursor: 'pointer'
@@ -72,12 +72,17 @@ function NavbarDesktop({ routes, ...rest }: NavbarProps) {
                         onClick={handleCartOpen}
                         sx={{
                            '&:hover': {
-                              bgcolor: 'rgb(156 163 175 / 0.4)'
+                              background:
+                                 'linear-gradient(0deg, rgba(67, 40, 183, 0.6), rgb(0 180 230 / 50%));'
                            }
                         }}
                      >
                         <Badge badgeContent={numItems} color="error">
-                           <ShoppingCartIcon sx={{ color: 'text.primary' }} />
+                           <ShoppingCartIcon
+                              sx={{
+                                 fill: '#5cfff3'
+                              }}
+                           />
                         </Badge>
                      </IconButton>
                   </Box>

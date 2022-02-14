@@ -103,6 +103,7 @@ function About() {
                            </Typography>
 
                            <Button
+                              color="secondary"
                               variant="contained"
                               size="large"
                               onClick={handleClick('/courses')}
@@ -211,6 +212,7 @@ function About() {
                            </Typography>
 
                            <Button
+                              color="secondary"
                               variant="contained"
                               size="large"
                               onClick={handleClick('/products')}
@@ -304,6 +306,7 @@ function About() {
                            </Typography>
 
                            <Button
+                              color="secondary"
                               variant="contained"
                               size="large"
                               onClick={handleClick('/products')}

@@ -2,6 +2,9 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 import type { PaletteMode, Theme } from '@mui/material'
 import ButtonOverridesDark from './ButtonOverridesDark'
 
+// Used to create custom colors with generated shades and text color
+const { palette } = createTheme()
+
 export default (mode: PaletteMode): Theme =>
    responsiveFontSizes(
       createTheme({
@@ -37,15 +40,16 @@ export default (mode: PaletteMode): Theme =>
                           disabled: 'rgba(255, 255, 255, 0.5)'
                        },
                        primary: {
-                          //   main: '#001ecf'
-                          main: '#4328b7'
+                          main: '#5cfff3'
                        },
                        secondary: {
-                          //   main: '#3225bd'
-                          //   main: '#3c3cc8'
-                          main: '#e5e5e5'
-                          //   main: '#70a9b3'
+                          main: '#4328b7'
                        },
+                       tertiary: palette.augmentColor({
+                          color: {
+                             main: '#e5e5e5'
+                          }
+                       }),
                        divider: 'rgba(255,255,255,0.2)',
                        background: {
                           default: '#101535',
