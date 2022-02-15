@@ -77,7 +77,7 @@ function HomeLanding() {
 
                         <Box
                            display="flex"
-                           mt={4}
+                           mt={3}
                            justifyContent={{ xs: 'center', lg: 'start' }}
                         >
                            <Button

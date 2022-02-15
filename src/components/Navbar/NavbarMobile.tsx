@@ -3,7 +3,6 @@ import {
    Box,
    Container,
    Toolbar,
-   useScrollTrigger,
    Slide,
    List,
    ListItem,
@@ -18,41 +17,39 @@ import Hamburger from 'hamburger-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import Image from 'components/Image'
 import logo from 'assets/img/logo/logo-fill.svg'
 import type { NavbarProps } from './index'
 
-function NavbarMobile({ routes }: NavbarProps) {
+function NavbarMobile({ routes, visible, scrolled, scrollHeight = 80 }: NavbarProps) {
    const [open, setOpen] = useState<boolean>(false)
    const navigate = useNavigate()
+   const handleClick = () => setOpen(!open)
    const handleNavigate = (route: string) => () => {
       setOpen(false)
       navigate(route)
    }
-   const handleClick = () => setOpen(!open)
-   const trigger = useScrollTrigger({
-      threshold: 0,
-      disableHysteresis: true
-   })
 
    return (
       <AppBar
-         position="sticky"
+         position="relative"
          color="transparent"
-         sx={{
+         sx={(theme) => ({
             display: {
                xs: 'flex',
                lg: 'none'
             },
+            top: visible ? 0 : -scrollHeight,
             bgcolor: '#253380',
-            transition: 'all 0.3s ease-in-out',
-            boxShadow: !trigger ? 'none' : undefined
-         }}
+            boxShadow: !scrolled || open ? 'none' : undefined,
+            transition: 'all 0.5s ' + theme.transitions.easing.easeInOut
+         })}
       >
          <Container maxWidth="xl">
             <Toolbar disableGutters>
                <Box display="flex" width="100%" py={0.5}>
                   <Box display="flex" onClick={handleNavigate('/')}>
-                     <img src={logo} alt="Whitelist" width={42} />
+                     <Image skeleton="circular" src={logo} alt="Whitelist" width={42} />
                   </Box>
                   <Box
                      display="flex"
