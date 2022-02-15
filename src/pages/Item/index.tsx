@@ -8,6 +8,7 @@ import Toast from 'components/Toast'
 import Gallery from './Gallery'
 import Price from './Price'
 import Quantity from './Quantity'
+import { SectionHeader } from 'components/Section'
 
 function ItemPage() {
    const { name = '' } = useParams()
@@ -38,7 +39,7 @@ function ItemPage() {
         }
 
    return (
-      <Box component="section" py={4} mt={{ xs: 0, md: 10 }} bgcolor="background.default">
+      <SectionHeader>
          <Toast
             open={open}
             handleClose={handleClose}
@@ -136,7 +137,7 @@ function ItemPage() {
                </Grid>
             </Grid>
          </Container>
-      </Box>
+      </SectionHeader>
    )
 }
 
