@@ -11,7 +11,7 @@ const SectionHeader = ({ children, ...rest }: SectionProps): JSX.Element => (
       className="section-header"
       component="section"
       pt={{
-         xs: 8,
+         xs: 16,
          lg: 24
       }}
       pb="10vw"

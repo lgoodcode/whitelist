@@ -1,16 +1,21 @@
 import { AppBar, Box, Container, Toolbar, IconButton, Badge } from '@mui/material'
 import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material'
-import { useTheme } from '@mui/material/styles'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { open, selectNumItems } from 'app/cart/cartSlice'
+import Image from 'components/Image'
 import NavButton from './NavButton'
 import logo from 'assets/img/logo/desktop-logo-fill.svg'
 import type { NavbarProps } from './index'
 
-function NavbarDesktop({ routes, ...rest }: NavbarProps) {
-   const theme = useTheme()
+function NavbarDesktop({
+   routes,
+   scrolled,
+   visible,
+   scrollHeight = 80,
+   ...rest
+}: NavbarProps) {
    const navigate = useNavigate()
    const numItems = useAppSelector(selectNumItems)
    const dispatch = useAppDispatch()
@@ -18,15 +23,20 @@ function NavbarDesktop({ routes, ...rest }: NavbarProps) {
 
    return (
       <AppBar
-         position="absolute"
-         sx={{
+         position="relative"
+         color="transparent"
+         sx={(theme) => ({
             display: {
                xs: 'none',
                lg: 'block'
             },
-            boxShadow: 'none',
-            background: 'transparent'
-         }}
+            top: visible ? 0 : -scrollHeight,
+            boxShadow: scrolled ? 3 : 0,
+            background: scrolled
+               ? 'linear-gradient(90deg, #131313 25%, #2e2e2e)'
+               : 'transparent',
+            transition: 'all 0.5s ' + theme.transitions.easing.easeInOut
+         })}
          {...rest}
       >
          <Container>
@@ -42,16 +52,16 @@ function NavbarDesktop({ routes, ...rest }: NavbarProps) {
                         }
                      }}
                   >
-                     <img
-                        style={{
-                           height: 50,
-                           width: 'auto',
+                     <Image
+                        skeleton
+                        src={logo}
+                        alt="Whitelist"
+                        height={50}
+                        sx={(theme) => ({
                            filter: `brightness(${
                               theme.palette.mode === 'dark' ? 100 : 0
                            })`
-                        }}
-                        src={logo}
-                        alt="Whitelist"
+                        })}
                      />
                   </Box>
 
