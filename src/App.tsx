@@ -34,7 +34,9 @@ function App() {
       }
    }, [productsStatus, dispatch])
 
-   // Scroll back to top when changing pages
+   // Scroll back to top when changing pages. Uses the key of the location,
+   // which changes every time because if we are on the same page we change
+   // to, we still want it to scroll to top
    useEffect(() => {
       window.scrollTo(0, 0)
    }, [key])

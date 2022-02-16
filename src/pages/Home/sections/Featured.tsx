@@ -26,7 +26,7 @@ function Featured() {
                      Featured Products
                   </Typography>
 
-                  <MyDivider />
+                  <MyDivider boxProps={{ mt: 2 }} />
                </Box>
 
                <Box

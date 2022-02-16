@@ -26,15 +26,14 @@ function Contact() {
                backgroundImage: `url(${arrowLines})`
             }}
          />
-         {/* Need a lower threshold because of no top padding for the divider */}
-         <ScrollAnimation animation="fadeInUp" threshold={30}>
+         <ScrollAnimation animation="fadeInUp" threshold={10}>
             <Container maxWidth="md">
                <Box maxWidth="sm" mx="auto">
                   <Typography variant="h4" fontFamily="Titillium Web" textAlign="center">
                      Feel free to contact us
                   </Typography>
 
-                  <MyDivider dividerProps={{ variant: 'middle' }} />
+                  <MyDivider boxProps={{ mt: 2 }} dividerProps={{ variant: 'middle' }} />
 
                   <Typography sx={{ mt: 2 }}>
                      Send us your contact info and a short message on what you're
