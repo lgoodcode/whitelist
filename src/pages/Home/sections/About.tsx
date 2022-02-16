@@ -96,7 +96,7 @@ function About() {
                               Blockchain Education
                            </Typography>
 
-                           <MyDivider />
+                           <MyDivider boxProps={{ mt: 2 }} />
 
                            <Typography paragraph sx={{ mt: 4 }}>
                               {lorem.generateParagraphs(1)}
@@ -204,7 +204,7 @@ function About() {
                               Helium Hotspots
                            </Typography>
 
-                           <MyDivider />
+                           <MyDivider boxProps={{ mt: 2 }} />
 
                            <Typography paragraph sx={{ mt: 4 }}>
                               {lorem.generateParagraphs(1)}
@@ -214,26 +214,34 @@ function About() {
                               {lorem.generateParagraphs(1)}
                            </Typography>
 
-                           <Button
-                              color="secondary"
-                              variant="contained"
-                              size="large"
-                              onClick={handleClick('/products')}
-                              sx={{
-                                 px: 4,
-                                 py: 1.5,
-                                 mt: {
-                                    xs: 2,
-                                    md: 1
-                                 },
-                                 letterSpacing: '0.1em',
-                                 fontFamily: 'Titillium Web',
-                                 fontWeight: 'medium',
-                                 boxShadow: 5
+                           <Box
+                              display="flex"
+                              justifyContent={{
+                                 xs: 'center',
+                                 lg: 'flex-end'
                               }}
                            >
-                              View Products
-                           </Button>
+                              <Button
+                                 color="secondary"
+                                 variant="contained"
+                                 size="large"
+                                 onClick={handleClick('/products')}
+                                 sx={{
+                                    px: 4,
+                                    py: 1.5,
+                                    mt: {
+                                       xs: 2,
+                                       md: 1
+                                    },
+                                    letterSpacing: '0.1em',
+                                    fontFamily: 'Titillium Web',
+                                    fontWeight: 'medium',
+                                    boxShadow: 5
+                                 }}
+                              >
+                                 View Products
+                              </Button>
+                           </Box>
                         </Box>
                      </ScrollAnimation>
                   </Grid>
@@ -301,7 +309,7 @@ function About() {
                               Earn Passive Income
                            </Typography>
 
-                           <MyDivider />
+                           <MyDivider boxProps={{ mt: 2 }} />
 
                            <Typography paragraph sx={{ mt: 4 }}>
                               {lorem.generateParagraphs(1)}

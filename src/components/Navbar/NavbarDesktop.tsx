@@ -32,10 +32,11 @@ function NavbarDesktop({
             },
             top: visible ? 0 : -scrollHeight,
             boxShadow: scrolled ? 3 : 0,
-            background: scrolled
-               ? 'linear-gradient(90deg, #131313 25%, #2e2e2e)'
-               : 'transparent',
-            transition: 'all 0.5s ' + theme.transitions.easing.easeInOut
+            // background: scrolled
+            //    ? 'linear-gradient(90deg, #131313 25%, #2e2e2e)'
+            //    : 'transparent',
+            backdropFilter: scrolled ? 'blur(10px)' : undefined,
+            transition: 'all 0.3s ' + theme.transitions.easing.easeInOut
          })}
          {...rest}
       >
@@ -81,17 +82,30 @@ function NavbarDesktop({
                         aria-label="cart"
                         onClick={handleCartOpen}
                         sx={{
-                           '&:hover': {
+                           '::before': {
+                              position: 'absolute',
+                              content: '""',
+                              top: 0,
+                              right: 0,
+                              left: 0,
+                              bottom: 0,
+                              zIndex: -1,
                               background:
-                                 'linear-gradient(0deg, rgba(67, 40, 183, 0.6), rgb(0 180 230 / 50%));'
+                                 'linear-gradient(0deg, rgba(67, 40, 183, 0.08), rgb(0 180 230 / 45%))',
+                              transition: 'opacity 0.5s',
+                              borderRadius: 4,
+                              opacity: 0
+                           },
+                           ':hover::before': {
+                              opacity: 1
                            }
                         }}
                      >
                         <Badge badgeContent={numItems} color="error">
                            <ShoppingCartIcon
-                              sx={{
-                                 fill: '#5cfff3'
-                              }}
+                           // sx={{
+                           //    fill: '#5cfff3'
+                           // }}
                            />
                         </Badge>
                      </IconButton>

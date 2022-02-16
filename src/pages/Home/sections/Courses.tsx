@@ -65,9 +65,9 @@ function Courses() {
                            Courses
                         </Typography>
 
-                        <MyDivider />
+                        <MyDivider boxProps={{ mt: 2 }} />
 
-                        <Typography paragraph sx={{ mt: 2 }}>
+                        <Typography paragraph sx={{ mt: 4 }}>
                            {lorem.generateParagraphs(1)}
                         </Typography>
                         <Typography paragraph sx={{ mt: 2 }}>
