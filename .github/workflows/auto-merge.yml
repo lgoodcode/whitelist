@@ -19,8 +19,6 @@ jobs:
       # Skip duplicates and prevents workflows from running twice
       - name: Cancel Previous Runs Actions
         uses: LarchLiu/cancel_previous_runs@V1.1.0
-        with:
-          cancel-previous: true
 
       # Pauses the rest of the workflow, waiting for the results of other actions,
       # in this case, the build and test workflows.
@@ -48,7 +46,7 @@ jobs:
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       # Finally, this sets the PR to allow auto-merging for patch and minor
       # updates if all checks pass
@@ -57,7 +55,7 @@ jobs:
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       # After successfully merging the PR, this updates the other open PRs
       # with the new result of the merge.
