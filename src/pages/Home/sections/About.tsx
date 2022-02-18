@@ -214,34 +214,26 @@ function About() {
                               {lorem.generateParagraphs(1)}
                            </Typography>
 
-                           <Box
-                              display="flex"
-                              justifyContent={{
-                                 xs: 'center',
-                                 lg: 'flex-end'
+                           <Button
+                              color="secondary"
+                              variant="contained"
+                              size="large"
+                              onClick={handleClick('/products')}
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 mt: {
+                                    xs: 2,
+                                    md: 1
+                                 },
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
                               }}
                            >
-                              <Button
-                                 color="secondary"
-                                 variant="contained"
-                                 size="large"
-                                 onClick={handleClick('/products')}
-                                 sx={{
-                                    px: 4,
-                                    py: 1.5,
-                                    mt: {
-                                       xs: 2,
-                                       md: 1
-                                    },
-                                    letterSpacing: '0.1em',
-                                    fontFamily: 'Titillium Web',
-                                    fontWeight: 'medium',
-                                    boxShadow: 5
-                                 }}
-                              >
-                                 View Products
-                              </Button>
-                           </Box>
+                              View Products
+                           </Button>
                         </Box>
                      </ScrollAnimation>
                   </Grid>
