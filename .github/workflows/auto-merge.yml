@@ -39,7 +39,7 @@ jobs:
         id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1.1.1
         with:
-          github-token: "${{ secrets.AUTO_MERGE }}"
+          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
 
       # Here the PR gets approved.
       - name: Approve a PR
