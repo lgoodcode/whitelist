@@ -29,7 +29,7 @@ jobs:
           ignoreActions: automerge
           checkInterval: 20
         env:
-          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       # Fetches the metatada about the dependencies being updated. The workflow
       # will only continue if the status of the other workflows were successful,
@@ -39,7 +39,7 @@ jobs:
         id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1.1.1
         with:
-          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       # Here the PR gets approved.
       - name: Approve a PR
@@ -55,7 +55,7 @@ jobs:
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.AUTO_MERGE }}"
 
       # After successfully merging the PR, this updates the other open PRs
       # with the new result of the merge.
