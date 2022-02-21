@@ -1,13 +1,17 @@
+# Info on this from:
+# https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
 name: Dependabot PR Approve and Merge
 
+# Using pull_request_target instead of regular PR for dependabot permissions:
+# https://github.com/dependabot/dependabot-core/issues/3253
 on: 
-  pull_request: 
+  pull_request_target: 
     branches: 
       - main
 
-# permissions:
-#   pull-requests: write
-#   contents: write
+permissions:
+  pull-requests: write
+  contents: write
 
 jobs:
   automerge:
