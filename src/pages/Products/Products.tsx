@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import { useAppSelector } from 'app/hooks'
-import { selectProducts, selectProductsStatus } from 'app/products/productsSlice'
+import { selectProducts, selectProductsStatus } from 'app/reducers/products/productsSlice'
 import { Section } from 'components/Section'
 import MyDivider from 'components/MyDivider'
 import ProductCard from 'components/ProductCard'

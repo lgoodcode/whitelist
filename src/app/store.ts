@@ -1,17 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import logger from 'redux-logger'
-
-import cartReducer from './cart/cartSlice'
-import productsReducer from './products/productsSlice'
-
-const devMiddleware = process.env.NODE_ENV !== 'development' ? [] : [logger]
+import middleware from './middleware'
+import cartReducer from './reducers/cart/cartSlice'
+import productsReducer from './reducers/products/productsSlice'
 
 const store = configureStore({
    reducer: {
       cart: cartReducer,
       products: productsReducer
    },
-   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(devMiddleware)
+   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middleware)
 })
 
 // Infer the 'RootState' and 'AppDispatch' types from the store itself

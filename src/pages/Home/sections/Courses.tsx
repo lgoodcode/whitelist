@@ -102,7 +102,7 @@ function Courses() {
                            title="Mitsubishi Polar Bear Fail"
                            name="Funny video"
                            src="https://www.youtube.com/embed/8nHnQQhWQVA?start=67"
-                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                         />
                      </Box>
                   </ScrollAnimation>

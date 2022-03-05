@@ -3,7 +3,7 @@ import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from 'app/hooks'
-import { open, selectNumItems } from 'app/cart/cartSlice'
+import { open, selectNumItems } from 'app/reducers/cart/cartSlice'
 import Image from 'components/Image'
 import NavButton from './NavButton'
 import logo from 'assets/img/logo/desktop-logo-fill.svg'

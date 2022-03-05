@@ -3,7 +3,12 @@ import { Box, Button, Divider, Drawer, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppSelector, useAppDispatch } from 'app/hooks'
-import { close, selectIsOpen, selectNumItems, removeItem } from 'app/cart/cartSlice'
+import {
+   close,
+   selectIsOpen,
+   selectNumItems,
+   removeItem
+} from 'app/reducers/cart/cartSlice'
 import CartItems from './CartItems'
 
 function CartDrawer() {

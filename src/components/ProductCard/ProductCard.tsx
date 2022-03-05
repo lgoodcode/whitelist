@@ -110,8 +110,8 @@ function ProductCard({ product, useDesc = true }: ProductCardProps) {
                         </Typography>
                      )
                   ) : (
-                     <Typography variant="h4">
-                        <Skeleton width="100%" />
+                     <Typography variant="h4" sx={{ width: '33%' }}>
+                        <Skeleton />
                      </Typography>
                   )}
                </Box>
