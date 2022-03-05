@@ -6,7 +6,7 @@ import { useAppSelector, useAppDispatch } from 'app/hooks'
 import { close, selectIsOpen, selectNumItems, removeItem } from 'app/cart/cartSlice'
 import CartItems from './CartItems'
 
-function Cart() {
+function CartDrawer() {
    const navigate = useNavigate()
    const dispatch = useAppDispatch()
    const open = useAppSelector(selectIsOpen)
@@ -70,4 +70,4 @@ function Cart() {
    )
 }
 
-export default Cart
+export default CartDrawer

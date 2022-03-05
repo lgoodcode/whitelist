@@ -11,7 +11,7 @@ import Home from 'pages/Home'
 // import Courses from 'pages/Courses'
 import Products from 'pages/Products'
 // import Contact from 'pages/Contact'
-import PageNotFound from 'pages/404'
+import PageNotFound from 'pages/PageNotFound'
 import ItemPage from 'pages/Item'
 
 export interface Route {

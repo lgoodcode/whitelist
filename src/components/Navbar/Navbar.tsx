@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import { Box } from '@mui/material'
 import NavbarDesktop from './NavbarDesktop'
 import NavbarMobile from './NavbarMobile'
@@ -18,7 +18,7 @@ function Navbar() {
    const [scrolled, setScrolled] = useState<boolean>(false)
    const [prevScrollPos, setPrevScrollPos] = useState<number>(0)
    const height = containerRef?.current?.clientHeight || 80
-   const handleScroll = () => {
+   const handleScroll = useCallback(() => {
       setPrevScrollPos(window.scrollY)
       // Once scrolled the height of the navbar + 100 padding
       setScrolled(window.scrollY > height + 100)
@@ -26,13 +26,14 @@ function Navbar() {
          window.scrollY <= height ||
             (prevScrollPos > window.scrollY && window.scrollY > 100)
       )
-   }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [])
 
    useEffect(() => {
       window.addEventListener('scroll', handleScroll)
       return () => window.removeEventListener('scroll', handleScroll)
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [prevScrollPos, visible])
+   }, [])
 
    return (
       <Box ref={containerRef} position="fixed" width="100%" zIndex={100}>

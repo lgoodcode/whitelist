@@ -7,7 +7,7 @@ import { open, selectNumItems } from 'app/cart/cartSlice'
 import Image from 'components/Image'
 import NavButton from './NavButton'
 import logo from 'assets/img/logo/desktop-logo-fill.svg'
-import type { NavbarProps } from './index'
+import type { NavbarProps } from './Navbar'
 
 function NavbarDesktop({
    routes,

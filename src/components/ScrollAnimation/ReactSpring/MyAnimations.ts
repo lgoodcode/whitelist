@@ -1,6 +1,6 @@
 import React from 'react'
-import Fade from './animations/fade'
-import Zoom from './animations/zoom'
+import Animations from './animations'
+const { Fade, Zoom } = Animations
 
 export type SpringAnimation = {
    readonly to: React.CSSProperties
