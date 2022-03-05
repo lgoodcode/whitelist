@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
-import { BlockSpinner, CircleSpinner } from 'components/Spinners'
+// For some reason the destructuring import doesn't work
+import Spinners from 'components/Spinners'
 
 export interface LoadingProps {
    spinner?: 'block' | 'circle'
@@ -15,7 +16,9 @@ function Loading({ spinner = 'block', message }: LoadingProps) {
          minHeight="100vh"
          minWidth="100vh"
       >
-         <Box>{spinner === 'block' ? <BlockSpinner /> : <CircleSpinner />}</Box>
+         <Box>
+            {spinner === 'block' ? <Spinners.BlockSpinner /> : <Spinners.CircleSpinner />}
+         </Box>
          {message && (
             <Box mt={1}>
                <Typography>Loading...</Typography>

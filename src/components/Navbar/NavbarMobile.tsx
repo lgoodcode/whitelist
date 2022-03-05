@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Image from 'components/Image'
 import logo from 'assets/img/logo/logo-fill.svg'
-import type { NavbarProps } from './index'
+import type { NavbarProps } from './Navbar'
 
 function NavbarMobile({ routes, visible, scrolled, scrollHeight = 80 }: NavbarProps) {
    const [open, setOpen] = useState<boolean>(false)

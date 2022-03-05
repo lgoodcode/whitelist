@@ -1,6 +1,6 @@
 import './Circle.css'
 
-function Circle() {
+function CircleSpinner() {
    return (
       <div className="sk-chase">
          <div className="sk-chase-dot"></div>
@@ -13,4 +13,4 @@ function Circle() {
    )
 }
 
-export default Circle
+export default CircleSpinner

@@ -14,9 +14,9 @@ const store = configureStore({
    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(devMiddleware)
 })
 
-// // Infer the `RootState` and `AppDispatch` types from the store itself
+// Infer the 'RootState' and 'AppDispatch' types from the store itself
 export type RootState = ReturnType<typeof store.getState>
-// // Inferred type from the store reducers
+// Inferred type from the store reducers
 export type AppDispatch = typeof store.dispatch
 
 export default store

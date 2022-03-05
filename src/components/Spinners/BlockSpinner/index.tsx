@@ -1,6 +1,6 @@
 import './Block.css'
 
-function Block() {
+function BlockSpinner() {
    return (
       <div className="sk-cube-grid">
          <div className="sk-cube sk-cube1"></div>
@@ -16,4 +16,4 @@ function Block() {
    )
 }
 
-export default Block
+export default BlockSpinner

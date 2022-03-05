@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSpring, animated, easings } from 'react-spring'
-import animations from './animations'
+import animations from './MyAnimations'
 
 export interface ScrollAnimationProps {
    children: React.ReactElement

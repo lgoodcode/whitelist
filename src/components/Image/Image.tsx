@@ -14,7 +14,7 @@ const Image = ({
    skeleton = false,
    width = '100%',
    height = 'auto',
-   sx,
+   sx = {},
    ...rest
 }: ImageProps) => {
    const [imgLoaded, setImgLoaded] = useState<boolean>(false)
