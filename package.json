@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com/toomuchrice4u/whitelist.git"
   },
-  "proxy": "http://localhost:4000",
   "scripts": {
     "start": "node scripts/start.js",
     "build": "npx rimraf build && node scripts/build.js",
@@ -119,7 +118,7 @@
       "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/src/__tests__/setupTests.ts"
+      "<rootDir>/src/setupTests.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",

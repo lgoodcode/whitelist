@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
-const URL = 'https://whitelist-backend.herokuapp.com/api'
+const URL = process.env.REACT_APP_API_URL
 
 export type Endpoint = `/${string}`
 export type Method = 'GET' | 'POST'

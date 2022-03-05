@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Image from 'components/Image'
 import { formatPrice } from 'utilities'
 import { useAppSelector } from 'app/hooks'
-import { selectCartItems } from 'app/cart/cartSlice'
+import { selectCartItems } from 'app/reducers/cart/cartSlice'
 
 function CartItems({
    handleClose,

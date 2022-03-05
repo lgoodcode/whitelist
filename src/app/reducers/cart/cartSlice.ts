@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getCart, setCart } from './cart'
-import type { RootState } from '../store'
+import type { RootState } from '../../store'
 import type { Product } from 'types'
 
 export type CartItem = {

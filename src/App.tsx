@@ -5,7 +5,7 @@ import { CssBaseline, useMediaQuery } from '@mui/material'
 import type { PaletteMode } from '@mui/material'
 
 import { useAppDispatch, useAppSelector } from 'app/hooks'
-import { fetchProducts, selectProductsStatus } from 'app/products/productsSlice'
+import { fetchProducts, selectProductsStatus } from 'app/reducers/products/productsSlice'
 import Layout from 'components/Layout'
 import { ComponentTheme, StyleTheme } from 'assets/theme'
 import routes from 'routes'

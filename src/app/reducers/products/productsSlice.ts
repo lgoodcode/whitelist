@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get } from 'app/api'
-import type { RootState } from '../store'
+import type { RootState } from '../../store'
 import type { Product } from 'types'
 
 export interface ProductsState {
