@@ -5,7 +5,7 @@
   status = 200
 
 [context.production.environment]
-  NODE_VERSION='^17.x'
+  NODE_VERSION = '17.4.0'
 
 # Set the headers for security
 [[headers]]
