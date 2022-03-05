@@ -1,9 +1,9 @@
 {
   "name": "whitelist",
-  "version": "0.31.0",
+  "version": "0.33.0",
   "private": true,
   "engines": {
-    "node": "^16.x || ^17.x"
+    "node": "^17.x"
   },
   "author": "Lawrence Good",
   "repository": {
@@ -118,11 +118,10 @@
       "react-app-polyfill/jsdom"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.js"
+      "<rootDir>/src/__tests__/setupTests.js"
     ],
     "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+      "<rootDir>/src/**/__tests__/**/*{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
     "transform": {
