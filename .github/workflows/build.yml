@@ -16,9 +16,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['17.x']
     steps:
       # Skip duplicates and prevents workflows from running twice
       - name: Cancel Previous Runs Actions
@@ -27,10 +24,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@master
 
-      - name: Use NodeJS ${{ matrix.node-version }}
+      - name: Use NodeJS 17.4.0
         uses: actions/setup-node@master
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '17.4.0'
           cache: npm
 
       - run: npm install 

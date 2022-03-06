@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.33.4",
+  "version": "0.33.5",
   "private": true,
   "engines": {
     "node": "^17.x"
