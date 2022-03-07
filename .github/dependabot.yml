@@ -9,8 +9,11 @@ updates:
       # Check for updates to GitHub Actions every week
       interval: 'weekly'
 
-  # Update npm dependencies
+  # Update node module dependencies
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'weekly'
+    # Raise pull requests for version updates on dependencies against
+    # the CI branch
+    target-branch: 'CI'
