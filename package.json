@@ -173,7 +173,7 @@
     "@types/redux-logger": "^3.0.9",
     "@types/simple-react-lightbox": "^3.6.1",
     "@types/styled-components": "^5.1.23",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.12.1",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.2",
