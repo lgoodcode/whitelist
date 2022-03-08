@@ -4,10 +4,11 @@ name: Dependabot PR Approve and Merge
 
 # Using pull_request_target instead of regular PR for dependabot permissions:
 # https://github.com/dependabot/dependabot-core/issues/3253
-on: 
+on:
+  # Merge pull requests on the CI branch
   pull_request_target: 
     branches: 
-      - main
+      - CI
 
 permissions:
   pull-requests: write
