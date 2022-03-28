@@ -10,7 +10,7 @@ import type { SvgIconProps } from '@mui/material'
 import Home from 'pages/Home'
 // import Courses from 'pages/Courses'
 import Products from 'pages/Products'
-// import Contact from 'pages/Contact'
+import Contact from 'pages/Contact'
 import PageNotFound from 'pages/PageNotFound'
 import ItemPage from 'pages/Item'
 
@@ -56,8 +56,7 @@ const routes: Route[] = [
       name: 'Contact Us',
       path: '/contact',
       nav: 'both',
-      // Component: Contact
-      Component: PageNotFound
+      Component: Contact
    },
    {
       Icon: ShoppingCartIcon,
