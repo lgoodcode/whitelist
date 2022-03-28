@@ -3,7 +3,7 @@ import 'simplebar-react/dist/simplebar.min.css'
 import { styled } from '@mui/material/styles'
 import type { PaletteMode } from '@mui/material'
 
-// TODO: simplify this
+// TODO: Use this for something
 const StyledScrollbar = (mode: PaletteMode) =>
    styled(SimpleBar)({
       '& .simplebar-scrollbar:before': {

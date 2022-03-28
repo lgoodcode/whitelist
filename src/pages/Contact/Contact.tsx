@@ -14,7 +14,7 @@ function ContactPage() {
 
                   <MyDivider boxProps={{ mt: 2 }} dividerProps={{ variant: 'middle' }} />
 
-                  <Typography sx={{ mt: 2 }}>
+                  <Typography sx={{ mt: 2 }} textAlign="center">
                      Send us your contact info and a short message on what you're
                      inquiring about and we'll get back to you as soon as possible.
                   </Typography>
@@ -32,7 +32,6 @@ function ContactPage() {
                      backgroundImage: 'linear-gradient(0deg, #2b2996 0%, #1b1f50 55%)'
                   }}
                >
-                  {/* TODO: change font of label to titllium */}
                   <Box component="form" noValidate>
                      <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
@@ -43,11 +42,8 @@ function ContactPage() {
                               id="fName"
                               label="First Name"
                               variant="outlined"
-                              InputProps={{
-                                 style: { fontSize: 14 }
-                              }}
                               InputLabelProps={{
-                                 style: { fontSize: 14 }
+                                 style: { fontFamily: 'Titillium Web' }
                               }}
                            />
                         </Grid>
@@ -59,11 +55,8 @@ function ContactPage() {
                               id="lName"
                               label="Last Name"
                               variant="outlined"
-                              InputProps={{
-                                 style: { fontSize: 14 }
-                              }}
                               InputLabelProps={{
-                                 style: { fontSize: 14 }
+                                 style: { fontFamily: 'Titillium Web' }
                               }}
                            />
                         </Grid>
@@ -75,11 +68,8 @@ function ContactPage() {
                               id="email"
                               label="Email Address"
                               variant="outlined"
-                              InputProps={{
-                                 style: { fontSize: 14 }
-                              }}
                               InputLabelProps={{
-                                 style: { fontSize: 14 }
+                                 style: { fontFamily: 'Titillium Web' }
                               }}
                            />
                         </Grid>
@@ -90,11 +80,8 @@ function ContactPage() {
                               color="info"
                               label="Phone Number"
                               variant="outlined"
-                              InputProps={{
-                                 style: { fontSize: 14 }
-                              }}
                               InputLabelProps={{
-                                 style: { fontSize: 14 }
+                                 style: { fontFamily: 'Titillium Web' }
                               }}
                            />
                         </Grid>
@@ -107,11 +94,8 @@ function ContactPage() {
                               multiline={true}
                               rows={5}
                               placeholder="Describe what you're interested in..."
-                              InputProps={{
-                                 style: { fontSize: 14 }
-                              }}
                               InputLabelProps={{
-                                 style: { fontSize: 14 }
+                                 style: { fontFamily: 'Titillium Web' }
                               }}
                            />
                         </Grid>
