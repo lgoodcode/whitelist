@@ -1,6 +1,5 @@
 // Import Inter variable font and Titillium in index.css
 import type { PaletteColor, PaletteColorOptions } from '@mui/material'
-import 'assets/fonts/Inter/Inter-Var.ttf'
 import ComponentTheme from './ComponentTheme'
 import StyleTheme from './StyleTheme'
 

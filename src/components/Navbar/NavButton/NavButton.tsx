@@ -38,6 +38,7 @@ function NavButton({ name, path, ...rest }: { name: string; path: string }) {
          <Typography
             color="text.primary"
             fontWeight={500}
+            fontSize={18}
             textTransform="capitalize"
             letterSpacing="0.05em"
             fontFamily="Titillium Web"

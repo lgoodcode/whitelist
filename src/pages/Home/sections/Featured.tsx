@@ -40,6 +40,10 @@ function Featured() {
                   justifyContent="space-around"
                   flexDirection={{ xs: 'column', md: 'row' }}
                >
+                  {status === 'error' && (
+                     <Typography variant="h4">Oops! An error has occurred.</Typography>
+                  )}
+
                   {(loading ? Array.from(new Array(2)) : products).map((product, key) => (
                      <Box key={key} mx="auto" mb={8} width={{ xs: 300, lg: 350 }}>
                         <ProductCard product={product} />

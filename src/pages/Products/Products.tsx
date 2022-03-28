@@ -10,6 +10,18 @@ function ProductsPage() {
    const products = useAppSelector(selectProducts)
    const loading = status === 'pending'
 
+   if (status === 'error') {
+      return (
+         <Section>
+            <Container>
+               <Box mt={{ md: 4, lg: 8 }} display="flex" justifyContent="center">
+                  <Typography variant="h4">Oops! An error occurred.</Typography>
+               </Box>
+            </Container>
+         </Section>
+      )
+   }
+
    return (
       <Section>
          <Container>

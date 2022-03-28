@@ -1,5 +1,3 @@
-function ContactPage() {
-   return <></>
-}
+import ContactPage from './Contact'
 
 export default ContactPage
