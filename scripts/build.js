@@ -47,6 +47,14 @@ const argv = process.argv.slice(2)
 // Generate configuration
 const config = configFactory('production')
 
+// Copies the files from /public into /build
+function copyPublicFolder() {
+   fs.copySync(paths.appPublic, paths.appBuild, {
+      dereference: true,
+      filter: (file) => file !== paths.appHtml
+   })
+}
+
 // We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper')
@@ -190,12 +198,5 @@ function build(previousFileSizes) {
 
          return resolve(resolveArgs)
       })
-   })
-}
-
-function copyPublicFolder() {
-   fs.copySync(paths.appPublic, paths.appBuild, {
-      dereference: true,
-      filter: (file) => file !== paths.appHtml
    })
 }

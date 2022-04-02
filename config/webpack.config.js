@@ -31,6 +31,7 @@ const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash')
 const chalk = require('react-dev-utils/chalk')
+const manifest = require('./manifest')
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
@@ -654,15 +655,11 @@ module.exports = function (webpackEnv) {
                }
             }),
          // Generates the manifest.json file and the icons with the specified sizes.
-         // Only generates the icons on production
          new WebpackPwaManifest({
-            name: 'Whitelist',
-            short_name: 'Whitelist',
-            description: 'Whitelist Helium center for miners and troubleshooting solutions!',
-            theme_color: '#001ecf',
-            background_color: '#101535',
+            ...manifest,
             fingerprints: false,
             crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
+            // Only generates the icons on production
             icons: isEnvProduction && [
                {
                   src: path.resolve('public/icon.png'),
@@ -674,7 +671,20 @@ module.exports = function (webpackEnv) {
          isEnvDevelopment && 
             new DuplicatePackageCheckerPlugin({
                verbose: true,
+            }),
+         // Checks for the TEST_RUN environment variable, which is set in the "build" workflow 
+         // so that it will throw any errors that occur during compilation. This is because 
+         // webpack will still run even. This is primarily to prevent dependency bumps that
+         // don't affect the build directly but will cause errors when attempting to start
+         // the server. 
+         process.env.TEST_RUN && function() {
+            this.hooks.done.tapAsync('done', function(stats, callback) {
+               if (stats.compilation.errors.length > 0) {
+                  throw new Error(stats.compilation.errors.map(err => err.message || err))
+               }
+               callback()
             })
+         }
       ].filter(Boolean),
       // Turn off performance processing because we utilize
       // our own hints via the FileSizeReporter
