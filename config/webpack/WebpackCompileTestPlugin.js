@@ -15,12 +15,12 @@ const chalk = require('chalk')
  class WebpackCompileTestPlugin {
    apply(compiler) {
       // The callback parameter on the callback function is omitted because the server
-      // is going to exit whether there is a runtime or compilation error or not.
+      // is going to exit whether there is a compilation error or not.
       compiler.hooks.done.tapAsync('done', function(stats) {
          if (stats.compilation.errors.length > 0) {
             throw new Error(stats.compilation.errors.map(err => err.message || err))
          }
-         console.log(chalk.green('\nNo runtime errors'))
+         console.log(chalk.green('\nNo compilation errors'))
          process.exit()
       })
    }
