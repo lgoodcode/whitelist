@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import { useRef } from 'react'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 import Image from 'components/Image'
-import { getImageAlt } from 'utilities'
+import { getImageAlt } from 'helpers'
 
 const galleryOptions = {
    buttons: {

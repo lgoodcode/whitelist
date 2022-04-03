@@ -2,7 +2,7 @@ import { Delete as DeleteIcon } from '@mui/icons-material'
 import { Box, List, ListItem, IconButton, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import Image from 'components/Image'
-import { formatPrice } from 'utilities'
+import { formatPrice } from 'helpers'
 import { useAppSelector } from 'app/hooks'
 import { selectCartItems } from 'app/reducers/cart/cartSlice'
 

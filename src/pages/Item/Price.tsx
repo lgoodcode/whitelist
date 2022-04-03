@@ -1,5 +1,5 @@
 import { Typography, Box, Chip, Skeleton } from '@mui/material'
-import { formatPrice } from 'utilities'
+import { formatPrice } from 'helpers'
 import type { Product } from 'types'
 
 interface PriceDisplay {

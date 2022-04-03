@@ -12,7 +12,7 @@ import Image from 'components/Image'
 import StyledCard from './StyledCard'
 import ProductDescription from './ProductDescription'
 import type { Product } from 'types'
-import { formatPrice, getImageAlt } from 'utilities'
+import { formatPrice, getImageAlt } from 'helpers'
 
 interface ProductCardProps {
    product: Product
