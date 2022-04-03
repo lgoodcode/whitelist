@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  TEST_RUN: true
+  COMPILE_TEST: true
 
 jobs:
   build:
@@ -36,5 +36,5 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Start
+      - name: Compile
         run: npm start

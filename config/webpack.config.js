@@ -25,12 +25,17 @@ const ForkTsCheckerWebpackPlugin =
       ? require('react-dev-utils/ForkTsCheckerWarningWebpackPlugin')
       : require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash')
 const chalk = require('react-dev-utils/chalk')
+
+/**
+ * Added configurations
+ */
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
+const WebpackCompileTestPlugin = require('./webpack/WebpackCompileTestPlugin')
 const manifest = require('./manifest')
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -654,6 +659,10 @@ module.exports = function (webpackEnv) {
                   }
                }
             }),
+         // 
+         // Added plugins
+         //
+
          // Generates the manifest.json file and the icons with the specified sizes.
          new WebpackPwaManifest({
             ...manifest,
@@ -668,23 +677,13 @@ module.exports = function (webpackEnv) {
             ]
          }),
          // Checks if there are duplicate packages within the project with different versions
-         isEnvDevelopment && 
-            new DuplicatePackageCheckerPlugin({
-               verbose: true,
-            }),
+         isEnvDevelopment && new DuplicatePackageCheckerPlugin({ verbose: true }),
          // Checks for the TEST_RUN environment variable, which is set in the "build" workflow 
          // so that it will throw any errors that occur during compilation. This is because 
          // webpack will still run even. This is primarily to prevent dependency bumps that
          // don't affect the build directly but will cause errors when attempting to start
          // the server. 
-         process.env.TEST_RUN && function() {
-            this.hooks.done.tapAsync('done', function(stats, callback) {
-               if (stats.compilation.errors.length > 0) {
-                  throw new Error(stats.compilation.errors.map(err => err.message || err))
-               }
-               callback()
-            })
-         }
+         process.env.COMPILE_TEST === 'true' && new WebpackCompileTestPlugin()
       ].filter(Boolean),
       // Turn off performance processing because we utilize
       // our own hints via the FileSizeReporter

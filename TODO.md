@@ -18,3 +18,7 @@ then when it scrolls to where the threshold is now for exiting the viewport,
 (isIntersecting = false) can toggle an "animateOut" class.
 
 ## Consider making the top margin on MyDivider component default
+
+# Remove animate.css and React-Spring and use AOS
+
+Import the css in the header and use the no-script version
