@@ -9,6 +9,9 @@ coverage
 # production
 build
 
+# regexp to ignore specific files
+**/__*
+
 # eslintcache for the lint-staged pre-commit
 .eslintcache
 

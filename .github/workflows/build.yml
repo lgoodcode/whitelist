@@ -25,7 +25,8 @@ jobs:
           node-version: '17.4.0'
           cache: npm
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
       
       - name: Test
         run: npm test
