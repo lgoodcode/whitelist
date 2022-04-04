@@ -1,20 +1,21 @@
 import { Box, Container, Grid, Typography, Divider, Skeleton } from '@mui/material'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppSelector, useAppDispatch } from 'app/hooks'
-import { setItem, selectAlertOpen, closeAlert } from 'app/reducers/cart/cartSlice'
+import { setItem } from 'app/reducers/cart/cartSlice'
 import { selectProductByName } from 'app/reducers/products/productsSlice'
 import Toast from 'components/Toast'
+import { SectionHeader } from 'components/Section'
 import Gallery from './Gallery'
 import Price from './Price'
 import Quantity from './Quantity'
-import { SectionHeader } from 'components/Section'
 
 function ItemPage() {
    const { name = '' } = useParams()
    const dispatch = useAppDispatch()
-   const [qty, setQty] = useState<number>(0)
-   const open = useAppSelector(selectAlertOpen)
+   const [qty, setQty] = useState(0)
+   const [toastOpen, setToastOpen] = useState(false)
+   const [newToast, setNewToast] = useState(false)
    const product = useAppSelector(selectProductByName(name))
    const inStock = !product ? false : product.quantity > 0
 
@@ -22,11 +23,15 @@ function ItemPage() {
       if (reason === 'clickaway') {
          return false
       }
-      dispatch(closeAlert())
+      setToastOpen(false)
    }
    const handleAddItem = !product
       ? () => null
-      : () => dispatch(setItem({ product, quantity: qty }))
+      : () => {
+           dispatch(setItem({ product, quantity: qty }))
+           setToastOpen(true)
+           setNewToast(true)
+        }
    const handleIncrement = !product
       ? () => null
       : () => {
@@ -38,14 +43,25 @@ function ItemPage() {
            if (qty > 0) setQty(qty - 1)
         }
 
+   /**
+    * Displays the newest toast
+    */
+   useEffect(() => {
+      if (newToast && toastOpen) {
+         setToastOpen(false)
+      } else if (newToast && !toastOpen) {
+         setToastOpen(true)
+         setNewToast(false)
+      }
+   }, [toastOpen, newToast])
+
    return (
       <SectionHeader>
          <Toast
-            open={open}
+            open={toastOpen}
             handleClose={handleClose}
-            severity="success"
+            color="success"
             message="Item Added to Cart"
-            bgcolor="background.paper"
          />
 
          <Container>

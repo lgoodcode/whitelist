@@ -11,13 +11,11 @@ export type CartItem = {
 export interface CartState {
    isOpen: boolean
    items: CartItem[]
-   alert: boolean
 }
 
 const initialState: CartState = {
    isOpen: false,
-   items: getCart(),
-   alert: false
+   items: getCart()
 }
 
 export const cartSlice = createSlice({
@@ -47,8 +45,6 @@ export const cartSlice = createSlice({
          } else {
             state.items[idx].quantity = quantity
          }
-
-         state.alert = true
       },
       removeItem: (state, action: { payload: number }) => {
          const idx = action.payload
@@ -58,9 +54,6 @@ export const cartSlice = createSlice({
             items.splice(idx, 1)
             state.items = items
          }
-      },
-      closeAlert: (state) => {
-         state.alert = false
       }
    },
    extraReducers: (builder) => {
@@ -72,11 +65,10 @@ export const cartSlice = createSlice({
    }
 })
 
-export const { open, close, setItem, removeItem, closeAlert } = cartSlice.actions
+export const { open, close, setItem, removeItem } = cartSlice.actions
 
 export const selectIsOpen = (state: RootState) => state.cart.isOpen
 export const selectCartItems = (state: RootState) => state.cart.items
 export const selectNumItems = (state: RootState) => state.cart.items.length
-export const selectAlertOpen = (state: RootState) => state.cart.alert
 
 export default cartSlice.reducer

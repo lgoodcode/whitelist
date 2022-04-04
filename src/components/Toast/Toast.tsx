@@ -1,5 +1,5 @@
-import { Alert, Slide, Snackbar } from '@mui/material'
-import type { AlertProps } from '@mui/material'
+import { Alert, Snackbar } from '@mui/material'
+import type { AlertColor } from '@mui/material'
 import { useSpring } from 'react-spring'
 import Lifebar from './Lifebar'
 import { useEffect } from 'react'
@@ -8,7 +8,7 @@ interface ToastProps {
    open: boolean
    handleClose: () => void
    message: string
-   severity?: AlertProps['severity']
+   color?: AlertColor
    bgcolor?: string
    lifetime?: number
 }
@@ -17,7 +17,7 @@ function Toast({
    open,
    handleClose,
    message,
-   severity,
+   color,
    bgcolor,
    lifetime = 3000,
    ...rest
@@ -45,14 +45,13 @@ function Toast({
          open={open}
          autoHideDuration={lifetime}
          onClose={handleClose}
-         TransitionComponent={(props) => <Slide {...props} direction="down" />}
          anchorOrigin={{
             vertical: 'top',
             horizontal: 'center'
          }}
       >
          <Alert
-            severity={severity}
+            severity={color}
             variant="filled"
             sx={{
                xs: { width: '75%' },
