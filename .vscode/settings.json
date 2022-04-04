@@ -14,6 +14,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "path-intellisense.absolutePathToWorkspace": false,
   "markdownlint.config": {
     "MD025": false,                     // Allows multiple h1 headers to be used in the document
     "MD041": false                      // Disables requiring the first line to be a h1 header
