@@ -48,4 +48,6 @@ if (
    argv.push(hasSourceControl ? '--watch' : '--watchAll')
 }
 
+argv.push('--detectOpenHandles')
+
 jest.run(argv)
