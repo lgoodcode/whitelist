@@ -27,7 +27,7 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.0",
-    "@mui/material": "^5.5.3",
+    "@mui/material": "^5.6.0",
     "@reduxjs/toolkit": "^1.8.0",
     "@svgr/webpack": "^6.2.0",
     "animate.css": "^4.1.1",
