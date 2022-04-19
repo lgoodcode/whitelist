@@ -27,9 +27,11 @@ const {
    prepareUrls
 } = require('react-dev-utils/WebpackDevServerUtils')
 const openBrowser = require('react-dev-utils/openBrowser')
+// We require that you explicitly set browsers and do not fall back to
+// browserslist defaults.
+const { checkBrowsers } = require('react-dev-utils/browsersHelper')
 const semver = require('semver')
 const paths = require('../config/paths')
-const configFactory = require('../config/webpack.config')
 const createDevServerConfig = require('../config/webpackDevServer.config')
 const getClientEnvironment = require('../config/env')
 const react = require(require.resolve('react', { paths: [paths.appPath] }))
@@ -62,9 +64,7 @@ if (process.env.HOST) {
    console.log()
 }
 
-// We require that you explicitly set browsers and do not fall back to
-// browserslist defaults.
-const { checkBrowsers } = require('react-dev-utils/browsersHelper')
+
 checkBrowsers(paths.appPath, isInteractive)
    .then(() => {
       // We attempt to use the default port but if it is busy, we offer the user to
@@ -77,7 +77,8 @@ checkBrowsers(paths.appPath, isInteractive)
          return
       }
 
-      const config = configFactory('development')
+      // Generate configuration
+      const config = require('../config/webpack.config')('development')
       const protocol = process.env.HTTPS === 'true' ? 'https' : 'http'
       const appName = require(paths.appPackageJson).name
 
