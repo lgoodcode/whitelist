@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.41.1",
+  "version": "0.42.0",
   "private": true,
   "engines": {
     "node": "^17.x"
@@ -13,12 +13,13 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "npx rimraf build && node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "node scripts/test.js --watchAll",
+    "test:cov": "node scripts/test.js --coverage",
     "analyze": "node scripts/analyze.js",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
     "deploy:test": "netlify deploy --alias test",
-    "deploy:build": "node scripts/build.js && netlify deploy --alias test"
+    "deploy:build": "node scripts/build.js --netlify-preview && netlify deploy --alias test"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
@@ -78,7 +79,8 @@
       "!src/**/*.d.ts"
     ],
     "setupFiles": [
-      "react-app-polyfill/jsdom"
+      "react-app-polyfill/jsdom",
+      "<rootDir>/config/env.js"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/src/__tests__/setupTests.js"

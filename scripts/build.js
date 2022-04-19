@@ -17,10 +17,11 @@ require('../config/env')
 const path = require('path')
 const chalk = require('react-dev-utils/chalk')
 const fs = require('fs-extra')
-const bfj = require('bfj')
 const webpack = require('webpack')
-const configFactory = require('../config/webpack.config')
+// Generate configuration
+const config = require('../config/webpack.config')('production')
 const paths = require('../config/paths')
+const clearConsole = require('react-dev-utils/clearConsole')
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions')
@@ -42,17 +43,34 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
    process.exit(1)
 }
 
-const argv = process.argv.slice(2)
-
-// Generate configuration
-const config = configFactory('production')
-
 // Copies the files from /public into /build
 function copyPublicFolder() {
-   fs.copySync(paths.appPublic, paths.appBuild, {
-      dereference: true,
-      filter: (file) => file !== paths.appHtml
-   })
+   const argv = process.argv.slice(2)
+
+   console.log(chalk.yellow('[NETLIFY PREVIEW]'))
+
+   // Remove CSP headers to allow the preview to load
+   if (argv.indexOf('--netlify-preview') !== -1) {
+      // Split at carriage return characters because that is how `.toml` files
+      // are parsed and then join it back with them
+      const netlifyConfig = fs.readFileSync(paths.appNetlifyConfig, 'utf-8').split('\r')
+      const newNetlifyConfig = netlifyConfig
+         .filter(line => line.search(/Content-Security-Policy/i) === -1)
+         .join('\r')
+
+      fs.writeFileSync(path.join(paths.appBuild, 'netlify.toml'), newNetlifyConfig, 'utf-8')
+
+      fs.copySync(paths.appPublic, paths.appBuild, {
+         dereference: true,
+         filter: (file) => file !== paths.appNetlifyConfig
+      })
+   }
+   // Otherwise, copy public folder like normal
+   else {   
+      fs.copySync(paths.appPublic, paths.appBuild, {
+         dereference: true
+      })
+   }
 }
 
 // We require that you explicitly set browsers and do not fall back to
@@ -65,6 +83,7 @@ checkBrowsers(paths.appPath, isInteractive)
       return measureFileSizesBeforeBuild(paths.appBuild)
    })
    .then((previousFileSizes) => {
+      clearConsole()
       // Remove all content but keep the directory so that
       // if you're in it, you don't end up in Trash
       fs.emptyDirSync(paths.appBuild)

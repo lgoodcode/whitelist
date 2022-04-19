@@ -61,6 +61,7 @@ module.exports = {
    appSrc: resolveApp('src'),
    appTsConfig: resolveApp('tsconfig.json'),
    appJsConfig: resolveApp('jsconfig.json'),
+   appNetlifyConfig: resolveApp('public/netlify.toml'),
    yarnLockFile: resolveApp('yarn.lock'),
    testsSetup: resolveModule(resolveApp, 'src/tests/setupTests'),
    proxySetup: resolveApp('src/setupProxy.js'),

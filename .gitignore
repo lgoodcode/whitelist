@@ -19,6 +19,8 @@ build
 .netlify
 
 # misc
+TODO.md
+notes.md
 .DS_Store
 .env.local
 .env.development.local

@@ -19,5 +19,6 @@
     "MD025": false,                     // Allows multiple h1 headers to be used in the document
     "MD041": false                      // Disables requiring the first line to be a h1 header
   },
+  "jest.autoRun": "off",                // Manually run Jest tests
   "editor.tabSize": 3                   // Use 3 space tabs to give enough spacing with adjacent elements
 }

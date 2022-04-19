@@ -16,8 +16,12 @@ const initialState: ProductsState = {
 }
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
-   const req = await get('/products')
-   return req.data
+   try {
+      return (await get<Product[]>('/products')).data
+   } catch (err) {
+      console.error(err)
+      return [] as Product[]
+   }
 })
 
 export const productsSlice = createSlice({
