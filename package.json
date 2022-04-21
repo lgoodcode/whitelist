@@ -1,9 +1,9 @@
 {
   "name": "whitelist",
-  "version": "0.42.0",
+  "version": "0.42.1",
   "private": true,
   "engines": {
-    "node": "^17.x"
+    "node": "17"
   },
   "author": "Lawrence Good",
   "repository": {

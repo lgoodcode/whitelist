@@ -13,4 +13,22 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src 'self' cloudfront.net *.cloudfront.net; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' fonts.googleapis.com 'unsafe-inline'; font-src fonts.gstatic.com; frame-ancestors 'none'; frame-src youtube.com www.youtube.com; manifest-src 'self'"
+    # Setting an empty value ensures that they aren't used
+    Permissions-Policy = """
+      geolocation=(),
+      microphone=(),
+      camera=(),
+      fullscreen=*
+    """
+    Content-Security-Policy = """
+      default-src 'none'; 
+      connect-src 'self' api.whitelist-crypto.io; 
+      object-src 'none';
+      img-src 'self' data:; 
+      script-src 'self' cloudfront.net *.cloudfront.net; 
+      style-src 'unsafe-inline' fonts.googleapis.com cloudfront.net *.cloudfront.net; 
+      font-src fonts.gstatic.com; 
+      frame-ancestors 'none'; 
+      frame-src youtube.com www.youtube.com;
+      manifest-src 'self'
+    """
