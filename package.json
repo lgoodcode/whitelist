@@ -53,7 +53,7 @@
     "react-spring": "^9.4.4",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
-    "semver": "^7.3.5",
+    "semver": "^7.3.7",
     "simple-react-lightbox": "^3.6.9-0",
     "simplebar-react": "^2.3.7",
     "web-vitals": "^2.1.2"
