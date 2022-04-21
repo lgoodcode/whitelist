@@ -40,7 +40,7 @@
     "dotenv": "^14.2.0",
     "dotenv-expand": "^8.0.3",
     "fs-extra": "^10.0.1",
-    "gsap": "^3.9.1",
+    "gsap": "^3.10.3",
     "hamburger-react": "^2.4.1",
     "identity-obj-proxy": "^3.0.0",
     "lorem-ipsum": "^2.0.4",
