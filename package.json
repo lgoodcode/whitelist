@@ -51,7 +51,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "react-spring": "^9.4.4",
-    "redux": "^4.1.2",
+    "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "semver": "^7.3.5",
     "simple-react-lightbox": "^3.6.9-0",
