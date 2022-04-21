@@ -55,7 +55,7 @@
     "redux-logger": "^3.0.6",
     "semver": "^7.3.5",
     "simple-react-lightbox": "^3.6.9-0",
-    "simplebar-react": "^2.3.6",
+    "simplebar-react": "^2.3.7",
     "web-vitals": "^2.1.2"
   },
   "browserslist": {
