@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import axios, { AxiosResponse } from 'axios'
 import ThemeMock from '../mocks/ThemeMock'
 import ContactForm from 'components/ContactForm'
@@ -11,6 +11,12 @@ const renderApp = () =>
          <ContactForm />
       </ThemeMock>
    )
+
+const mockResponse = (valid: boolean): Partial<AxiosResponse> => ({
+   data: {
+      success: valid
+   }
+})
 
 describe('renders form', () => {
    it('renders input elements', () => {
@@ -100,8 +106,10 @@ describe('form behavior', () => {
       expect(getByText(/please enter a brief message/i)).toBeInTheDocument()
    })
 
-   it('should submit when form inputs contain valid text', () => {
+   it('should submit when form inputs contain valid text', async () => {
       const { getByTestId, queryByText } = renderApp()
+
+      ;(axios.post as jest.Mock).mockResolvedValue(mockResponse(true))
 
       fireEvent.change(screen.getByLabelText(/first name/i), {
          target: { value: 'lawrence' }
@@ -125,10 +133,12 @@ describe('form behavior', () => {
 
       fireEvent.submit(getByTestId('form'))
 
-      expect(queryByText(/please enter a valid name/i)).not.toBeInTheDocument()
-      expect(queryByText(/valid email/i)).not.toBeInTheDocument()
-      expect(queryByText(/valid phone/i)).not.toBeInTheDocument()
-      expect(queryByText(/please enter a brief message/i)).not.toBeInTheDocument()
+      await waitFor(() => {
+         expect(queryByText(/please enter a valid name/i)).not.toBeInTheDocument()
+         expect(queryByText(/valid email/i)).not.toBeInTheDocument()
+         expect(queryByText(/valid phone/i)).not.toBeInTheDocument()
+         expect(queryByText(/please enter a brief message/i)).not.toBeInTheDocument()
+      })
    })
 })
 
@@ -158,11 +168,7 @@ describe('form submission', () => {
    })
 
    it('shows success message on successful submit', async () => {
-      ;(axios.post as jest.Mock).mockResolvedValue({
-         data: {
-            success: true
-         }
-      } as AxiosResponse)
+      ;(axios.post as jest.Mock).mockResolvedValue(mockResponse(true))
 
       fireEvent.submit(screen.getByTestId('form'))
 
@@ -171,11 +177,7 @@ describe('form submission', () => {
    })
 
    it('shows failure message on failed submit', async () => {
-      ;(axios.post as jest.Mock).mockResolvedValue({
-         data: {
-            success: false
-         }
-      } as AxiosResponse)
+      ;(axios.post as jest.Mock).mockResolvedValue(mockResponse(false))
 
       fireEvent.submit(screen.getByTestId('form'))
 
@@ -186,6 +188,11 @@ describe('form submission', () => {
    it('shows failure message on rejected promise', async () => {
       const errorMessage = 'No network connection'
 
+      // Disable console.error for test
+      global.console = {
+         ...console,
+         error: jest.fn()
+      }
       ;(axios.post as jest.Mock).mockRejectedValue(new Error(errorMessage))
 
       fireEvent.submit(screen.getByTestId('form'))

@@ -1,7 +1,7 @@
 import { Grid, TextField, Box, Button, CircularProgress, Alert } from '@mui/material'
 import DOMPurify from 'dompurify'
 import { post } from 'app/api'
-import useForm, { type Validations } from 'helpers/useForm'
+import useForm, { type Validations } from 'app/hooks/useForm'
 import type { EmailResponse } from 'types/Email'
 
 type Contact = Record<'firstName' | 'lastName' | 'email' | 'phone' | 'message', string>
