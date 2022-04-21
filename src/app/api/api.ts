@@ -3,7 +3,7 @@ import axios, { type AxiosRequestConfig } from 'axios'
 export const BASE_URL = process.env.REACT_APP_API
 
 if (!BASE_URL) {
-   throw new Error('[API] REACT_APP_API_URL is not set')
+   throw new Error('[API] REACT_APP_API is not set')
 }
 
 export type Endpoint = `/${string}`

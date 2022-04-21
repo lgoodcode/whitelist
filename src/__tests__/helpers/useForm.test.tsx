@@ -12,6 +12,8 @@ const renderApp = () =>
       </ThemeMock>
    )
 
+const mockPost = axios.post as jest.Mock
+
 const mockResponse = (valid: boolean): Partial<AxiosResponse> => ({
    data: {
       success: valid
@@ -109,7 +111,7 @@ describe('form behavior', () => {
    it('should submit when form inputs contain valid text', async () => {
       const { getByTestId, queryByText } = renderApp()
 
-      ;(axios.post as jest.Mock).mockResolvedValue(mockResponse(true))
+      mockPost.mockResolvedValue(mockResponse(true))
 
       fireEvent.change(screen.getByLabelText(/first name/i), {
          target: { value: 'lawrence' }
@@ -168,7 +170,7 @@ describe('form submission', () => {
    })
 
    it('shows success message on successful submit', async () => {
-      ;(axios.post as jest.Mock).mockResolvedValue(mockResponse(true))
+      mockPost.mockResolvedValue(mockResponse(true))
 
       fireEvent.submit(screen.getByTestId('form'))
 
@@ -177,7 +179,7 @@ describe('form submission', () => {
    })
 
    it('shows failure message on failed submit', async () => {
-      ;(axios.post as jest.Mock).mockResolvedValue(mockResponse(false))
+      mockPost.mockResolvedValue(mockResponse(false))
 
       fireEvent.submit(screen.getByTestId('form'))
 
@@ -193,7 +195,8 @@ describe('form submission', () => {
          ...console,
          error: jest.fn()
       }
-      ;(axios.post as jest.Mock).mockRejectedValue(new Error(errorMessage))
+
+      mockPost.mockRejectedValue(new Error(errorMessage))
 
       fireEvent.submit(screen.getByTestId('form'))
 

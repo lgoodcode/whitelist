@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "0.42.2",
+  "version": "0.43.0",
   "private": true,
   "engines": {
     "node": "17"
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "npx rimraf build && node scripts/build.js",
-    "test": "node scripts/test.js --watchAll",
+    "test": "node scripts/test.js",
     "test:cov": "node scripts/test.js --coverage",
     "analyze": "node scripts/analyze.js",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",

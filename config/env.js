@@ -12,6 +12,12 @@ if (!NODE_ENV) {
    throw new Error('The NODE_ENV environment variable is required but was not specified.')
 }
 
+// Set the API URL env variable for tests so it doesn't throw an error because
+// we won't make any actual request but mock them
+if (NODE_ENV === 'test') {
+   process.env.REACT_APP_API = 'test'
+}
+
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 const dotenvFiles = [
    `${paths.dotenv}.${NODE_ENV}.local`,
