@@ -196,7 +196,7 @@
     "webpack-dev-server": "^4.7.4",
     "webpack-manifest-plugin": "^5.0.0",
     "webpack-pwa-manifest": "^4.3.0",
-    "workbox-webpack-plugin": "^6.5.2"
+    "workbox-webpack-plugin": "^6.5.3"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
