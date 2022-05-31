@@ -44,6 +44,10 @@ function Featured() {
                      <Typography variant="h4">Oops! An error has occurred.</Typography>
                   )}
 
+                  {!loading && products.length === 0 && (
+                     <Typography variant="h4">Failed to load products.</Typography>
+                  )}
+
                   {(loading ? Array.from(new Array(2)) : products).map((product, key) => (
                      <Box key={key} mx="auto" mb={8} width={{ xs: 300, lg: 350 }}>
                         <ProductCard product={product} />

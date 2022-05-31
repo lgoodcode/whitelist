@@ -8,7 +8,7 @@ import {
 import type { SvgIconProps } from '@mui/material'
 
 import Home from 'pages/Home'
-// import Courses from 'pages/Courses'
+import Courses from 'pages/Courses'
 import Products from 'pages/Products'
 import Contact from 'pages/Contact'
 import PageNotFound from 'pages/PageNotFound'
@@ -35,8 +35,7 @@ const routes: Route[] = [
       name: 'Courses',
       path: '/courses',
       nav: 'both',
-      // Component: Courses
-      Component: PageNotFound
+      Component: Courses
    },
    {
       Icon: ShoppingBagIcon,

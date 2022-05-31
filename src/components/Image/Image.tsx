@@ -17,7 +17,7 @@ const Image = ({
    sx = {},
    ...rest
 }: ImageProps) => {
-   const [imgLoaded, setImgLoaded] = useState<boolean>(false)
+   const [imgLoaded, setImgLoaded] = useState(false)
    const handleLoad = () => setImgLoaded(true)
 
    if (skeleton === true) {

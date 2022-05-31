@@ -1,14 +1,28 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
-import { useAppSelector } from 'app/hooks'
-import { selectProducts, selectProductsStatus } from 'app/reducers/products/productsSlice'
-import { Section } from 'components/Section'
+import { useAppDispatch, useAppSelector } from 'app/hooks'
+import {
+   fetchCourses,
+   selectCourses,
+   selectCoursesStatus
+} from 'app/reducers/courses/coursesSlice'
+import CourseCard from 'components/CourseCard.tsx'
 import MyDivider from 'components/MyDivider'
-import ProductCard from 'components/ProductCard'
+import { Section } from 'components/Section'
+import { useEffect } from 'react'
 
-function ProductsPage() {
-   const status = useAppSelector(selectProductsStatus)
-   const products = useAppSelector(selectProducts)
+export default function CoursesPage() {
+   const dispatch = useAppDispatch()
+   // Load products into state on app load to cache
+   const coursesStatus = useAppSelector(selectCoursesStatus)
+   const status = useAppSelector(selectCoursesStatus)
+   const courses = useAppSelector(selectCourses)
    const loading = status === 'pending'
+
+   useEffect(() => {
+      if (coursesStatus === 'pending') {
+         dispatch(fetchCourses())
+      }
+   }, [coursesStatus, dispatch])
 
    if (status === 'error') {
       return (
@@ -23,15 +37,15 @@ function ProductsPage() {
    }
 
    const content =
-      !loading && products.length === 0 ? (
+      !loading && courses.length === 0 ? (
          <Box minHeight="100%" width="100%">
-            <Typography>Failed to retrieve products.</Typography>
+            <Typography>Failed to retrieve courses.</Typography>
          </Box>
       ) : (
          <Grid container rowSpacing={{ xs: 8, md: 6 }} columnSpacing={{ xs: 0, md: 6 }}>
-            {(loading ? Array.from(new Array(3)) : products).map((product, key) => (
-               <Grid item key={key} xs={12} md={4} mx="auto">
-                  <ProductCard product={product} useDesc={false} />
+            {(loading ? Array.from(new Array(3)) : courses).map((course, i) => (
+               <Grid item key={course?.id || i} xs={12} md={4} mx="auto">
+                  <CourseCard course={course} />
                </Grid>
             ))}
          </Grid>
@@ -62,7 +76,7 @@ function ProductsPage() {
                />
 
                <Typography variant="h3" fontFamily="Titillium Web">
-                  Products
+                  Courses
                </Typography>
             </Box>
             {/* TODO: add filtering and sorting */}
@@ -72,5 +86,3 @@ function ProductsPage() {
       </Section>
    )
 }
-
-export default ProductsPage

@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import middleware from './middleware'
 import cartReducer from './reducers/cart/cartSlice'
+import coursesReducer from './reducers/courses/coursesSlice'
 import productsReducer from './reducers/products/productsSlice'
 
 const store = configureStore({
    reducer: {
       cart: cartReducer,
+      courses: coursesReducer,
       products: productsReducer
    },
    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middleware)

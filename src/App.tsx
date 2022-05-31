@@ -8,6 +8,7 @@ import { fetchProducts, selectProductsStatus } from 'app/reducers/products/produ
 import Layout from 'components/Layout'
 import { ComponentTheme, StyleTheme } from 'assets/theme'
 import routes from 'routes'
+import BackToTop from 'components/BackToTop'
 
 function App() {
    const dispatch = useAppDispatch()
@@ -33,6 +34,7 @@ function App() {
       <ThemeProvider theme={StyleTheme('dark')}>
          <ThemeProvider theme={ComponentTheme}>
             <CssBaseline />
+            <BackToTop />
             <Routes>
                <Route path="/" element={<Layout />}>
                   {routes.map(({ path, Component }) => (

@@ -1,19 +1,19 @@
-version: 2
+# version: 2
 
-updates:
-  # Update Github Actions weekly
-  - package-ecosystem: 'github-actions'
-    # Directory is relative so .github is the root to access /workflows
-    directory: '/'
-    schedule:
-      # Check for updates to GitHub Actions every week
-      interval: 'weekly'
+# updates:
+#   # Update Github Actions weekly
+#   - package-ecosystem: 'github-actions'
+#     # Directory is relative so .github is the root to access /workflows
+#     directory: '/'
+#     schedule:
+#       # Check for updates to GitHub Actions every week
+#       interval: 'weekly'
 
-  # Update node module dependencies
-  - package-ecosystem: 'npm'
-    directory: '/'
-    schedule:
-      interval: 'weekly'
-    # Raise pull requests for version updates on dependencies against
-    # the CI branch
-    target-branch: 'CI'
+#   # Update node module dependencies
+#   - package-ecosystem: 'npm'
+#     directory: '/'
+#     schedule:
+#       interval: 'weekly'
+#     # Raise pull requests for version updates on dependencies against
+#     # the CI branch
+#     target-branch: 'CI'
