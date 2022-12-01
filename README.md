@@ -1,7 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/566ea990-2c37-4886-8c3b-b5b0d2077db2/deploy-status)](https://app.netlify.com/sites/whitelist-crypto/deploys)
 
-# [View Live](https://whitelist-crypto.io)
-
 ## About this site
 
 This is my first real website project I'm currently working on. I'm working on my Typescript,
