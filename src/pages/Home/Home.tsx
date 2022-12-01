@@ -6,15 +6,15 @@ import Featured from './sections/Featured'
 import Contact from './sections/Contact'
 
 function HomePage() {
-   return (
-      <>
-         <HomeLanding />
-         <About />
-         <Courses />
-         <Featured />
-         <Contact />
-      </>
-   )
+  return (
+    <>
+      <HomeLanding />
+      <About />
+      <Courses />
+      <Featured />
+      <Contact />
+    </>
+  )
 }
 
 export default HomePage
