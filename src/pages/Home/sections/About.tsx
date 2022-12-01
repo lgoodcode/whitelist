@@ -12,320 +12,333 @@ import hotspotsImg from 'assets/img/landing/about-hotspots.svg'
 import phoneImg from 'assets/img/landing/about-phone.svg'
 
 const lorem = new LoremIpsum({
-  wordsPerSentence: {
-    max: 8,
-    min: 6,
-  },
+   wordsPerSentence: {
+      max: 8,
+      min: 6
+   }
 })
 
 function About() {
-  const navigate = useNavigate()
-  const handleClick = (path: string) => () => navigate(path)
+   const navigate = useNavigate()
+   const handleClick = (path: string) => () => navigate(path)
 
-  return (
-    <Section
-      sx={{
-        pb: {
-          lg: 36,
-        },
-        backgroundImage: {
-          xs: 'none',
-          lg: `url(${lineBar})`,
-        },
-        backgroundRepeat: 'repeat-y',
-        backgroundPosition: 'top center',
-      }}
-    >
-      <Container maxWidth="lg">
-        <Box>
-          <Grid
-            container
-            justifyContent={{
-              xs: 'space-between',
-              md: 'center',
-            }}
-            textAlign={{
-              xs: 'center',
-              lg: 'start',
-            }}
-          >
-            <Grid item xs={12} md={8} lg={6}>
-              <ScrollAnimation animation="fadeInRight">
-                <Box
-                  display="flex"
-                  justifyContent="center"
-                  sx={{
-                    backgroundImage:
-                      'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)',
+   return (
+      <Section
+         sx={{
+            pb: {
+               lg: 36
+            },
+            backgroundImage: {
+               xs: 'none',
+               lg: `url(${lineBar})`
+            },
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'top center'
+         }}
+      >
+         <Container maxWidth="lg">
+            <Box>
+               <Grid
+                  container
+                  justifyContent={{
+                     xs: 'space-between',
+                     md: 'center'
                   }}
-                >
-                  <Image
-                    src={laptopImg}
-                    alt="Laptop visual"
-                    width={{
-                      xs: '75%',
-                      md: '50%',
-                    }}
-                  />
-                </Box>
-              </ScrollAnimation>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              md={8}
-              lg={6}
-              mt={{ xs: 4, lg: 0 }}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <ScrollAnimation animation="fadeInLeft">
-                <Box
-                  maxWidth={{
-                    xs: '100%',
-                    lg: 480,
+                  textAlign={{
+                     xs: 'center',
+                     lg: 'start'
                   }}
-                >
-                  <Typography variant="h3" fontWeight="medium" fontFamily="Titillium Web">
-                    Blockchain Education
-                  </Typography>
+               >
+                  <Grid item xs={12} md={8} lg={6}>
+                     <ScrollAnimation animation="fadeInRight">
+                        <Box
+                           display="flex"
+                           justifyContent="center"
+                           sx={{
+                              backgroundImage:
+                                 'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
+                           }}
+                        >
+                           <Image
+                              src={laptopImg}
+                              alt="Laptop visual"
+                              width={{
+                                 xs: '75%',
+                                 md: '50%'
+                              }}
+                           />
+                        </Box>
+                     </ScrollAnimation>
+                  </Grid>
 
-                  <MyDivider boxProps={{ mt: 2 }} />
-
-                  <Typography paragraph sx={{ mt: 4 }}>
-                    {lorem.generateParagraphs(1)}
-                  </Typography>
-
-                  <Button
-                    color="secondary"
-                    variant="contained"
-                    size="large"
-                    onClick={handleClick('/courses')}
-                    sx={{
-                      px: 4,
-                      py: 1.5,
-                      mt: {
-                        xs: 2,
-                        md: 1,
-                      },
-                      letterSpacing: '0.1em',
-                      fontFamily: 'Titillium Web',
-                      fontWeight: 'medium',
-                      boxShadow: 5,
-                    }}
+                  <Grid
+                     item
+                     xs={12}
+                     md={8}
+                     lg={6}
+                     mt={{ xs: 4, lg: 0 }}
+                     display="flex"
+                     justifyContent="center"
+                     alignItems="center"
                   >
-                    View Courses
-                  </Button>
-                </Box>
-              </ScrollAnimation>
-            </Grid>
-          </Grid>
-        </Box>
+                     <ScrollAnimation animation="fadeInLeft">
+                        <Box
+                           maxWidth={{
+                              xs: '100%',
+                              lg: 480
+                           }}
+                        >
+                           <Typography
+                              variant="h3"
+                              fontWeight="medium"
+                              fontFamily="Titillium Web"
+                           >
+                              Blockchain Education
+                           </Typography>
 
-        <Box
-          mt={{
-            xs: 12,
-            lg: 18,
-          }}
-        >
-          <Grid
-            container
-            justifyContent={{
-              xs: 'space-between',
-              md: 'center',
-            }}
-            textAlign={{
-              xs: 'center',
-              lg: 'start',
-            }}
-          >
-            <Grid
-              item
-              xs={12}
-              md={8}
-              lg={6}
-              order={{
-                xs: 1,
-                lg: 2,
-              }}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
+                           <MyDivider boxProps={{ mt: 2 }} />
+
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+
+                           <Button
+                              color="secondary"
+                              variant="contained"
+                              size="large"
+                              onClick={handleClick('/courses')}
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 mt: {
+                                    xs: 2,
+                                    md: 1
+                                 },
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
+                              }}
+                           >
+                              View Courses
+                           </Button>
+                        </Box>
+                     </ScrollAnimation>
+                  </Grid>
+               </Grid>
+            </Box>
+
+            <Box
+               mt={{
+                  xs: 12,
+                  lg: 18
+               }}
             >
-              <ScrollAnimation animation="fadeInRight">
-                <Box
-                  sx={{
-                    backgroundImage:
-                      'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)',
+               <Grid
+                  container
+                  justifyContent={{
+                     xs: 'space-between',
+                     md: 'center'
                   }}
-                >
-                  <Image src={hotspotsImg} alt="Hotspot devices visual" />
-                  <Box display="none">
-                    <a href="https://www.freepik.com/vectors/banner">
-                      Banner vector created by fullvector - www.freepik.com
-                    </a>
-                  </Box>
-                </Box>
-              </ScrollAnimation>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              md={8}
-              lg={6}
-              mt={{ xs: 4, lg: 0 }}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              order={{
-                xs: 2,
-                lg: 1,
-              }}
-            >
-              <ScrollAnimation animation="fadeInLeft">
-                <Box
-                  maxWidth={{
-                    xs: '100%',
-                    lg: 480,
+                  textAlign={{
+                     xs: 'center',
+                     lg: 'start'
                   }}
-                >
-                  <Typography variant="h3" fontWeight="medium" fontFamily="Titillium Web">
-                    Helium Hotspots
-                  </Typography>
-
-                  <MyDivider boxProps={{ mt: 2 }} />
-
-                  <Typography paragraph sx={{ mt: 4 }}>
-                    {lorem.generateParagraphs(1)}
-                  </Typography>
-
-                  <Typography paragraph sx={{ mt: 4 }}>
-                    {lorem.generateParagraphs(1)}
-                  </Typography>
-
-                  <Button
-                    color="secondary"
-                    variant="contained"
-                    size="large"
-                    onClick={handleClick('/products')}
-                    sx={{
-                      px: 4,
-                      py: 1.5,
-                      mt: {
-                        xs: 2,
-                        md: 1,
-                      },
-                      letterSpacing: '0.1em',
-                      fontFamily: 'Titillium Web',
-                      fontWeight: 'medium',
-                      boxShadow: 5,
-                    }}
+               >
+                  <Grid
+                     item
+                     xs={12}
+                     md={8}
+                     lg={6}
+                     order={{
+                        xs: 1,
+                        lg: 2
+                     }}
+                     display="flex"
+                     justifyContent="center"
+                     alignItems="center"
                   >
-                    View Products
-                  </Button>
-                </Box>
-              </ScrollAnimation>
-            </Grid>
-          </Grid>
-        </Box>
+                     <ScrollAnimation animation="fadeInRight">
+                        <Box
+                           sx={{
+                              backgroundImage:
+                                 'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
+                           }}
+                        >
+                           <Image src={hotspotsImg} alt="Hotspot devices visual" />
+                           <Box display="none">
+                              <a href="https://www.freepik.com/vectors/banner">
+                                 Banner vector created by fullvector - www.freepik.com
+                              </a>
+                           </Box>
+                        </Box>
+                     </ScrollAnimation>
+                  </Grid>
 
-        <Box
-          mt={{
-            xs: 12,
-            lg: 18,
-          }}
-        >
-          <Grid
-            container
-            justifyContent={{
-              xs: 'space-between',
-              md: 'center',
-            }}
-            textAlign={{
-              xs: 'center',
-              lg: 'start',
-            }}
-          >
-            <Grid item xs={12} md={8} lg={6} display="flex" alignItems="center">
-              <ScrollAnimation animation="fadeInRight">
-                <Box
-                  sx={{
-                    backgroundImage:
-                      'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)',
-                  }}
-                >
-                  <Image src={phoneImg} alt="Phone visual" />
-                  <Box display="none">
-                    <a href="https://www.freepik.com/vectors/infographic">
-                      Infographic vector created by fullvector - www.freepik.com
-                    </a>
-                  </Box>
-                </Box>
-              </ScrollAnimation>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              md={8}
-              lg={6}
-              mt={{ xs: 4, lg: 0 }}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <ScrollAnimation animation="fadeInLeft">
-                <Box
-                  maxWidth={{
-                    xs: '100%',
-                    lg: 480,
-                  }}
-                >
-                  <Typography variant="h3" fontWeight="medium" fontFamily="Titillium Web">
-                    Earn Passive Income
-                  </Typography>
-
-                  <MyDivider boxProps={{ mt: 2 }} />
-
-                  <Typography paragraph sx={{ mt: 4 }}>
-                    {lorem.generateParagraphs(1)}
-                  </Typography>
-
-                  <Typography paragraph sx={{ mt: 4 }}>
-                    {lorem.generateParagraphs(1)}
-                  </Typography>
-
-                  <Button
-                    color="secondary"
-                    variant="contained"
-                    size="large"
-                    onClick={handleClick('/products')}
-                    sx={{
-                      px: 4,
-                      py: 1.5,
-                      mt: {
+                  <Grid
+                     item
+                     xs={12}
+                     md={8}
+                     lg={6}
+                     mt={{ xs: 4, lg: 0 }}
+                     display="flex"
+                     justifyContent="center"
+                     alignItems="center"
+                     order={{
                         xs: 2,
-                        md: 1,
-                      },
-                      letterSpacing: '0.1em',
-                      fontFamily: 'Titillium Web',
-                      fontWeight: 'medium',
-                      boxShadow: 5,
-                    }}
+                        lg: 1
+                     }}
                   >
-                    Consultations
-                  </Button>
-                </Box>
-              </ScrollAnimation>
-            </Grid>
-          </Grid>
-        </Box>
-      </Container>
-    </Section>
-  )
+                     <ScrollAnimation animation="fadeInLeft">
+                        <Box
+                           maxWidth={{
+                              xs: '100%',
+                              lg: 480
+                           }}
+                        >
+                           <Typography
+                              variant="h3"
+                              fontWeight="medium"
+                              fontFamily="Titillium Web"
+                           >
+                              Helium Hotspots
+                           </Typography>
+
+                           <MyDivider boxProps={{ mt: 2 }} />
+
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+
+                           <Button
+                              color="secondary"
+                              variant="contained"
+                              size="large"
+                              onClick={handleClick('/products')}
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 mt: {
+                                    xs: 2,
+                                    md: 1
+                                 },
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
+                              }}
+                           >
+                              View Products
+                           </Button>
+                        </Box>
+                     </ScrollAnimation>
+                  </Grid>
+               </Grid>
+            </Box>
+
+            <Box
+               mt={{
+                  xs: 12,
+                  lg: 18
+               }}
+            >
+               <Grid
+                  container
+                  justifyContent={{
+                     xs: 'space-between',
+                     md: 'center'
+                  }}
+                  textAlign={{
+                     xs: 'center',
+                     lg: 'start'
+                  }}
+               >
+                  <Grid item xs={12} md={8} lg={6} display="flex" alignItems="center">
+                     <ScrollAnimation animation="fadeInRight">
+                        <Box
+                           sx={{
+                              backgroundImage:
+                                 'radial-gradient(circle, rgb(60, 60, 200, 60%) 0%, transparent 50%)'
+                           }}
+                        >
+                           <Image src={phoneImg} alt="Phone visual" />
+                           <Box display="none">
+                              <a href="https://www.freepik.com/vectors/infographic">
+                                 Infographic vector created by fullvector -
+                                 www.freepik.com
+                              </a>
+                           </Box>
+                        </Box>
+                     </ScrollAnimation>
+                  </Grid>
+
+                  <Grid
+                     item
+                     xs={12}
+                     md={8}
+                     lg={6}
+                     mt={{ xs: 4, lg: 0 }}
+                     display="flex"
+                     justifyContent="center"
+                     alignItems="center"
+                  >
+                     <ScrollAnimation animation="fadeInLeft">
+                        <Box
+                           maxWidth={{
+                              xs: '100%',
+                              lg: 480
+                           }}
+                        >
+                           <Typography
+                              variant="h3"
+                              fontWeight="medium"
+                              fontFamily="Titillium Web"
+                           >
+                              Earn Passive Income
+                           </Typography>
+
+                           <MyDivider boxProps={{ mt: 2 }} />
+
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+
+                           <Typography paragraph sx={{ mt: 4 }}>
+                              {lorem.generateParagraphs(1)}
+                           </Typography>
+
+                           <Button
+                              color="secondary"
+                              variant="contained"
+                              size="large"
+                              onClick={handleClick('/products')}
+                              sx={{
+                                 px: 4,
+                                 py: 1.5,
+                                 mt: {
+                                    xs: 2,
+                                    md: 1
+                                 },
+                                 letterSpacing: '0.1em',
+                                 fontFamily: 'Titillium Web',
+                                 fontWeight: 'medium',
+                                 boxShadow: 5
+                              }}
+                           >
+                              Consultations
+                           </Button>
+                        </Box>
+                     </ScrollAnimation>
+                  </Grid>
+               </Grid>
+            </Box>
+         </Container>
+      </Section>
+   )
 }
 
 export default About

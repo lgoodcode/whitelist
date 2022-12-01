@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "npx rimraf build && node scripts/build.js",
+    "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "test:cov": "node scripts/test.js --coverage",
     "analyze": "node scripts/analyze.js",
