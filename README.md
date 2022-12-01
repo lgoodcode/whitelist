@@ -2,6 +2,22 @@
 
 # [View Live](https://whitelist-crypto.io)
 
+# UPDATE
+
+The person I was building this site for had abandoned the project so I am leaving it in the
+current state, after making some fixes so that it is viewable without any glaring problems.
+
+## Tech
+
+This project is derived from my [initial-project](https://github.com/lgoodcode/initial-project) respository, where 
+I used it as a shell and gutted out any project specific code. All the details are included in that project's
+README file.
+
+## Backend
+
+The project is split into front-end and back-end repositories. The back-end, [whitelist-backend](https://github.com/lgoodcode/whitelist-backend)
+controls all API calls and serves data from a database. More details can be found in the repositories README.
+
 ## About this site
 
 This is my first real website project I'm currently working on. I'm working on my Typescript,
