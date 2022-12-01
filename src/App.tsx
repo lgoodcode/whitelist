@@ -9,6 +9,7 @@ import Layout from 'components/Layout'
 import { ComponentTheme, StyleTheme } from 'assets/theme'
 import routes from 'routes'
 import BackToTop from 'components/BackToTop'
+import Logo from 'pages/Logo'
 
 function App() {
    const dispatch = useAppDispatch()
@@ -41,6 +42,7 @@ function App() {
                      <Route key={path} path={path} element={<Component />} />
                   ))}
                </Route>
+               <Route path="/logo" element={<Logo />} />
             </Routes>
          </ThemeProvider>
       </ThemeProvider>
